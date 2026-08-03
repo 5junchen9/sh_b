@@ -2,6 +2,7 @@
 
 | id | Qx | decision_point | choice | confidence | supersedes |
 |---|---|---|---|---|---|
+| Q4-D02 | Q4 | assumption_necessity | Q4-A1/A3 必要；双空间支持、≥0.800、每点≥3枚至k=100后方可升级 | 中等 | — |
 | Q4-D01 | Q4 | method_choice | M2 支持域筛选 + k=100 pilot 闭环；M1 baseline | 中等 | — |
 | Q3-D09 | Q3 | claim_scope | 选 A：保留无泄漏联合流程与 M3R 外部未复现的完整结论 | needs_caution | — |
 | Q2-D08 | Q2 | claim_scope | 选 A：M1 正文、M2 敏感性、P3 pilot 接口 | limited_medium | — |
