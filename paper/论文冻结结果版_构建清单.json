@@ -1,0 +1,14 @@
+{
+  "status": "frozen_results_writing_docx",
+  "template": "D:\\13470\\Documents\\2026_math\\l1\\论文.docx",
+  "template_sha256": "f510ffe58f1c2c8a3cf4a9481038b777770daaf302c6b4f691a367b0858b6256",
+  "source_markdown": "D:\\13470\\Documents\\2026_math\\l1\\paper\\论文冻结结果版_待提交前复核.md",
+  "source_sha256": "1f266c08c541b40ff157999f291202becc1435393ecd5c247f8b643c420b3c12",
+  "output": "D:\\13470\\Documents\\2026_math\\l1\\paper\\论文冻结结果版_待提交前复核.docx",
+  "output_sha256": "77a0cdcbf86fb19196c706d36b963a21af731a4a272906eb80cd055688689ef4",
+  "paragraph_count": 65,
+  "table_count": 5,
+  "figure_count": 7,
+  "final_submission_claim": false,
+  "render_status": "structurally_verified; visual_render_pending_no_libreoffice"
+}

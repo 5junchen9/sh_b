@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import argparse
 from pathlib import Path
 
 from docx import Document
@@ -23,6 +24,9 @@ TEMPLATE = ROOT / "论文.docx"
 SOURCE = ROOT / "paper" / "开发证据稿_全篇_非最终.md"
 OUTPUT = ROOT / "paper" / "论文开发证据稿_非最终.docx"
 MANIFEST = ROOT / "paper" / "开发证据稿构建清单.json"
+FROZEN_SOURCE = ROOT / "paper" / "论文冻结结果版_待提交前复核.md"
+FROZEN_OUTPUT = ROOT / "paper" / "论文冻结结果版_待提交前复核.docx"
+FROZEN_MANIFEST = ROOT / "paper" / "论文冻结结果版_构建清单.json"
 FIGURES = {
     "数据审计": ROOT / "outputs" / "development_figures" / "evidence_workflow_development.png",
     "Q1": ROOT / "results" / "Q1" / "experiments" / "round1" / "figures" / "q1_01_lifetime_distribution.png",
@@ -30,6 +34,10 @@ FIGURES = {
     "Q3": ROOT / "results" / "Q3" / "experiments" / "round3_raw_curve_challenger" / "figures" / "q3_raw_curve_challenger.png",
     "Q4": ROOT / "results" / "Q4" / "experiments" / "existing_policy_round2_m2k100" / "figures" / "q4_existing_policy_pareto.png",
     "Q4流量": ROOT / "results" / "Q4" / "experiments" / "train_dry_run_round1" / "figures" / "q4_train_only_candidate_flow.png",
+    "Q1策略": ROOT / "results" / "Q1" / "experiments" / "round1" / "figures" / "q1_07_policy_lifetime_top_bottom.png",
+    "Q2稳健性": ROOT / "robustness" / "Q2" / "figures" / "q2_policy_block_bootstrap.png",
+    "Q3外部": ROOT / "results" / "Secondary_final_pressure_test" / "figures" / "secondary_final_observed_predicted.png",
+    "Q4试验": ROOT / "results" / "Q4" / "experiments" / "pilot_design_round1" / "figures" / "q4_pilot_representatives.png",
 }
 
 
@@ -79,7 +87,7 @@ def add_paragraph(document: Document, text: str, *, centered: bool = False, bold
 
 
 def add_heading(document: Document, text: str, level: int) -> None:
-    paragraph = document.add_paragraph()
+    paragraph = document.add_paragraph(style=f"Heading {level}")
     paragraph.paragraph_format.space_before = Pt(10 if level == 1 else 7)
     paragraph.paragraph_format.space_after = Pt(5)
     run = paragraph.add_run(clean_markup(text))
@@ -151,19 +159,29 @@ def add_figure(document: Document, path: Path, caption: str) -> None:
 
 
 def main() -> None:
-    if not TEMPLATE.exists() or not SOURCE.exists():
-        raise FileNotFoundError("模板或开发证据稿不存在。")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--frozen", action="store_true", help="生成冻结结果写作版，不覆盖开发证据稿。")
+    args = parser.parse_args()
+    source = FROZEN_SOURCE if args.frozen else SOURCE
+    output = FROZEN_OUTPUT if args.frozen else OUTPUT
+    manifest_path = FROZEN_MANIFEST if args.frozen else MANIFEST
+    if not TEMPLATE.exists() or not source.exists():
+        raise FileNotFoundError("模板或论文源稿不存在。")
     document = Document(TEMPLATE)
     delete_body(document)
     footer = document.sections[0].footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    style_run(footer.add_run("｜开发证据版（非最终）｜仅供论文撰写与交接使用"), size=8.5)
+    footer_text = "｜冻结结果写作版｜提交前仍需版式与引用复核" if args.frozen else "｜开发证据版（非最终）｜仅供论文撰写与交接使用"
+    style_run(footer.add_run(footer_text), size=8.5)
 
-    add_paragraph(document, "不同 SOC 区间快充策略与电池寿命的开发期建模证据稿", centered=True, bold=True, size=18)
-    add_paragraph(document, "开发证据版（非最终提交；待 Q3 裁决、Secondary 压力测试与新策略 pilot）", centered=True, size=11)
-    add_paragraph(document, "说明：本稿只整理已审计、可复现的开发证据。Primary 仅作一次受限确认；所有 Q3/Q4 结论均不等同于独立外部泛化或最终最优推荐。", centered=True, size=9.5)
+    title = "不同 SOC 区间快充策略与电池寿命的建模研究" if args.frozen else "不同 SOC 区间快充策略与电池寿命的开发期建模证据稿"
+    subtitle = "冻结结果写作版（已纳入一次性 Secondary 压力测试；不将候选策略写成最终推荐）" if args.frozen else "开发证据版（非最终提交；待 Q3 裁决、Secondary 压力测试与新策略 pilot）"
+    note = "说明：模型角色、窗口、特征、指标与 bootstrap 设置已冻结；Secondary 只读取一次，未据此调参或重选。" if args.frozen else "说明：本稿只整理已审计、可复现的开发证据。Primary 仅作一次受限确认；所有 Q3/Q4 结论均不等同于独立外部泛化或最终最优推荐。"
+    add_paragraph(document, title, centered=True, bold=True, size=18)
+    add_paragraph(document, subtitle, centered=True, size=11)
+    add_paragraph(document, note, centered=True, size=9.5)
 
-    lines = SOURCE.read_text(encoding="utf-8").splitlines()
+    lines = source.read_text(encoding="utf-8").splitlines()
     index = 0
     figure_inserted: set[str] = set()
     while index < len(lines):
@@ -174,22 +192,33 @@ def main() -> None:
         if line.startswith("## "):
             heading = line[3:]
             add_heading(document, heading, 1)
-            if heading.startswith("3 数据审计"):
+            if not args.frozen and heading.startswith("3 数据审计"):
                 add_figure(document, FIGURES["数据审计"], "图 1  开发期证据流程与验证边界（非最终推荐）")
                 figure_inserted.add("数据审计")
-            elif heading.startswith("4 Q1"):
+            elif not args.frozen and heading.startswith("4 Q1"):
                 add_figure(document, FIGURES["Q1"], "图 2  正式分析电芯的循环寿命分布（数据来源：Table 9 对齐结果）")
                 figure_inserted.add("Q1")
-            elif heading.startswith("5 Q2"):
+            elif not args.frozen and heading.startswith("5 Q2"):
                 add_figure(document, FIGURES["Q2"], "图 3  Q2 策略分组折外预测：M1 主线与 M2 敏感性模型")
                 figure_inserted.add("Q2")
-            elif heading.startswith("6 Q3"):
+            elif not args.frozen and heading.startswith("6 Q3"):
                 add_figure(document, FIGURES["Q3"], "图 4  Q3 原始电压曲线候选模型的严格仅训练集比较（非外部验证）")
                 figure_inserted.add("Q3")
-            elif heading.startswith("7 Q4"):
+            elif not args.frozen and heading.startswith("7 Q4"):
                 add_figure(document, FIGURES["Q4"], "图 5  Q4 已有策略的开发池比较（非独立外部验证，非最终推荐）")
                 add_figure(document, FIGURES["Q4流量"], "图 6  Q4 仅训练集候选流量与支持域诊断（不等于最优策略）")
                 figure_inserted.add("Q4")
+            elif args.frozen and heading.startswith("3 Q1"):
+                add_figure(document, FIGURES["Q1"], "图 1  正式分析电芯的循环寿命分布")
+                add_figure(document, FIGURES["Q1策略"], "图 2  具有重复支撑的策略组寿命比较（观察性对照）")
+            elif args.frozen and heading.startswith("4 Q2"):
+                add_figure(document, FIGURES["Q2"], "图 3  主效应 Ridge 与二阶交互 Ridge 的分组折外预测比较")
+                add_figure(document, FIGURES["Q2稳健性"], "图 4  策略组块 bootstrap 下 M2 相对 M1 的误差差异")
+            elif args.frozen and heading.startswith("5 Q3"):
+                add_figure(document, FIGURES["Q3外部"], "图 5  Secondary 上冻结模型的实测—预测对比（外部压力测试）")
+            elif args.frozen and heading.startswith("6 Q4"):
+                add_figure(document, FIGURES["Q4流量"], "图 6  Train-only 双空间支持域候选筛选流程")
+                add_figure(document, FIGURES["Q4试验"], "图 7  三类候选策略的 k=100 pilot 排程（待验证）")
             continue
         if line == "$$":
             formula_lines = []
@@ -209,24 +238,24 @@ def main() -> None:
             continue
         add_paragraph(document, line)
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    document.save(OUTPUT)
-    check = Document(OUTPUT)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    document.save(output)
+    check = Document(output)
     manifest = {
-        "status": "development_evidence_docx_nonfinal",
+        "status": "frozen_results_writing_docx" if args.frozen else "development_evidence_docx_nonfinal",
         "template": str(TEMPLATE),
         "template_sha256": sha256(TEMPLATE),
-        "source_markdown": str(SOURCE),
-        "source_sha256": sha256(SOURCE),
-        "output": str(OUTPUT),
-        "output_sha256": sha256(OUTPUT),
+        "source_markdown": str(source),
+        "source_sha256": sha256(source),
+        "output": str(output),
+        "output_sha256": sha256(output),
         "paragraph_count": len(check.paragraphs),
         "table_count": len(check.tables),
-        "figure_count": len(FIGURES),
+        "figure_count": 7 if args.frozen else 6,
         "final_submission_claim": False,
         "render_status": "structurally_verified; visual_render_pending_no_libreoffice",
     }
-    MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(manifest, ensure_ascii=False))
 
 
