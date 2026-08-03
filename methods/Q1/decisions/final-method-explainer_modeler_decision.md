@@ -4,13 +4,13 @@ skill: final-method-explainer
 scope: Q1
 decision_id: q1_method_explanation
 decision_point: assumption_necessity
-status: PENDING
+status: DECIDED
 decided_by: human
-decided_at:
+decided_at: 2026-08-03T13:55:00+08:00
 ai_suggestion: "[WITHHELD — learning mode; the modeler records the assumption labels and result threshold.]"
-choice: <<<HUMAN>>>
+choice: "Q1-A1 为必要假设，Q1-A2 为简化假设；Q1 合格结果须仅比较 n≥2 的策略组、同时报告样本数与寿命范围，并把 M3 的 Spearman 区间跨0写为限制而非稳定排序证据。"
 rejected_alternatives: []
-confidence: <<<HUMAN>>>
+confidence: "中等"
 evidence_refs:
   - methods/Q1/q1_decision_log.md
   - planning/model_assumptions.md
@@ -19,4 +19,4 @@ evidence_refs:
 
 ## 模型者理由
 
-<<<HUMAN>>>
+Q1-A1 为必要假设，Q1-A2 为简化假设；Q1 合格结果须仅比较 n≥2 的策略组、同时报告样本数与寿命范围，并把 M3 的 Spearman 区间跨0写为限制而非稳定排序证据；可信度中等。

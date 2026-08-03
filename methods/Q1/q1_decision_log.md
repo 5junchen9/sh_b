@@ -16,6 +16,18 @@
 
 ---
 
+### Q1-D04 | assumption_necessity | 2026-08-03T13:55:00+08:00 | mode: learning
+
+- **options_considered**: Q1-A1 必要或简化；Q1-A2 必要或简化；将 M3 秩相关区间跨 0 作为限制或稳定排序证据。
+- **evidence**: `planning/model_assumptions.md`（Q1-A1/Q1-A2）；`robustness/Q1/q1_robustness_report.md`（Spearman 95% 区间 [-0.0231, 0.8791]）。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: Q1-A1 为必要假设，Q1-A2 为简化假设；只比较 `n≥2` 策略组，同时报告样本数与寿命范围；M3 的 Spearman 区间跨 0 只写为限制。
+- **modeler_rationale**: Q1-A1 为必要假设，Q1-A2 为简化假设；Q1 合格结果须仅比较 n≥2 的策略组、同时报告样本数与寿命范围，并把 M3 的 Spearman 区间跨0写为限制而非稳定排序证据；可信度中等。
+- **confidence**: 中等
+- **supersedes**: —
+
+---
+
 ### Q1-D02 | result_verdict | 2026-08-03T13:48:00+08:00 | mode: learning
 
 - **options_considered**: M2 正文主线 / M1 基础描述 / M3 稳定排序方法或仅一致性核对；结束本轮或继续迭代。
