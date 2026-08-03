@@ -1,0 +1,33 @@
+{
+  "subquestion": "Q1",
+  "frozen_at": "2026-08-03T14:10:00+08:00",
+  "frozen_by_skill": "solution-package-builder",
+  "source_method": "M2 策略级观察性聚合（M1基础描述，M3一致性核对）",
+  "signoff": {"decision_id": "q1_package_signoff", "decision_log_records": ["Q1-D01", "Q1-D02", "Q1-D03", "Q1-D04", "Q1-D05"], "confidence": "中等", "dropped_claims": ["F1", "F2", "F3"]},
+  "code_source_files": [
+    {"path": "code/Q1/q1_baseline.py", "mtime": "2026-08-02T20:13:30.044650+08:00"},
+    {"path": "code/Q1/q1_enhanced.py", "mtime": "2026-08-02T21:58:09.751803+08:00"}
+  ],
+  "claims": [
+    {"id": "q1_cells", "label": "正式电芯数", "value": 124, "unit": "枚", "precision_for_paper": 0, "source_file": "results/Q1/experiments/round1/q1_experiment_report_round1.md", "source_locator": "第1节输入", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:0"},
+    {"id": "q1_life_mean", "label": "寿命均值", "value": 801.64, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_life_median", "label": "寿命中位数", "value": 736.5, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:0,1.1"},
+    {"id": "q1_life_q1", "label": "寿命第一四分位数", "value": 498.75, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_life_q3", "label": "寿命第三四分位数", "value": 946.5, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_life_min", "label": "寿命最小值", "value": 148, "unit": "cycle", "precision_for_paper": 0, "source_file": "results/Q1/experiments/round1/q1_experiment_report_round1.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_life_max", "label": "寿命最大值", "value": 2237, "unit": "cycle", "precision_for_paper": 0, "source_file": "results/Q1/experiments/round1/q1_experiment_report_round1.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_median_ci_lower", "label": "寿命中位数bootstrap区间下界", "value": 651, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_median_ci_upper", "label": "寿命中位数bootstrap区间上界", "value": 825, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第2节寿命分布", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_bootstrap_reps", "label": "bootstrap重复次数", "value": 2000, "unit": "次", "precision_for_paper": 0, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第1节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.1"},
+    {"id": "q1_policy_count", "label": "策略总数", "value": 68, "unit": "个", "precision_for_paper": 0, "source_file": "methods/Q1/q1_method_candidates.md", "source_locator": "M2 feasibility number", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:0,1.2"},
+    {"id": "q1_repeated_policy_count", "label": "重复策略数", "value": 27, "unit": "个", "precision_for_paper": 0, "source_file": "methods/Q1/q1_method_candidates.md", "source_locator": "M2 feasibility number", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:0,1.2"},
+    {"id": "q1_repeated_policy_min_mean", "label": "重复策略最低平均寿命", "value": 546.5, "unit": "cycle", "precision_for_paper": 1, "source_file": "methods/Q1/q1_method_candidates.md", "source_locator": "M2 feasibility number", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.2"},
+    {"id": "q1_repeated_policy_max_mean", "label": "重复策略最高平均寿命", "value": 2083, "unit": "cycle", "precision_for_paper": 1, "source_file": "methods/Q1/q1_method_candidates.md", "source_locator": "M2 feasibility number", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.2"},
+    {"id": "q1_repeated_pairs", "label": "Train–Primary重复策略对数", "value": 19, "unit": "对", "precision_for_paper": 0, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:0,1.3"},
+    {"id": "q1_pearson", "label": "重复策略Pearson相关", "value": 0.9029, "unit": "相关系数", "precision_for_paper": 4, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.3"},
+    {"id": "q1_spearman", "label": "重复策略Spearman相关", "value": 0.5514, "unit": "相关系数", "precision_for_paper": 4, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.3"},
+    {"id": "q1_spearman_ci_lower", "label": "Spearman区间下界", "value": -0.0231, "unit": "相关系数", "precision_for_paper": 4, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.3"},
+    {"id": "q1_spearman_ci_upper", "label": "Spearman区间上界", "value": 0.8791, "unit": "相关系数", "precision_for_paper": 4, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.3"},
+    {"id": "q1_mean_absolute_difference", "label": "重复策略平均绝对寿命差", "value": 119.5, "unit": "cycle", "precision_for_paper": 2, "source_file": "robustness/Q1/q1_robustness_report.md", "source_locator": "第3节", "verified_against": "results/Q1/reports/q1_solution_package_for_writer.md:1.3"}
+  ]
+}

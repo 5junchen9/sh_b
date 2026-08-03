@@ -16,6 +16,18 @@
 
 ---
 
+### Q1-D05 | claim_scope | 2026-08-03T14:05:00+08:00 | mode: learning
+
+- **options_considered**: 保留或删除 F1（因果）、F2（稳定排序）、F3（单枚代表总体）；保留或删除 C1–C3。
+- **evidence**: `results/Q1/reports/q1_solution_package_for_writer.md`；`robustness/Q1/q1_robustness_report.md`（Spearman 95% 区间 [-0.0231, 0.8791]）。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: F1、F2、F3 全部 drop；保留 C1–C3。
+- **modeler_rationale**: 现有数据仅支持观察性比较，M3 的 Spearman 区间跨0，单枚电芯不能代表策略总体。
+- **confidence**: 中等
+- **supersedes**: —
+
+---
+
 ### Q1-D04 | assumption_necessity | 2026-08-03T13:55:00+08:00 | mode: learning
 
 - **options_considered**: Q1-A1 必要或简化；Q1-A2 必要或简化；将 M3 秩相关区间跨 0 作为限制或稳定排序证据。

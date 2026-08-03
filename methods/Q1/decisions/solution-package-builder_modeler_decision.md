@@ -4,19 +4,19 @@ skill: solution-package-builder
 scope: Q1
 decision_id: q1_package_signoff
 decision_point: claim_scope
-status: PENDING
+status: DECIDED
 decided_by: human
-decided_at:
-ai_suggestion: "[WITHHELD — learning mode; the modeler independently decides keep/downgrade/drop for F1–F3 and package confidence.]"
-choice: <<<HUMAN>>>
+decided_at: 2026-08-03T14:05:00+08:00
+ai_suggestion: "[WITHHELD — learning mode; the modeler independently decided claim scope.]"
+choice: "Q1 的 F1、F2、F3 全部 drop；保留 C1–C3。"
 rejected_alternatives:
   - claim: F1 “某一充电倍率或 SOC 切换点导致寿命更长”
-    reason: <<<HUMAN>>>
+    reason: "drop：现有数据仅支持观察性比较。"
   - claim: F2 “M3 给出稳定的策略排序”
-    reason: <<<HUMAN>>>
+    reason: "drop：M3 的 Spearman 区间跨0。"
   - claim: F3 “单枚电芯策略代表策略总体”
-    reason: <<<HUMAN>>>
-confidence: <<<HUMAN>>>
+    reason: "drop：单枚电芯不能代表策略总体。"
+confidence: "中等"
 evidence_refs:
   - results/Q1/reports/q1_solution_package_for_writer.md
   - results/Q1/reports/q1_final_result_analysis.md
@@ -26,4 +26,4 @@ evidence_refs:
 
 ## 模型者理由
 
-<<<HUMAN>>>
+Q1 的 F1、F2、F3 全部 drop；保留 C1–C3；整体可信度中等。理由：现有数据仅支持观察性比较，M3 的 Spearman 区间跨0，单枚电芯不能代表策略总体。

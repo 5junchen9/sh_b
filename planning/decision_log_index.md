@@ -2,6 +2,7 @@
 
 | id | Qx | decision_point | choice | confidence | supersedes |
 |---|---|---|---|---|---|
+| Q1-D05 | Q1 | claim_scope | drop F1–F3；保留 C1–C3 | 中等 | — |
 | Q1-D04 | Q1 | assumption_necessity | Q1-A1必要、A2简化；n≥2+范围；Spearman跨0为限制 | 中等 | — |
 | Q1-D03 | Q1 | confidence | Q1 可信度中等 | 中等 | — |
 | Q1-D02 | Q1 | result_verdict | M2 正文；M1 基础；M3仅核对；结束本轮 | 中等 | — |
