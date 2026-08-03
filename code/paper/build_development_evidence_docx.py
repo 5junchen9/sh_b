@@ -17,6 +17,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt
+from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -39,6 +40,7 @@ FIGURES = {
     "Q3外部": ROOT / "results" / "Secondary_final_pressure_test" / "figures" / "secondary_final_observed_predicted.png",
     "Q4试验": ROOT / "results" / "Q4" / "experiments" / "pilot_design_round1" / "figures" / "q4_pilot_representatives.png",
 }
+DOCX_ASSET_DIR = ROOT / "tmp" / "docx_raster_assets"
 
 
 def sha256(path: Path) -> str:
@@ -145,12 +147,30 @@ def add_table(document: Document, rows: list[list[str]]) -> None:
             style_run(paragraph.add_run(clean_markup(value)), size=8.5, bold=(r == 0))
 
 
+def normalize_figure_for_docx(path: Path) -> Path:
+    """Embed an opaque RGB copy so LibreOffice does not fail on RGBA PNG export.
+
+    Original Chinese figures remain untouched; this is a renderer-only asset.
+    """
+    DOCX_ASSET_DIR.mkdir(parents=True, exist_ok=True)
+    target = DOCX_ASSET_DIR / f"{path.stem}_rgb.png"
+    with Image.open(path) as image:
+        if image.mode == "RGBA":
+            background = Image.new("RGB", image.size, "white")
+            background.paste(image, mask=image.getchannel("A"))
+        else:
+            background = image.convert("RGB")
+        background.save(target, format="PNG", optimize=True)
+    return target
+
+
 def add_figure(document: Document, path: Path, caption: str) -> None:
     if not path.exists():
         raise FileNotFoundError(path)
+    asset = normalize_figure_for_docx(path)
     paragraph = document.add_paragraph()
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    picture = paragraph.add_run().add_picture(str(path), width=Pt(390))
+    picture = paragraph.add_run().add_picture(str(asset), width=Pt(390))
     picture._inline.docPr.set("descr", caption)
     picture._inline.docPr.set("title", caption.split("（", 1)[0])
     caption_p = document.add_paragraph()
