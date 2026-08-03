@@ -1,4 +1,4 @@
-# Q4 最终结果分析：候选策略、风险边界与 Pilot 接口
+# Q4：候选策略筛选与实验验证框架
 
 > Q4 的交付范围转录自 `methods/Q3/decisions/secondary_external_result_modeler_decision.md`：只交付候选策略集合、风险边界与 pilot 试验接口；不输出最优新充电策略或可直接执行的推荐。
 
