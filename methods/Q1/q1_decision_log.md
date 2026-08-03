@@ -13,3 +13,27 @@
 - **modeler_rationale**: Q1 采用 M2 策略级聚合为正文主线，M1 电芯级分析作为基础描述；理由：27 个重复策略组和 19 对跨分区重复策略支持策略级对照，但仅作观察性比较；可信度：中等。
 - **confidence**: 中等
 - **supersedes**: —
+
+---
+
+### Q1-D02 | result_verdict | 2026-08-03T13:48:00+08:00 | mode: learning
+
+- **options_considered**: M2 正文主线 / M1 基础描述 / M3 稳定排序方法或仅一致性核对；结束本轮或继续迭代。
+- **evidence**: `results/Q1/experiments/round1/q1_experiment_report_round1.md`；`robustness/Q1/q1_robustness_report.md`：M2 有 27 个重复策略组，M3 Pearson=0.9029，Spearman 95% 区间 [-0.0231, 0.8791]。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: M2 选为正文主线，M1保留为基础描述，M3仅保留为一致性核对、不作为稳定策略排序方法；本轮结束并进入写作材料整理。
+- **modeler_rationale**: M2有27个重复策略组支撑，M3虽 Pearson=0.9029，但 Spearman 的95%区间跨0，不能支持稳定排序或因果结论。
+- **confidence**: 中等
+- **supersedes**: —
+
+---
+
+### Q1-D03 | confidence | 2026-08-03T13:48:00+08:00 | mode: learning
+
+- **options_considered**: 高 / 中等 / 需谨慎。
+- **evidence**: `robustness/Q1/q1_robustness_report.md`：寿命分布 2,000 次 bootstrap；19 对重复策略的 Spearman 95% 区间跨 0。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: Q1 可信度中等。
+- **modeler_rationale**: M2 有重复策略组支撑，且个体分布和策略组对照可复核；但重复策略的秩相关区间跨 0，故不升级为高可信排序或因果结论。
+- **confidence**: 中等
+- **supersedes**: —
