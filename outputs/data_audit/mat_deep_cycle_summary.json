@@ -1,0 +1,26 @@
+{
+  "scope": "read-only scan of raw t/Qc/I/V/T/Qd arrays; no records or values removed",
+  "total_cycles": 114738,
+  "official_roster_cycles": 100501,
+  "length_mismatch_count": 0,
+  "all_fields_empty_count": 46,
+  "nan_inf_count": 0,
+  "negative_time_count": 0,
+  "time_reverse_count": 223,
+  "negative_capacity_count": 0,
+  "current_out_of_range_count": 3,
+  "voltage_out_of_range_count": 5,
+  "temperature_out_of_range_count": 0,
+  "usable_for_curve_features_count": 100243,
+  "unusable_official_cycle_count": 258,
+  "boundaries": {
+    "time_min": 0,
+    "capacity_min": 0,
+    "current_abs_max": 12,
+    "voltage_min": 0,
+    "voltage_max": 5,
+    "temperature_min": -40,
+    "temperature_max": 100
+  },
+  "output_flags_csv": "outputs/data_audit/mat_deep_cycle_flags.csv"
+}

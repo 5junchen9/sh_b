@@ -1,0 +1,22 @@
+{
+  "question": "Q3",
+  "round": "round2_joint_robustness",
+  "execution_timestamp": "2026-08-02T17:39:22.477392+00:00",
+  "random_seed": 20260802,
+  "bootstrap_replicates": 2000,
+  "scope": "Train-only paired policy-cluster bootstrap of Round 2 OOF outputs; no refitting and no Primary/Secondary input.",
+  "weighting_definitions": {
+    "policy_equal": "每个策略组内先平均，再在 bootstrap 中对策略组等权采样。",
+    "cell_equal": "以策略组为重抽样簇，保留每个被抽中策略组的所有电芯。"
+  },
+  "pareto_axes": [
+    "minimize k",
+    "minimize rmse_log",
+    "minimize cell_equal_soh_rmse"
+  ],
+  "outputs": [
+    "tables/q3_round2_policy_bootstrap_comparisons.csv",
+    "tables/q3_round2_window_pareto.csv",
+    "figures/q3_round2_bootstrap_pareto.png"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mode": "learning",
+  "execution_mode": "manual",
+  "user_instruction": "以 B题_最新完整建模方案_V2.md 为准执行；方案已明确的机械步骤直接执行，不使用 speed 模式。",
+  "canonical_plan": "B题_最新完整建模方案_V2.md",
+  "frozen_data_gate": "P0 passed on 2026-08-02",
+  "language": "zh-CN"
+}

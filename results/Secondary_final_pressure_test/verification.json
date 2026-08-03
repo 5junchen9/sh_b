@@ -1,0 +1,184 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "frozen_manifest_has_no_retuning_rule",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "run_marks_primary_unused",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "check": "secondary_partition_is_40_unique_cells",
+      "passed": true,
+      "actual": {
+        "unique": 40,
+        "m1_rows": 40
+      },
+      "expected": {
+        "unique": 40,
+        "m1_rows": 40
+      }
+    },
+    {
+      "check": "q2_M1_rmse_recomputed",
+      "passed": true,
+      "actual": 0.5472460445065896,
+      "expected": 0.5472460445065898
+    },
+    {
+      "check": "q2_M1_mae_recomputed",
+      "passed": true,
+      "actual": 0.4980708837204658,
+      "expected": 0.4980708837204659
+    },
+    {
+      "check": "q2_M2_rmse_recomputed",
+      "passed": true,
+      "actual": 0.5427978926458085,
+      "expected": 0.5427978926458085
+    },
+    {
+      "check": "q2_M2_mae_recomputed",
+      "passed": true,
+      "actual": 0.5079624762646341,
+      "expected": 0.5079624762646342
+    },
+    {
+      "check": "q2_P3_rmse_recomputed",
+      "passed": true,
+      "actual": 0.6778120740894927,
+      "expected": 0.6778120740894927
+    },
+    {
+      "check": "q2_P3_mae_recomputed",
+      "passed": true,
+      "actual": 0.6307695727312699,
+      "expected": 0.63076957273127
+    },
+    {
+      "check": "q3_M2_k5_rmse_recomputed",
+      "passed": true,
+      "actual": 0.4193015943867422,
+      "expected": 0.4193015943867422
+    },
+    {
+      "check": "q3_M2_k5_soh_recomputed",
+      "passed": true,
+      "actual": 0.06200724073551071,
+      "expected": 0.062007240735511
+    },
+    {
+      "check": "q3_M2_k5_all_cells_curve_evaluable",
+      "passed": true,
+      "actual": {
+        "curve_cells": 40,
+        "failures": 0
+      },
+      "expected": {
+        "curve_cells": 40,
+        "failures": 0
+      }
+    },
+    {
+      "check": "q3_M3R_k5_rmse_recomputed",
+      "passed": true,
+      "actual": 0.4924530692800105,
+      "expected": 0.4924530692800106
+    },
+    {
+      "check": "q3_M3R_k5_soh_recomputed",
+      "passed": true,
+      "actual": 0.07202307657009045,
+      "expected": 0.0720230765700907
+    },
+    {
+      "check": "q3_M3R_k5_all_cells_curve_evaluable",
+      "passed": true,
+      "actual": {
+        "curve_cells": 40,
+        "failures": 0
+      },
+      "expected": {
+        "curve_cells": 40,
+        "failures": 0
+      }
+    },
+    {
+      "check": "q3_M2_k100_rmse_recomputed",
+      "passed": true,
+      "actual": 0.4695040546243606,
+      "expected": 0.4695040546243608
+    },
+    {
+      "check": "q3_M2_k100_soh_recomputed",
+      "passed": true,
+      "actual": 0.06908360848236537,
+      "expected": 0.0690836084823657
+    },
+    {
+      "check": "q3_M2_k100_all_cells_curve_evaluable",
+      "passed": true,
+      "actual": {
+        "curve_cells": 40,
+        "failures": 0
+      },
+      "expected": {
+        "curve_cells": 40,
+        "failures": 0
+      }
+    },
+    {
+      "check": "raw_feature_gate_k5",
+      "passed": true,
+      "actual": {
+        "cells": 40,
+        "min_valid_ratio": 1,
+        "cells_below_80pct_valid": 0
+      },
+      "expected": "40 cells and valid ratio >= 0.8"
+    },
+    {
+      "check": "raw_feature_gate_k100",
+      "passed": true,
+      "actual": {
+        "cells": 40,
+        "min_valid_ratio": 1,
+        "cells_below_80pct_valid": 0
+      },
+      "expected": "40 cells and valid ratio >= 0.8"
+    },
+    {
+      "check": "bootstrap_has_fixed_2000_repeats",
+      "passed": true,
+      "actual": {
+        "q2": 2000,
+        "q3": 2000
+      },
+      "expected": 2000
+    },
+    {
+      "check": "bootstrap_has_no_pareto_or_recommendation",
+      "passed": true,
+      "actual": "no new-strategy Pareto file",
+      "expected": "no new-strategy Pareto file"
+    },
+    {
+      "check": "result_files_hashable",
+      "passed": true,
+      "actual": "SHA-256 computed",
+      "expected": "nonempty files"
+    }
+  ],
+  "manifest_sha256": "69bec70ea20a80c9cbf1bcbde66b1fdb08f576fc168d1f6a2aa07a445b008876",
+  "secondary_result_file_sha256": {
+    "tables\\q2_external_metrics.csv": "d3b8c080d92fb5bab30c43db86faa2daec6d1a9d58788f32333e44687d19edaa",
+    "tables\\q3_external_metrics.csv": "ef14e5d712f38d6e4793c015977723256218218ff5be0330756a4d35a5719926",
+    "tables\\bootstrap_intervals.csv": "fa35d547d23aaa74bbdcc29b78d0e9bc9612502205dd4b55044a7e5c7d18bdab"
+  }
+}

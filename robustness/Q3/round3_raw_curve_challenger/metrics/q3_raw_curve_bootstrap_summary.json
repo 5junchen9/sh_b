@@ -1,0 +1,47 @@
+{
+  "question": "Q3",
+  "round": "round3_raw_curve_challenger_robustness",
+  "execution_timestamp": "2026-08-02T17:40:04.140312+00:00",
+  "scope": "Train-only paired policy-cluster bootstrap of M3R against existing Round 2 outputs; no refitting or Primary/Secondary input.",
+  "comparisons": [
+    [
+      "M3R_k5_vs_M3_k5",
+      "M3",
+      5,
+      "M3R",
+      5
+    ],
+    [
+      "M3R_k5_vs_M2_k5",
+      "M2",
+      5,
+      "M3R",
+      5
+    ],
+    [
+      "M3R_k5_vs_M2_k100",
+      "M2",
+      100,
+      "M3R",
+      5
+    ],
+    [
+      "M3R_k20_vs_M3_k20",
+      "M3",
+      20,
+      "M3R",
+      20
+    ],
+    [
+      "M3R_k100_vs_M3_k100",
+      "M3",
+      100,
+      "M3R",
+      100
+    ]
+  ],
+  "outputs": [
+    "tables/q3_raw_curve_policy_bootstrap.csv",
+    "tables/q3_round3_combined_window_pareto.csv"
+  ]
+}

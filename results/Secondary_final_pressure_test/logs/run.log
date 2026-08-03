@@ -1,0 +1,105 @@
+{
+  "status": "completed_without_retuning",
+  "secondary_cells": 40,
+  "train_cells": 41,
+  "secondary_read": true,
+  "primary_used": false,
+  "models_fixed": {
+    "q2_m1_main_effect_ridge": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "alpha": 3.0
+    },
+    "q2_m2_interaction_sensitivity": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "alpha": 0.1,
+      "polynomial_degree": 2
+    },
+    "q2_p3_provisional_for_q4_observation": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "n_knots": 4,
+      "alpha": 0.03
+    },
+    "q3_m2_k5_comparator": {
+      "features": [
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope"
+      ],
+      "alpha": 10.0
+    },
+    "q3_m2_k100_calibration": {
+      "features": [
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope"
+      ],
+      "alpha": 3.0
+    },
+    "q3_m3r_k5_screening": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2",
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope",
+        "raw_charge_v_mean_mean",
+        "raw_charge_v_p95_mean",
+        "raw_charge_v_p95_slope"
+      ],
+      "alpha": 10.0,
+      "raw_gate": "raw_valid_ratio >= 0.8"
+    }
+  },
+  "manifest_sha256": "69bec70ea20a80c9cbf1bcbde66b1fdb08f576fc168d1f6a2aa07a445b008876",
+  "inputs_and_scripts_verified": true,
+  "raw_feature_inputs": {
+    "raw_curve_features_secondary_k5.csv": "ac1d6ba479045b98ae698410ff019e8ca567ee846a22b7781a074377b124a448",
+    "raw_curve_features_secondary_k100.csv": "4f69c1e27712781b42dd44c56b2a474454ae8a3085be8afe17f168b9c75457a6"
+  },
+  "execution_timestamp": "2026-08-03T00:32:59.901918+00:00",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scikit_learn": "1.9.0"
+  }
+}

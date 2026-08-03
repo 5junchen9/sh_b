@@ -1,0 +1,53 @@
+{
+  "scope": "Train-only read-only RAW curve challenger features; I>0.1 A charge points; six-field deep MAT mask required.",
+  "features": [
+    "raw_charge_v_mean_mean",
+    "raw_charge_v_p95_mean",
+    "raw_charge_v_p95_slope"
+  ],
+  "windows": [
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "source_mask": "outputs/data_audit/mat_deep_cycle_flags.csv",
+  "output_files": [
+    "data\\processed\\raw_curve_features_train_k5.csv",
+    "data\\processed\\raw_curve_features_train_k10.csv",
+    "data\\processed\\raw_curve_features_train_k20.csv",
+    "data\\processed\\raw_curve_features_train_k50.csv",
+    "data\\processed\\raw_curve_features_train_k100.csv"
+  ],
+  "k5": {
+    "cells": 41,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0,
+    "all_feature_missing": 0
+  },
+  "k10": {
+    "cells": 41,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0,
+    "all_feature_missing": 0
+  },
+  "k20": {
+    "cells": 41,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0,
+    "all_feature_missing": 0
+  },
+  "k50": {
+    "cells": 41,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0,
+    "all_feature_missing": 0
+  },
+  "k100": {
+    "cells": 41,
+    "min_valid_ratio": 0.98989898989899,
+    "cells_below_80pct_valid": 0,
+    "all_feature_missing": 0
+  }
+}

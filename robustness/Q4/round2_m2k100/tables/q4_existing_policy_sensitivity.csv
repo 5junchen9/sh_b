@@ -1,0 +1,6 @@
+﻿scenario,eligible_policy_count,pareto_policy_count,pareto_policies,baseline_pareto_retained,baseline_pareto_retention_ratio
+基线：n≥2，经验P10寿命摘要,19,4,5.4C(40%)-3.6C | 5.4C(70%)-3C | 5.4C(80%)-5.4C | 6C(40%)-3C,,
+样本阈值收紧：n≥3，经验P10寿命摘要,3,2,3.6C(80%)-3.6C | 4.8C(80%)-4.8C,0.0,0.0
+寿命摘要改变：n≥2，中位数寿命摘要,19,6,3.6C(80%)-3.6C | 4C(80%)-4C | 5.4C(40%)-3.6C | 5.4C(70%)-3C | 5.4C(80%)-5.4C | 7C(30%)-3.6C,3.0,0.75
+来源平衡：每策略至少1 Train与1 Primary,19,4,5.4C(40%)-3.6C | 5.4C(70%)-3C | 5.4C(80%)-5.4C | 6C(40%)-3C,4.0,1.0
+留一电芯：基线 Pareto 策略资格保持,4,0,无（每个基线 Pareto 点均从n=2降为n=1）,0.0,0.0

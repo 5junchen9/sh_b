@@ -1,0 +1,57 @@
+{
+  "question": "Q2-B",
+  "round": "q2b_primary_confirmation_round1",
+  "execution_timestamp": "2026-08-02T15:00:10.129953+00:00",
+  "implementation_target": "python",
+  "random_seed": 20260802,
+  "scope": "One-time frozen P3 confirmation on Primary; no tuning, replacement or threshold-based automatic pass/fail.",
+  "frozen_selection": {
+    "method_id": "P3_additive_gam",
+    "params": {
+      "n_knots": 4,
+      "alpha": 0.03
+    },
+    "features": [
+      "C1",
+      "Q1_percent",
+      "C2"
+    ]
+  },
+  "partitions": {
+    "train": "Train",
+    "primary": "Prim. Test",
+    "train_cells": 41,
+    "primary_cells": 43
+  },
+  "target_transform": "natural_log",
+  "inverse_transform": "exp",
+  "metrics": {
+    "rmse_log": 0.2892675071510141,
+    "mae_log": 0.22572228581059497,
+    "rmse_cycle": 179.39232875237562,
+    "mae_cycle": 146.79450649757143,
+    "overprediction_rate": 0.3953488372093023,
+    "mean_positive_log_error": 0.12065172007721948,
+    "mean_positive_cycle_error": 63.310682536145215
+  },
+  "input_sha256": {
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "q2b_proxy_selection.json": "c566087161d4133193f6574895d37a05560bfda45e2ee7caa13010a76e3abb7b",
+    "q4_p3_full_train_tuning.csv": "c5fe8afd30c68892259c7eb33411f8ecf9701362f83ffc7772ce0662407bd416",
+    "q2b_primary_confirmation_protocol.md": "681dfe8ef4d04a76eef8afc73495ff05bc0063e532e417fd81fa3609aa01b295"
+  },
+  "script_sha256": "42a3b8f4100d8ca60f54562300046cdc1d1e7b43df4b5b785d93a34ec601b4bf",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scikit_learn": "1.9.0"
+  },
+  "outputs": [
+    "tables/q2b_primary_predictions.csv",
+    "metrics/q2b_primary_metrics.json",
+    "figures/q2b_primary_observed_vs_predicted.png",
+    "figures/q2b_primary_observed_vs_predicted.svg",
+    "q2b_primary_confirmation_report.md"
+  ]
+}

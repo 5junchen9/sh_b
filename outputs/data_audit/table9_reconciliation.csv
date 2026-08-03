@@ -1,0 +1,130 @@
+﻿barcode,source_file,batch_index,local_cycle_life,dataset,batch_date,table9_cycle_life,cycle_life_match,local_policy,table9_policy,policy_match_exact,policy_match_after_newstructure_suffix
+EL150800440551,data_2.xlsx,20,461,Train,2017-06-30,461,True,4.4C(55%)-6C,4.4C(55%)-6C,True,True
+EL150800453113,data_1.xlsx,16,719,Train,2017-05-12,719,True,5.4C(60%)-3C,5.4C(50%)-3C,False,False
+EL150800453240,data_1.xlsx,19,691,Prim. Test,2017-05-12,691,True,5.4C(70%)-3C,5.4C(60%)-3C,False,False
+EL150800453773,data_1.xlsx,39,617,Train,2017-05-12,617,True,7C(40%)-3.6C,6C(60%)-3C,False,False
+EL150800460436,data_1.xlsx,34,757,Prim. Test,2017-05-12,757,True,6C(60%)-3C,6C(50%)-3C,False,False
+EL150800460449,data_2.xlsx,15,485,Prim. Test,2017-06-30,485,True,4C(4%)-4.85C,4C(4%)-4.85C,True,True
+EL150800460451,data_2.xlsx,11,561,Prim. Test,2017-06-30,561,True,3.6C(9%)-5C,3.6C(9%)-5C,True,True
+EL150800460466,data_2.xlsx,12,477,Train,2017-06-30,477,True,4C(13%)-5C,4C(13%)-5C,True,True
+EL150800460468,data_1.xlsx,10,1054,Prim. Test,2017-05-12,1054,True,5.4C(40%)-3.6C,5.4C(40%)-3.6C,True,True
+EL150800460473,data_2.xlsx,43,466,Prim. Test,2017-06-30,466,True,6C(20%)-4.5C,6C(20%)-4.5C,True,True
+EL150800460474,data_2.xlsx,45,457,Prim. Test,2017-06-30,457,True,6C(40%)-4C,6C(40%)-4C,True,True
+EL150800460477,data_1.xlsx,24,1014,Prim. Test,2017-05-12,1014,True,6C(30%)-3.6C,5.4C(70%)-3C,False,False
+EL150800460478,data_2.xlsx,18,494,Train,2017-06-30,494,True,4.4C(24%)-5C,4.4C(24%)-5C,True,True
+EL150800460480,data_2.xlsx,19,487,Prim. Test,2017-06-30,487,True,4.4C(47%)-5.5C,4.4C(47%)-5.5C,True,True
+EL150800460481,data_1.xlsx,32,876,Prim. Test,2017-05-12,876,True,6C(50%)-3.6C,6C(40%)-3.6C,False,False
+EL150800460485,data_1.xlsx,45,616,Train,2017-05-12,616,True,8C(35%)-3.6C,7C(40%)-3.6C,False,False
+EL150800460486,data_1.xlsx,2,1179,Train,2017-05-12,2160,False,3.6C(80%)-3.6C,3.6C(80%)-3.6C,True,True
+EL150800460486,data_2.xlsx,9,982,Train,2017-05-12,2160,False,80%)-3.6C,3.6C(80%)-3.6C,False,False
+EL150800460492,data_2.xlsx,35,499,Prim. Test,2017-06-30,499,True,5.2C(66%)-3.5C,5.2C(66%)-3.5C,True,True
+EL150800460498,data_2.xlsx,44,462,Train,2017-06-30,462,True,6C(31%)-4.25C,6C(31%)-4.25C,True,True
+EL150800460501,data_2.xlsx,24,527,Train,2017-06-30,527,True,4.65C(69%)-6C,4.65C(69%)-6C,True,True
+EL150800460506,data_1.xlsx,37,704,Train,2017-05-12,704,True,7C(40%)-3C,6C(50%)-3.6C,False,False
+EL150800460507,data_1.xlsx,29,860,Train,2017-05-12,860,True,6C(50%)-3C,6C(30%)-3.6C,False,False
+EL150800460510,data_2.xlsx,13,458,Prim. Test,2017-06-30,458,True,4C(31%)-5,4C(31%)-5C,False,False
+EL150800460511,data_2.xlsx,38,478,Train,2017-06-30,478,True,5.6C(38%)-4.25C,5.6C(38%)-4.25C,True,True
+EL150800460513,data_2.xlsx,42,429,Train,2017-06-30,429,True,5.6C(65%)-3C,5.6C(65%)-3C,True,True
+EL150800460514,data_1.xlsx,1,1190,Prim. Test,2017-05-12,1852,False,3.6C(80%)-3.6C,3.6C(80%)-3.6C,True,True
+EL150800460514,data_2.xlsx,8,663,Prim. Test,2017-05-12,1852,False,80%)-3.6C,3.6C(80%)-3.6C,False,False
+EL150800460518,data_2.xlsx,1,300,Train,2017-06-30,300,True,1C(4%)-6C,1C(4%)-6C,True,True
+EL150800460522,data_1.xlsx,18,857,Train,2017-05-12,857,True,5.4C(60%)-3.6C,5.4C(50%)-3.6C,False,False
+EL150800460525,data_1.xlsx,35,742,Train,2017-05-12,742,True,7C(30%)-3.6C,6C(50%)-3C,False,False
+EL150800460526,data_2.xlsx,41,499,Prim. Test,2017-06-30,499,True,5.6C(5%)-4.75C,5.6C(5%)-4.75C,True,True
+EL150800460527,data_2.xlsx,31,481,Prim. Test,2017-06-30,481,True,5.2C(10%)-4.75C,5.2C(10%)-4.75C,True,True
+EL150800460528,data_2.xlsx,37,535,Prim. Test,2017-06-30,535,True,5.6C(25%)-4.5C,5.6C(25%)-4.5C,True,True
+EL150800460596,data_2.xlsx,27,471,Prim. Test,2017-06-30,471,True,4.8C(80%)-4.8C,4.8C(80%)-4.8C,True,True
+EL150800460597,data_2.xlsx,25,495,Prim. Test,2017-06-30,495,True,4.8C(80%)-4.8C,4.8C(80%)-4.8C,True,True
+EL150800460599,data_2.xlsx,48,713,Prim. Test,2017-06-30,713,True,6C(60%)-3C,6C(60%)-3C,True,True
+EL150800460601,data_1.xlsx,38,648,Prim. Test,2017-05-12,648,True,7C(40%)-3C,6C(60%)-3C,False,False
+EL150800460602,data_2.xlsx,3,438,Train,2017-06-30,438,True,2C(2%)-5C,2C(2%)-5C,True,True
+EL150800460603,data_2.xlsx,22,489,Train,2017-06-30,489,True,4.65C(19%)-4.85C,4.65C(19%)-4.85C,True,True
+EL150800460604,data_2.xlsx,30,498,Train,2017-06-30,498,True,4.9C(69%)-4.25C,4.9C(69%)-4.25C,True,True
+EL150800460605,data_2.xlsx,2,148,Prim. Test,2017-06-30,148,True,2C(10%)-6C,2C(10%)-6C,True,True
+EL150800460608,data_2.xlsx,32,492,Train,2017-06-30,492,True,5.2C(37%)-4.5C,5.2C(37%)-4.5C,True,True
+EL150800460610,data_2.xlsx,29,509,Prim. Test,2017-06-30,509,True,4.9C(61%)-4.5C,4.9C(61%)-4.5C,True,True
+EL150800460611,data_2.xlsx,26,461,Train,2017-06-30,461,True,4.8C(80%)-4.8C,4.8C(80%)-4.8C,True,True
+EL150800460613,data_2.xlsx,46,487,Train,2017-06-30,487,True,6C(4%)-4.75C,6C(4%)-4.75C,True,True
+EL150800460614,data_2.xlsx,28,468,Train,2017-06-30,468,True,4.9C(27%)-4.75C,4.9C(27%)-4.75C,True,True
+EL150800460615,data_1.xlsx,31,709,Train,2017-05-12,709,True,6C(50%)-3.6C,6C(40%)-3C,False,False
+EL150800460617,data_1.xlsx,26,854,Prim. Test,2017-05-12,854,True,6C(40%)-3C,5.4C(80%)-5.4C,False,False
+EL150800460618,data_1.xlsx,43,702,Train,2017-05-12,702,True,8C(25%)-3.6C,7C(40%)-3C,False,False
+EL150800460622,data_1.xlsx,36,703,Prim. Test,2017-05-12,703,True,7C(30%)-3.6C,6C(50%)-3.6C,False,False
+EL150800460623,data_1.xlsx,3,1177,Prim. Test,2017-05-12,2237,False,3.6C(80%)-3.6C,3.6C(80%)-3.6C,True,True
+EL150800460623,data_2.xlsx,10,1061,Prim. Test,2017-05-12,2237,False,80%)-3.6C,3.6C(80%)-3.6C,False,False
+EL150800460627,data_2.xlsx,40,459,Train,2017-06-30,459,True,5.6C(58%)-3.5C,5.6C(58%)-3.5C,True,True
+EL150800460628,data_2.xlsx,36,463,Train,2017-06-30,463,True,5.2C(71%)-3C,5.2C(71%)-3C,True,True
+EL150800460630,data_1.xlsx,25,1017,Train,2017-05-12,1017,True,6C(40%)-3C,5.4C(70%)-3C,False,False
+EL150800460631,data_2.xlsx,33,519,Prim. Test,2017-06-30,519,True,5.2C(50%)-4.25C,5.2C(50%)-4.25C,True,True
+EL150800460634,data_2.xlsx,7,511,Train,2017-06-30,511,True,3.6C(30%)-6C,3.6C(30%)-6C,True,True
+EL150800460635,data_2.xlsx,6,480,Prim. Test,2017-06-30,480,True,3.6C(2%)-4.85C,3.6C(2%)-4.85C,True,True
+EL150800460636,data_1.xlsx,44,651,Prim. Test,2017-05-12,651,True,8C(25%)-3.6C,7C(40%)-3.6C,False,False
+EL150800460640,data_1.xlsx,33,731,Train,2017-05-12,731,True,6C(60%)-3C,6C(40%)-3.6C,False,False
+EL150800460641,data_2.xlsx,34,520,Train,2017-06-30,520,True,5.2C(58%)-4C,5.2C(58%)-4C,True,True
+EL150800460642,data_1.xlsx,40,625,Prim. Test,2017-05-12,625,True,7C(40%)-3.6C,7C(30%)-3.6C,False,False
+EL150800460644,data_1.xlsx,30,917,Prim. Test,2017-05-12,917,True,6C(50%)-3C,6C(40%)-3C,False,False
+EL150800460647,data_1.xlsx,42,1051,Prim. Test,2017-05-12,1051,True,8C(15%)-3.6C,7C(40%)-3C,False,False
+EL150800460649,data_2.xlsx,39,465,Prim. Test,2017-06-30,465,True,5.6C(47%)-4C,5.6C(47%)-4C,True,True
+EL150800460652,data_2.xlsx,21,502,Prim. Test,2017-06-30,502,True,4.4C(8%)-4.85C,4.4C(8%)-4.85C,True,True
+EL150800460653,data_1.xlsx,17,862,Prim. Test,2017-05-12,862,True,5.4C(60%)-3.6C,5.4C(50%)-3.6C,False,False
+EL150800460655,data_2.xlsx,5,444,Train,2017-06-30,444,True,3.6C(22%)-5.5C,3.6C(22%)-5.5C,True,True
+EL150800460656,data_1.xlsx,46,599,Prim. Test,2017-05-12,599,True,8C(35%)-3.6C,8C(15%)-3.6C,False,False
+EL150800460659,data_1.xlsx,27,870,Train,2017-05-12,870,True,6C(40%)-3.6C,5.4C(80%)-5.4C,False,False
+EL150800460673,data_2.xlsx,4,335,Prim. Test,2017-06-30,335,True,2C(7%)-5.5C,2C(7%)-5.5C,True,True
+EL150800460678,data_2.xlsx,47,429,Prim. Test,2017-06-30,429,True,6C(52%)-3.5C,6C(52%)-3.5C,True,True
+EL150800463198,data_1.xlsx,28,842,Prim. Test,2017-05-12,842,True,6C(40%)-3.6C,6C(30%)-3.6C,False,False
+EL150800463208,data_2.xlsx,14,483,Train,2017-06-30,483,True,4C(40%)-6C,4C(40%)-6C,True,True
+EL150800463229,data_1.xlsx,41,966,Train,2017-05-12,966,True,8C(15%)-3.6C,7C(30%)-3.6C,False,False
+EL150800463245,data_2.xlsx,23,513,Prim. Test,2017-06-30,513,True,4.65C(44%)-5C,4.65C(44%)-5C,True,True
+EL150800463838,data_1.xlsx,15,880,Prim. Test,2017-05-12,880,True,5.4C(60%)-3C,5.4C(50%)-3C,False,False
+EL150800463871,data_1.xlsx,22,559,Train,2017-05-12,559,True,5.4C(80%)-5.4C,5.4C(60%)-3.6C,False,False
+EL150800463882,data_1.xlsx,12,788,Train,2017-05-12,788,True,5.4C(50%)-3C,5.4C(40%)-3.6C,False,False
+EL150800463886,data_1.xlsx,7,636,Prim. Test,2017-05-12,636,True,4.8C(80%)-4.8C,4.8C(80%)-4.8C,True,True
+EL150800464002,data_1.xlsx,21,534,Prim. Test,2017-05-12,534,True,5.4C(80%)-5.4C,5.4C(60%)-3.6C,False,False
+EL150800464865,data_1.xlsx,5,1227,Prim. Test,2017-05-12,1709,False,4C(80%)-4C,4C(80%)-4C,True,True
+EL150800464865,data_2.xlsx,17,483,Prim. Test,2017-05-12,1709,False,80%)-4C,4C(80%)-4C,False,False
+EL150800464881,data_1.xlsx,20,788,Train,2017-05-12,788,True,5.4C(70%)-3C,5.4C(60%)-3C,False,False
+EL150800464883,data_1.xlsx,6,1074,Train,2017-05-12,1074,True,4.4C(80%)-4.4C,4.4C(80%)-4.4C,True,True
+EL150800464977,data_1.xlsx,4,1226,Train,2017-05-12,1434,False,4C(80%)-4C,4C(80%)-4C,True,True
+EL150800464977,data_2.xlsx,16,209,Train,2017-05-12,1434,False,80%)-4C,4C(80%)-4C,False,False
+EL150800465027,data_1.xlsx,8,870,Train,2017-05-12,870,True,4.8C(80%)-4.8C,4.8C(80%)-4.8C,True,True
+EL150800737213,data_3.xlsx,6,828,Sec. test,2018-04-12,828,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737229,data_3.xlsx,7,667,Sec. test,2018-04-12,667,True,3.7C(31%)-5.9C-newstructure,3.7C(31%)-5.9C,False,True
+EL150800737233,data_3.xlsx,9,828,Sec. test,2018-04-12,828,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737234,data_3.xlsx,29,541,Sec. test,2018-04-12,541,True,3.7C(31%)-5.9C-newstructure,3.7C(31%)-5.9C,False,True
+EL150800737251,data_3.xlsx,28,850,Sec. test,2018-04-12,850,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737259,data_3.xlsx,26,989,Sec. test,2018-04-12,989,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737270,data_3.xlsx,10,1039,Sec. test,2018-04-12,1039,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737274,data_3.xlsx,19,1146,Sec. test,2018-04-12,1146,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800737275,data_3.xlsx,20,1155,Sec. test,2018-04-12,1155,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737276,data_3.xlsx,12,817,Sec. test,2018-04-12,817,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800737277,data_3.xlsx,11,1078,Sec. test,2018-04-12,1078,True,4.8C(80%)-4.8C-newstructure,4.36C(80%)-4.36C,False,False
+EL150800737279,data_3.xlsx,32,731,Sec. test,2018-04-12,731,True,5.9C(60%)-3.1C-newstructure,5.9C(60%)-3.1C,False,True
+EL150800737280,data_3.xlsx,4,1115,Sec. test,2018-04-12,1115,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737285,data_3.xlsx,23,1002,Sec. test,2018-04-12,1002,True,5.9C(60%)-3.1C-newstructure,5.9C(60%)-3.1C,False,True
+EL150800737287,data_3.xlsx,27,1028,Sec. test,2018-04-12,1028,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800737304,data_3.xlsx,34,1284,Sec. test,2018-04-12,1284,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737307,data_3.xlsx,8,1836,Sec. test,2018-04-12,1836,True,4.8C(80%)-4.8C-newstructure,4.36C(80%)-4.36C,False,False
+EL150800737313,data_3.xlsx,2,1063,Sec. test,2018-04-12,1063,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737314,data_3.xlsx,13,932,Sec. test,2018-04-12,932,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737315,data_3.xlsx,21,813,Sec. test,2018-04-12,813,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737319,data_3.xlsx,14,816,Sec. test,2018-04-12,816,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800737320,data_3.xlsx,30,858,Sec. test,2018-04-12,858,True,5.9C(15%)-4.6C-newstructure,5.9C(15%)-4.6C,False,True
+EL150800737329,data_3.xlsx,1,1009,Sec. test,2018-04-12,1009,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737334,data_3.xlsx,39,1935,Sec. test,2018-04-12,1935,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737345,data_3.xlsx,17,1638,Sec. test,2018-04-12,1638,True,4.8C(80%)-4.8C-newstructure,4.36C(80%)-4.36C,False,False
+EL150800737350,data_3.xlsx,35,1158,Sec. test,2018-04-12,1158,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737361,data_3.xlsx,40,1156,Sec. test,2018-04-12,1156,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737365,data_3.xlsx,37,923,Sec. test,2018-04-12,923,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737366,data_3.xlsx,22,772,Sec. test,2018-04-12,772,True,3.7C(31%)-5.9C-newstructure,3.7C(31%)-5.9C,False,True
+EL150800737368,data_3.xlsx,25,825,Sec. test,2018-04-12,825,True,5C(67%)-4C-newstructure,5C(67%)-4C,False,True
+EL150800737369,data_3.xlsx,45,940,Sec. test,2018-04-12,940,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737378,data_3.xlsx,18,1315,Sec. test,2018-04-12,1315,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737380,data_3.xlsx,31,935,Sec. test,2018-04-12,935,True,5.3C(54%)-4C-newstructure,5.3C(54%)-4C,False,True
+EL150800737386,data_3.xlsx,16,876,Sec. test,2018-04-12,876,True,5.9C(15%)-4.6C-newstructure,5.9C(15%)-4.6C,False,True
+EL150800737387,data_3.xlsx,15,858,Sec. test,2018-04-12,858,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True
+EL150800737390,data_3.xlsx,41,796,Sec. test,2018-04-12,796,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800739476,data_3.xlsx,5,1048,Sec. test,2018-04-12,1048,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800739477,data_3.xlsx,36,1093,Sec. test,2018-04-12,1093,True,5.6C(19%)-4.6C-newstructure,5.6C(19%)-4.6C,False,True
+EL150800739484,data_3.xlsx,46,1801,Sec. test,2018-04-12,1801,True,4.8C(80%)-4.8C-newstructure,4.36C(80%)-4.36C,False,False
+EL150800739495,data_3.xlsx,42,786,Sec. test,2018-04-12,786,True,5.6C(36%)-4.3C-newstructure,5.6C(36%)-4.3C,False,True

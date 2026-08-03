@@ -1,0 +1,25 @@
+# Python and operating-system artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+Thumbs.db
+
+# Rebuildable local scratch space
+/tmp/
+/workspace/
+
+# Immutable source materials: retained locally, versioned by SHA-256 manifest.
+# The MAT files total about 7.70 GiB and must not be pushed to ordinary Git.
+/data_*.mat
+/data_*.xlsx
+/1710560890-r2I8.pdf
+/B.docx
+/论文.docx
+
+# A nested reference checkout, not part of this modelling repository.
+/reference/sh_b/
+
+# Junction to reference/; avoid recording it twice.
+/papers/

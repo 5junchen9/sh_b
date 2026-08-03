@@ -1,0 +1,23 @@
+{
+  "subquestion": "Q2",
+  "frozen_at": "2026-08-03T09:19:49.0414880+08:00",
+  "frozen_by_skill": "solution-package-builder",
+  "source_method": "M1 主效应 Ridge（正文）/ M2 交互敏感性 / P3 pilot 候选接口",
+  "signoff_artifact": "methods/Q2/decisions/solution-package-builder_modeler_decision.md",
+  "code_source_files": [
+    {"path": "code/Q2/q2_m1_explainability.py", "mtime_utc": "2026-08-02T16:12:11Z"},
+    {"path": "code/Q2/q2b_train_proxy_comparison.py", "mtime_utc": "2026-08-02T14:28:56Z"},
+    {"path": "code/audit/run_secondary_final_pressure_test.py", "mtime_utc": "2026-08-03T00:19:39Z"}
+  ],
+  "claims": [
+    {"id": "q2_m1_train_rmse_log", "label": "M1 Train 分组 OOF RMSE_log", "value": 0.37169, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "results/Q2/experiments/round1/q2_experiment_report_round1.md", "source_locator": "2.1 指标"},
+    {"id": "q2_m1_train_mae_log", "label": "M1 Train 分组 OOF MAE_log", "value": 0.27557, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "results/Q2/experiments/round1/q2_experiment_report_round1.md", "source_locator": "2.1 指标"},
+    {"id": "q2_m2_train_rmse_log", "label": "M2 Train 分组 OOF RMSE_log", "value": 0.36854, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "results/Q2/experiments/round1/q2_experiment_report_round1.md", "source_locator": "2.2 指标"},
+    {"id": "q2_m2_train_mae_log", "label": "M2 Train 分组 OOF MAE_log", "value": 0.25102, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "results/Q2/experiments/round1/q2_experiment_report_round1.md", "source_locator": "2.2 指标"},
+    {"id": "q2_m2_relative_mae_improvement", "label": "M2 相对 M1 的 MAE_log 点估计改善", "value": 0.0891, "unit": "proportion", "precision_for_paper": 4, "source_file": "robustness/Q2/q2_robustness_report.md", "source_locator": "3 与 3.1"},
+    {"id": "q2_m2_delta_mae_ci95_low", "label": "M2-M1 ΔMAE_log 95% 区间下界", "value": -0.07245, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "robustness/Q2/q2_robustness_report.md", "source_locator": "3.1"},
+    {"id": "q2_m2_delta_mae_ci95_high", "label": "M2-M1 ΔMAE_log 95% 区间上界", "value": 0.0262, "unit": "ln-cycle", "precision_for_paper": 5, "source_file": "robustness/Q2/q2_robustness_report.md", "source_locator": "3.1"},
+    {"id": "q2_p3_secondary_rmse_log", "label": "P3 Secondary RMSE_log", "value": 0.677812, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q2_external_metrics.csv", "source_locator": "row=model_id:P3,column=rmse_log"},
+    {"id": "q2_p3_secondary_mae_log", "label": "P3 Secondary MAE_log", "value": 0.63077, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q2_external_metrics.csv", "source_locator": "row=model_id:P3,column=mae_log"}
+  ]
+}

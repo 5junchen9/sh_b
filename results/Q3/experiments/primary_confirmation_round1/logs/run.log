@@ -1,0 +1,84 @@
+{
+  "question": "Q3",
+  "round": "primary_confirmation_round1",
+  "execution_timestamp": "2026-08-02T16:02:17.428666+00:00",
+  "implementation_target": "python",
+  "random_seed": 20260802,
+  "scope": "One-time frozen M3 confirmation on Primary; alpha and template use Train only.",
+  "windows": [
+    5,
+    100
+  ],
+  "partitions": {
+    "train": "Train",
+    "primary": "Prim. Test",
+    "train_cells": 41,
+    "primary_cells": 43
+  },
+  "target_transform": "natural_log",
+  "inverse_transform": "exp",
+  "metric_definitions": {
+    "cell_equal_soh_rmse": "正式 SOH 指标",
+    "future_point_pooled_soh_rmse": "补充诊断",
+    "predicted_soh_nom_120": "冻结 Train 模板与 Primary 真实 k 锚点得到的第120循环预测，仅用于 Q4 已有策略的受限聚合"
+  },
+  "metrics": [
+    {
+      "k": 5,
+      "rmse_log": 0.3030541203368948,
+      "mae_log": 0.20322464558388928,
+      "rmse_cycle": 230.33815980654143,
+      "mae_cycle": 143.11514622354227,
+      "overprediction_rate": 0.5116279069767442,
+      "cell_equal_soh_rmse": 0.042588675806334214,
+      "future_point_pooled_soh_rmse": 0.04596758052758947,
+      "curve_cells": 43,
+      "template_failures": 0,
+      "failure_predicted_life_not_after_k": 0,
+      "failure_missing_anchor": 0,
+      "failure_no_future_observation": 0,
+      "failure_template_anchor_denominator": 0
+    },
+    {
+      "k": 100,
+      "rmse_log": 0.3970168899299244,
+      "mae_log": 0.21534654596962247,
+      "rmse_cycle": 212.02231620110794,
+      "mae_cycle": 134.9150827024073,
+      "overprediction_rate": 0.5348837209302325,
+      "cell_equal_soh_rmse": 0.03842854307045683,
+      "future_point_pooled_soh_rmse": 0.04235768655297242,
+      "curve_cells": 41,
+      "template_failures": 2,
+      "failure_predicted_life_not_after_k": 2,
+      "failure_missing_anchor": 0,
+      "failure_no_future_observation": 0,
+      "failure_template_anchor_denominator": 0
+    }
+  ],
+  "input_sha256": {
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "cycle_model_view.csv": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75",
+    "q3_primary_confirmation_protocol.md": "bebedc7bebb3a8c0a61f2b82b46f28b9cf6af8f56794dae5be93d82c32628261",
+    "early_features_k5.csv": "d26e8149ca236ff514d6a711b78905c64635c41bccc3837fc1790ad9c6419400",
+    "early_features_k100.csv": "607b789e1a37ce582087f882c05d329b5635d16bfd08cd4bd69758156b7b159e"
+  },
+  "script_sha256": "ebcb8b35109911c639de7b83e88fbfef54c5ffdbf98b2882be5f9589a1022f91",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scikit_learn": "1.9.0"
+  },
+  "outputs": [
+    "tables/q3_primary_window_metrics.csv",
+    "tables/q3_primary_life_predictions.csv",
+    "tables/q3_primary_cell_curve_errors.csv",
+    "tables/q3_primary_soh120_predictions.csv",
+    "tables/q3_primary_train_tuning.csv",
+    "metrics/q3_primary_metrics.json",
+    "figures/q3_primary_confirmation.png",
+    "figures/q3_primary_confirmation.svg",
+    "q3_primary_confirmation_report.md"
+  ]
+}

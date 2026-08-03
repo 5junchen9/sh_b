@@ -1,0 +1,64 @@
+{
+  "question": "Q1",
+  "status": "descriptive_uncertainty_computed",
+  "execution_timestamp": "2026-08-02T16:40:45.514129+00:00",
+  "random_seed": 20260802,
+  "bootstrap_replicates": 2000,
+  "scope": "All official cells for lifetime-distribution resampling; 19 Train-Primary repeated policies for agreement resampling. No model fitting or causal inference.",
+  "distribution": [
+    {
+      "statistic": "mean_life",
+      "point_estimate": 801.6370967741935,
+      "ci95_low": 739.9649193548387,
+      "ci95_high": 869.5925403225807,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "statistic": "median_life",
+      "point_estimate": 736.5,
+      "ci95_low": 651.0,
+      "ci95_high": 825.0,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "statistic": "q1_life",
+      "point_estimate": 498.75,
+      "ci95_low": 482.9875,
+      "ci95_high": 534.01875,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "statistic": "q3_life",
+      "point_estimate": 946.5,
+      "ci95_low": 865.5,
+      "ci95_high": 1048.0,
+      "bootstrap_replicates": 2000
+    }
+  ],
+  "agreement": [
+    {
+      "statistic": "Pearson相关",
+      "point_estimate": 0.9028564256043469,
+      "ci95_low": 0.19043525524135682,
+      "ci95_high": 0.9723714080813061,
+      "bootstrap_unit": "重复策略组",
+      "bootstrap_replicates": 2000
+    },
+    {
+      "statistic": "Spearman相关",
+      "point_estimate": 0.5513608428446005,
+      "ci95_low": -0.02310680813446469,
+      "ci95_high": 0.8790654380497174,
+      "bootstrap_unit": "重复策略组",
+      "bootstrap_replicates": 2000
+    },
+    {
+      "statistic": "平均绝对寿命差（cycle）",
+      "point_estimate": 119.5,
+      "ci95_low": 68.9967105263158,
+      "ci95_high": 175.0059210526314,
+      "bootstrap_unit": "重复策略组",
+      "bootstrap_replicates": 2000
+    }
+  ]
+}

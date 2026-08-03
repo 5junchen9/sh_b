@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "artifact_type": "post_exposure_primary_confirmation_configuration_ledger",
+  "created_at_utc": "2026-08-02T17:21:45.332077+00:00",
+  "critical_interpretation": "This is a reconstructed traceability ledger, not a claim that a prospective preregistration existed before Primary was exposed. It must not be used to relabel Primary as an independent test set.",
+  "primary_status": "limited_confirmation_only",
+  "secondary_status": "not_read_and_reserved_for_final_pressure_test",
+  "shared_partition": {
+    "train_label": "Train",
+    "primary_label": "Prim. Test",
+    "train_cells": 41,
+    "primary_cells": 43
+  },
+  "q2b": {
+    "candidate_id": "P3_additive_gam",
+    "parameters": {
+      "n_knots": 4,
+      "alpha": 0.03
+    },
+    "features": [
+      "C1",
+      "Q1_percent",
+      "C2"
+    ],
+    "target_transform": "natural_log",
+    "inverse_transform": "exp",
+    "seed": 20260802,
+    "reported_primary_metrics": {
+      "confirmation_status": "observed_not_adjudicated",
+      "scope": "One-time frozen P3 confirmation on Primary; no tuning, replacement or threshold-based automatic pass/fail.",
+      "method_id": "P3_additive_gam",
+      "frozen_params": {
+        "n_knots": 4,
+        "alpha": 0.03
+      },
+      "feature_columns": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "target_transform": "natural_log",
+      "inverse_transform": "exp",
+      "train_cells": 41,
+      "primary_cells": 43,
+      "primary_policy_groups": 39,
+      "rmse_log": 0.2892675071510141,
+      "mae_log": 0.22572228581059497,
+      "rmse_cycle": 179.39232875237562,
+      "mae_cycle": 146.79450649757143,
+      "overprediction_rate": 0.3953488372093023,
+      "mean_positive_log_error": 0.12065172007721948,
+      "mean_positive_cycle_error": 63.310682536145215
+    },
+    "protocol": "methods/Q2/q2b_primary_confirmation_protocol.md",
+    "adjudication": "observed_not_adjudicated"
+  },
+  "q3": {
+    "candidate_id": "M2_early_feature_Ridge_with_monotone_SOH_template",
+    "legacy_primary_script_label": "M3 (historical label only)",
+    "round2_alignment": "The Primary implementation's early features and tuning rule align with Round 2 M2, not the later M3/M4 joint candidates.",
+    "windows": [
+      5,
+      100
+    ],
+    "selected_alpha_by_window": [
+      {
+        "k": 5,
+        "alpha": 10.0,
+        "train_cells": 41,
+        "train_policy_groups": 40
+      },
+      {
+        "k": 100,
+        "alpha": 3.0,
+        "train_cells": 41,
+        "train_policy_groups": 40
+      }
+    ],
+    "target_transform": "natural_log",
+    "inverse_transform": "exp",
+    "formal_soh_metric": "cell_equal_soh_rmse",
+    "seed": 20260802,
+    "reported_primary_metrics": {
+      "confirmation_status": "observed_not_adjudicated",
+      "scope": "One-time frozen M3 confirmation on Primary; alpha and template use Train only.",
+      "windows": [
+        {
+          "k": 5,
+          "rmse_log": 0.3030541203368948,
+          "mae_log": 0.20322464558388928,
+          "rmse_cycle": 230.33815980654143,
+          "mae_cycle": 143.11514622354227,
+          "overprediction_rate": 0.5116279069767442,
+          "cell_equal_soh_rmse": 0.042588675806334214,
+          "future_point_pooled_soh_rmse": 0.04596758052758947,
+          "curve_cells": 43,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        },
+        {
+          "k": 100,
+          "rmse_log": 0.3970168899299244,
+          "mae_log": 0.21534654596962247,
+          "rmse_cycle": 212.02231620110794,
+          "mae_cycle": 134.9150827024073,
+          "overprediction_rate": 0.5348837209302325,
+          "cell_equal_soh_rmse": 0.03842854307045683,
+          "future_point_pooled_soh_rmse": 0.04235768655297242,
+          "curve_cells": 41,
+          "template_failures": 2,
+          "failure_predicted_life_not_after_k": 2,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        }
+      ],
+      "selected_alpha_by_window": [
+        {
+          "k": 5,
+          "alpha": 10.0,
+          "train_cells": 41,
+          "train_policy_groups": 40
+        },
+        {
+          "k": 100,
+          "alpha": 3.0,
+          "train_cells": 41,
+          "train_policy_groups": 40
+        }
+      ],
+      "soh_metric": "cell_equal_soh_rmse is formal; pooled is diagnostic."
+    },
+    "protocol": "methods/Q3/q3_primary_confirmation_protocol.md",
+    "adjudication": "observed_not_adjudicated"
+  },
+  "missing_or_not_predeclared_gates": [
+    "No prospective Primary configuration file was created before the recorded run.",
+    "No automatic pass/fail threshold was predeclared for the executed Q2-B confirmation.",
+    "No post-Primary model, feature, window, or threshold tuning is permitted.",
+    "The later M3/M4 joint candidates and low-dimensional raw-curve challenger M3R were Train-only; they did not receive a Primary confirmation and cannot be described as externally confirmed."
+  ],
+  "source_sha256": {
+    "methods/Q2/q2b_primary_confirmation_protocol.md": "681dfe8ef4d04a76eef8afc73495ff05bc0063e532e417fd81fa3609aa01b295",
+    "methods/Q3/q3_primary_confirmation_protocol.md": "bebedc7bebb3a8c0a61f2b82b46f28b9cf6af8f56794dae5be93d82c32628261",
+    "methods/Q2/decisions/human_primary_confirmation_choice_20260802.md": "d19fe58c3b9289add1942aaff0bd15e864a0f0ac6cb7ab47a035656e5bee81b9",
+    "methods/Q3/decisions/human_window_choice_20260802.md": "be0f1774f3f19f364a2d41c1205b5266a1a7bce39575ee8c1f99c72b61bb7d83",
+    "methods/Q3/decisions/human_window_claim_scope_20260802.md": "b7da0be405fb7bebdf7d251ccab779a06d8be8daf5d601b0d95dd90e80e872e2",
+    "methods/Q3/q3_round2_scope_update.md": "549065401beb60d29e1dd65914637a190332e3ae86bfaa2ac75d843ba1e92d2c",
+    "code/Q2/q2b_primary_confirmation.py": "42a3b8f4100d8ca60f54562300046cdc1d1e7b43df4b5b785d93a34ec601b4bf",
+    "code/Q3/q3_primary_confirmation.py": "ebcb8b35109911c639de7b83e88fbfef54c5ffdbf98b2882be5f9589a1022f91",
+    "results/Q2/experiments/q2b_primary_confirmation_round1/run_summary.json": "6d129f07db6bb9f3d5f316641aa95c561b487a766dbbf47f3feb6f8df29db906",
+    "results/Q2/experiments/q2b_primary_confirmation_round1/metrics/q2b_primary_metrics.json": "d42596bd6b2e2f9009d09561d9245ccdeb49c668ab1341e4e8d0e83b2be94bc7",
+    "results/Q3/experiments/primary_confirmation_round1/run_summary.json": "b199c9bc7a4197e696a6f4b1bd49abf3be0a38ac4bbb803d68af8597296f23f8",
+    "results/Q3/experiments/primary_confirmation_round1/metrics/q3_primary_metrics.json": "76b87b6814f7a348b7ddbf1fd33090e2ef0ff888ad6ba0295119264e01d61d23"
+  },
+  "rebuild_command": ".\\.venv\\Scripts\\python.exe l1\\code\\audit\\build_primary_confirmation_manifest.py"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "enhanced_descriptive_outputs_complete",
+  "generated_at_utc": "2026-08-02T14:01:03.776696+00:00",
+  "script_sha256": "d7398f6410a60608cfcf2e01b12745a9f0bc5ce6a328b3d6092ff5faa11ab4c3",
+  "input_sha256": {
+    "q1_cell_level_summary.csv": "acddf0fa294a6dc438812fad1f893cd1ff2694ea6924fda3b7356d1bc803ac41",
+    "cycle_model_view.csv": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75",
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f"
+  },
+  "input_checks": {
+    "cell_rows": 124,
+    "unique_barcodes": 124,
+    "p0_status": "pass"
+  },
+  "representative_long_policy": "3.6C(80%)-3.6C",
+  "representative_short_policy": "5.4C(60%)-3.6C",
+  "outputs": [
+    "results/Q1/experiments/round1/figures/q1_07_policy_lifetime_top_bottom.png",
+    "results/Q1/experiments/round1/figures/q1_08_observed_charge_time_vs_lifetime.png",
+    "results/Q1/experiments/round1/figures/q1_09_long_short_soh_band.png",
+    "results/Q1/experiments/round1/tables/q1_strategy_lifetime_summary_enhanced.csv",
+    "results/Q1/experiments/round1/tables/q1_long_short_strategy_comparison.csv"
+  ],
+  "interpretation_scope": "descriptive only; no causal effect or final prediction claim"
+}

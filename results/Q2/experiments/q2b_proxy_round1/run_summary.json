@@ -1,0 +1,313 @@
+{
+  "question": "Q2-B",
+  "round": "q2b_proxy_round1",
+  "execution_timestamp": "2026-08-02T14:29:18.397878+00:00",
+  "implementation_target": "python",
+  "random_seed": 20260802,
+  "scope": "Train-only; Primary/Secondary and early-cycle features are excluded from fitting, tuning, bootstrap, selection and scoring.",
+  "data": {
+    "train_cells": 41,
+    "policy_groups": 40,
+    "features": [
+      "C1",
+      "Q1_percent",
+      "C2"
+    ],
+    "target": "ln(cycle_life_table9)"
+  },
+  "validation": {
+    "outer": "5-fold GroupKFold(policy_table9)",
+    "inner": "4-fold GroupKFold(policy_table9)",
+    "tuning_metric": "mean inner RMSE_log"
+  },
+  "bootstrap": {
+    "replicates": 2000,
+    "unit": "policy_table9 block",
+    "condition": "stored outer-fold OOF predictions"
+  },
+  "methods": [
+    {
+      "method_id": "P1_ridge",
+      "name": "P1 主效应 Ridge",
+      "complexity": 1,
+      "role": "parameter_baseline",
+      "grid": [
+        {
+          "alpha": 0.01
+        },
+        {
+          "alpha": 0.1
+        },
+        {
+          "alpha": 1.0
+        },
+        {
+          "alpha": 3.0
+        },
+        {
+          "alpha": 10.0
+        },
+        {
+          "alpha": 30.0
+        },
+        {
+          "alpha": 100.0
+        }
+      ]
+    },
+    {
+      "method_id": "P2_elasticnet",
+      "name": "P2 ElasticNet",
+      "complexity": 2,
+      "role": "parameter_candidate",
+      "grid": [
+        {
+          "alpha": 0.005,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 0.005,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.005,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 0.005,
+          "l1_ratio": 0.8
+        },
+        {
+          "alpha": 0.01,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 0.01,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.01,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 0.01,
+          "l1_ratio": 0.8
+        },
+        {
+          "alpha": 0.03,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 0.03,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.03,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 0.03,
+          "l1_ratio": 0.8
+        },
+        {
+          "alpha": 0.1,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 0.1,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.1,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 0.1,
+          "l1_ratio": 0.8
+        },
+        {
+          "alpha": 0.3,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 0.3,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 0.3,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 0.3,
+          "l1_ratio": 0.8
+        },
+        {
+          "alpha": 1.0,
+          "l1_ratio": 0.05
+        },
+        {
+          "alpha": 1.0,
+          "l1_ratio": 0.2
+        },
+        {
+          "alpha": 1.0,
+          "l1_ratio": 0.5
+        },
+        {
+          "alpha": 1.0,
+          "l1_ratio": 0.8
+        }
+      ]
+    },
+    {
+      "method_id": "P3_additive_gam",
+      "name": "P3 低自由度加性样条 GAM",
+      "complexity": 3,
+      "role": "parameter_candidate",
+      "grid": [
+        {
+          "n_knots": 3,
+          "alpha": 0.03
+        },
+        {
+          "n_knots": 3,
+          "alpha": 0.1
+        },
+        {
+          "n_knots": 3,
+          "alpha": 0.3
+        },
+        {
+          "n_knots": 3,
+          "alpha": 1.0
+        },
+        {
+          "n_knots": 3,
+          "alpha": 3.0
+        },
+        {
+          "n_knots": 3,
+          "alpha": 10.0
+        },
+        {
+          "n_knots": 3,
+          "alpha": 30.0
+        },
+        {
+          "n_knots": 4,
+          "alpha": 0.03
+        },
+        {
+          "n_knots": 4,
+          "alpha": 0.1
+        },
+        {
+          "n_knots": 4,
+          "alpha": 0.3
+        },
+        {
+          "n_knots": 4,
+          "alpha": 1.0
+        },
+        {
+          "n_knots": 4,
+          "alpha": 3.0
+        },
+        {
+          "n_knots": 4,
+          "alpha": 10.0
+        },
+        {
+          "n_knots": 4,
+          "alpha": 30.0
+        }
+      ]
+    },
+    {
+      "method_id": "C1_restricted_boosting",
+      "name": "C1 严格受限提升树（挑战者）",
+      "complexity": 4,
+      "role": "challenger",
+      "grid": [
+        {
+          "learning_rate": 0.05,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 8,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 8,
+          "l2_regularization": 10.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 12,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 12,
+          "l2_regularization": 10.0
+        },
+        {
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 8,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 8,
+          "l2_regularization": 10.0
+        },
+        {
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 12,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.1,
+          "max_iter": 100,
+          "max_leaf_nodes": 3,
+          "min_samples_leaf": 12,
+          "l2_regularization": 10.0
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "parameter_error_anchor": "P3_additive_gam",
+    "parameter_rmse_anchor": "P3_additive_gam",
+    "parameter_mae_anchor": "P3_additive_gam",
+    "parameter_selected": "P3_additive_gam",
+    "parameter_selection_note": "在误差一标准误范围且过预测风险不高于误差锚点的参数模型中，选择复杂度最低者。",
+    "parameter_selection_fallback_used": false,
+    "challenger_admitted": false,
+    "final_selected_proxy": "P3_additive_gam",
+    "final_selected_name": "P3 低自由度加性样条 GAM",
+    "challenger_requirement": "相对参数代理，RMSE_log 与 MAE_log 的 bootstrap 差值95%上界均<0，且过预测比例差值上界<=0。"
+  },
+  "input_sha256": {
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8"
+  },
+  "script_sha256": "34a0bda986e3ebca6b101ea3c375adf9c2b040c29c4eeb7e59955e71d822f461",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scikit_learn": "1.9.0"
+  }
+}

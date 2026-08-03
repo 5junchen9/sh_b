@@ -1,0 +1,1317 @@
+                                                                                    Articles
+                                                                  SUPPLEMENTARY INFORMATION
+                                                                                                      https://doi.org/10.1038/s41560-019-0356-8
+
+In the format provided by the authors and unedited.
+
+
+
+Data-driven prediction of battery cycle life before
+capacity degradation
+Kristen A. Severson 1,5, Peter M. Attia 2,5, Norman Jin 2, Nicholas Perkins 2, Benben Jiang 1,
+Zi Yang 2, Michael H. Chen 2, Muratahan Aykol 3, Patrick K. Herring 3, Dimitrios Fraggedakis                                                    1
+                                                                                                                                                 ,
+Martin Z. Bazant 1, Stephen J. Harris 2,4, William C. Chueh 2* and Richard D. Braatz 1*
+
+Department of Chemical Engineering, Massachusetts Institute of Technology, Cambridge, MA, USA. 2Department of Materials Science and Engineering,
+1
+
+Stanford University, Stanford, CA, USA. 3Toyota Research Institute, Los Altos, CA, USA. 4Materials Science Division, Lawrence Berkeley National Lab,
+Berkeley, CA, USA. 5These authors contributed equally: K. A. Severson, P. M. Attia. *e-mail: wchueh@stanford.edu; braatz@mit.edu
+
+
+
+
+Nature Energy | www.nature.com/natureenergy
+Supplementary Information for
+
+Data-driven prediction of battery cycle life before capacity degradation
+
+Kristen A. Severson1*, Peter M. Attia2*, Norman Jin2, Nicholas Perkins2, Benben Jiang1, Zi
+
+Yang2, Michael H. Chen2, Muratahan Aykol3, Patrick K. Herring3, Dimitrios Fraggedakis1,
+
+Martin Z. Bazant1, Stephen J. Harris4, William C. Chueh2†, Richard D. Braatz1†
+
+* These authors contributed equally to this work
+
+† Corresponding authors: wchueh@stanford.edu, braatz@mit.edu
+
+
+
+Affiliations:
+
+1 Department of Chemical Engineering, Massachusetts Institute of Technology, Cambridge, MA,
+
+USA
+
+2 Department of Materials Science and Engineering, Stanford University, Stanford, CA, USA
+
+3 Toyota Research Institute, Los Altos, CA, USA
+
+4 Materials Science Division, Lawrence Berkeley National Lab, Berkeley, CA, USA
+Supplementary Figures
+
+
+
+
+Supplementary Figure 1. Schematic illustrating a closed-loop optimization system. First,
+
+batteries are tested, and the data is inputted into an early prediction model. These predictions are
+
+subsequently inputted to a Bayesian optimal experimental design algorithm, which recommends
+
+the next policies to be tested. This process iterates until the testing budget is exhausted. With this
+
+approach, early prediction reduces the number of cycles required per tested cell, while optimal
+
+experimental design reduces the number of experiments required. This method can be applied to
+
+optimize battery chemistry, processing and management protocols, which often necessitates
+
+searching through a large parameter space and inevitably involves cycling many cells to failure.
+
+Early prediction of failure is a key component of high-throughput battery optimization
+
+applications.
+Supplementary Figure 2. Illustration of extreme fast charging policy structure (~10 minutes to
+
+80% SOC). All cells in this dataset were tested with a two-step fast charging policy. C1 and C2
+
+represent the first and second applied currents, while Q1 represents the SOC (%) at which the
+
+currents switch. Beyond 80% SOC, all cells charge galvanostatically at 1C to 3.6 V and then
+
+charge potentiostatically at 3.6 V. The upper value for each current is constrained by the
+
+manufacturer’s upper voltage limit (3.6 V).
+Supplementary Figure 3. Average cell temperature as a function of cycle number for all cells.
+
+The color represents cycle life. The average temperature varies by around 6˚C over all cells,
+
+largely as a function of charging policy, position within the temperature chamber, internal cell
+
+impedance, and batch.
+                           40                                            40                                            40
+
+
+        Temperature (°C)   38                                            38                                            38
+
+
+
+
+                                                      Temperature (°C)
+
+
+
+
+                                                                                                    Temperature (°C)
+                           36                                            36                                            36
+
+
+                           34                                            34                                            34
+
+
+                           32                                            32                                            32
+
+
+                           30                                            30                                            30
+
+
+                           28                                            28                                            28
+                                0   20     40    60                           0   20     40    60                           0   20     40    60
+                                    Time (min)                                    Time (min)                                    Time (min)
+
+
+Supplementary Figure 4. Temperature profiles as a function of time and cycle number for three
+
+different cells. Each line represents a 100-cycle increment, and darker colors represent higher
+
+cycle number. The peak around 10 minutes is the peak during charge, which varies substantially
+
+as a function of charging policy, while the peak around 50 minutes is the peak during the 4C
+
+discharge. The temperature rises substantially during the rapid charge and discharge steps, in
+
+some cases increasing by nearly 10˚C. The temperature profiles generally rise as a function of
+
+cycle number as the cell impedance increases. Note that the contact between the cell and the
+
+thermocouple may vary during cycling as well.
+Supplementary Figure 5. Nine features used in the full model described in Supplementary
+
+Table 1. The coefficient value for the feature in the linear model is in the title of plot. The train,
+
+primary test, and secondary test cells are represented by blue circles, red squares, and orange
+
+triangles, respectively. The z-scored feature values are presented on the x axis. Z-scoring is
+
+performed based on the training data.
+Supplementary Figure 6. Histogram of initial discharge capacity (cycle 2) for the secondary
+
+test dataset compared to the training and primary test datasets.
+Supplementary Figure 7. Contributions from the discharge features to cycle life for the full
+
+model and the discharge model for the secondary test dataset as compared to the average
+
+prediction. The mean offset for the full and discharge models are given by the dotted lines. The
+
+discharge features may be biased in the full model due to the specific discharge features selected
+
+by the elastic net.
+Supplementary Figure 8. Observed and predicted cycle lives for the “multivariate discharge
+
+curve, cycle 100” model. The training data are used to learn the model structure and coefficient
+
+values, and the testing data are used to assess the generalizability of the model. The vertical
+
+dotted line indicates when the prediction is made in relation to the observed cycle life. The
+
+features used in the model can be found in Supplementary Table 2. The inset shows the
+
+histogram of residuals (predicted – observed) for the primary and secondary test data; the
+
+residual for the outlier cell is not shown in the inset.
+Supplementary Figure 9. Observed and predicted cycle lives for the “multivariate discharge
+
+curve, cycle 300” model. The training data are used to learn the model structure and coefficient
+
+values, and the testing data are used to assess the generalizability of the model. The vertical
+
+dotted line indicates when the prediction is made in relation to the observed cycle life. The
+
+features used in the model can be found in Supplementary Table 2. The inset shows the
+
+histogram of residuals (predicted – observed) for the primary and secondary test data. The outlier
+
+cell has a cycle life of 148 and is therefore not included in analysis.
+Supplementary Figure 10. Relationship between cycle life and the discharge capacity at cycles
+
+100, 200, and 300. The correlation coefficient, ρ, is also displayed. The short-lived outlier cell is
+
+excluded from analysis.
+Supplementary Figure 11. Correlation between log cycle life and the number of cycles to reach
+
+5% total capacity fade. Relative fade (left) is with respect to the observed discharge capacity at
+
+cycle 2, and absolute fade (right) is with respect to the nominal discharge capacity (1.1 Ah). The
+
+correlation coefficient, ρ, is also displayed.
+Supplementary Figure 12. The RMSE of models using the log cycle number at which the
+
+capacity fade criteria are met.
+Supplementary Figure 13. Distribution of the cycle numbers at which predictions are made as a
+
+function of the capacity fade criterion.
+Supplementary Figure 14. Average AUC for 20 random train/test splits in the classification
+
+setting using a lifetime threshold of 550 cycles.
+Supplementary Figure 15. Average AUC for 20 random train/test splits in the classification
+
+setting using a lifetime threshold of 700 cycles.
+Supplementary Figure 16. The probability of a battery’s lifetime exceeding the lifetime
+
+threshold of 550 cycles vs observed cycle life using the “variance classifier”. The decision
+
+boundary is 0.5. The variance of ΔQ(V) = Q5(V) – Q4(V) is the only feature in this classification
+
+model.
+Supplementary Figure 17. The probability of a battery’s lifetime exceeding the lifetime
+
+threshold of 550 cycles vs observed cycle life using the “full classifier”. The decision boundary
+
+is 0.5. Five cycles were used in this classification task.
+                              4C Charge / 4C Discharge                                       6C Charge / 4C Discharge                                         8C Charge / 4C Discharge
+                         1                                                              1                                                                1
+                                                            LLI                                                              LLI                                                           LLI
+ C/10 Discharge dV/dQ
+
+                        0.8                                                            0.8                                                              0.8
+                                                 LAM deNE
+    dV/d%Q (V/%)
+
+
+
+
+                                                                        dV/d%Q (V/%)
+
+
+
+
+                                                                                                                                         dV/d%Q (V/%)
+                                                                                                                LAM
+                                                                                                                      deNE                                                    LAM
+                                                                                                                                                                                    deNE
+                        0.6                                                            0.6                                                              0.6
+
+                        0.4                                                            0.4                                                              0.4
+
+                        0.2                                                            0.2                                                              0.2
+
+                         0                                                              0                                                                0
+                              0             50                    100                        0             50                      100                        0             50                   100
+                                  Normalized Capacity (%)                                        Normalized Capacity (%)                                          Normalized Capacity (%)
+
+
+Supplementary Figure 18. Identification of shifts in dV/dQ for loss of lithium inventory (LLI)
+
+and loss of active delithiated negative electrode material (LAMdeNE). This figure is identical to
+
+the second row of Figure 4 but with additional annotations. As a measure of LLI, we use the
+
+change in normalized capacity at 0.8 V/% (purple dots). As a measure of LAMdeNE, we use the
+
+shift in the peak position for the peak near 75% of normalized capacity (yellow dots).
+                                            Cycle 100 - cycle 1                                        End-of-life - cycle 1
+                                    8                                                         20
+                                             LLI
+
+
+            Shift in capacity (%)
+
+
+
+
+                                                                      Shift in capacity (%)
+                                             LAM deNE
+                                    6                                                         18
+
+
+                                    4                                                         16
+
+
+                                    2                                                         14
+
+
+                                    0                                                         12
+                                        4     5         6   7     8                                4     5       6      7      8
+                                             Charging rate (C)                                           Charging rate (C)
+
+
+Supplementary Figure 19. Shifts for loss of lithium inventory (LLI) and loss of active
+
+delithiated negative electrode material (LAMdeNE) as a function of C rate during charging
+
+(measured at 4C, 6C, and 8C). The left subplot displays the shift from cycle 1 to cycle 100. The
+
+right subplot displays the shift from cycle 1 to the end-of-life.
+Supplementary Figure 20. Discharge capacity curves for batteries with periodic slow charging.
+
+A slow (C/10) charge and discharge cycle is employed at cycle 100, often resulting in a brief
+
+increase in discharge capacity on subsequent cycles (particularly for highly-degrading cells).
+Supplementary Figure 21. Measured capacity during the constant-voltage hold at the end of
+
+discharge as a function of cycle number for four representative cells. The lower cutoff potential
+
+is 2 V, and the current cutoff condition is C/50 (0.022 A).
+Supplementary Figure 22. Value of the coefficients as a function of cycle indices mapping to
+
+the ΔQ(V) feature in Figure 5. The model is 𝑦̂𝑘 = 𝑤𝑥𝑘 + 𝑏, where 𝑦̂𝑘 is the predicted cycle life
+
+for battery 𝑘, 𝑥𝑘 is the ΔQ(V) feature for battery 𝑘, 𝑤 is the coefficient, and 𝑏 is an offset term.
+      a                                            b
+
+
+
+
+                                                    c
+
+
+
+
+Supplementary Figure 23. Results of an alternate indexing scheme for the ΔQ(V) features. a,
+
+The early index is determined based on the maximum achieved capacity index, ℎ𝑖 , indicated for
+
+each battery, 𝑖, by a black x. The ΔQ(V) is then calculated as Qk(V) – Qhi(V) where 𝑘 = 𝑗 + ℎ𝑖 −
+
+𝑚𝑎𝑥 ℎ𝑖 such that each ΔQ(V) uses the same number of elapsed cycles. b, c The average errors
+  𝑖
+
+for models using the variance of ΔQ(V) for the training (b) and test (c) data.
+Supplementary Figure 24. Example of indices selection for applying the ΔQ(V) features using
+
+the relative discharge capacity curves. Each discharge capacity is scaled by the maximum
+
+discharge capacity value (shown in Supplementary Figure 23a). Each × indicates a cycle
+
+corresponding to a relative discharge capacity of 0.995.
+Supplementary Figure 25. Results of an alternate indexing scheme for the ΔQ(V) features. The
+
+indices are based on when the discharge capacity reaches a relative capacity fade. Relative
+
+capacity is determined by dividing the discharge capacity trajectory by the maximum capacity
+
+achieved by the battery. An example is shown in Supplementary Figure 24. The model uses the
+
+variance of ΔQ(V). The upper colorbar limit is set to 400 cycles to improve readability.
+Supplementary Figure 26. The average temperature for each of the batteries in “batch1” and
+
+“batch2” over the first 150 cycles. The two brief spikes in temperature observed in “batch1”
+
+corresponds to the decrease in performance observed in Figure 5. This event impacted
+
+approximately 50% of the cells in the test and train datasets and is likely responsible for the
+
+high-error (yellow) regions in Figure 5 for i=60 through i=70. The temperature remained
+
+constant during “batch2”, which consisted of the other 50% of the cells in the train and test
+
+datasets.
+                4                                                                         4
+                                                                                                                                         2C
+                                                                                                                                         4C
+                                                                                                                                         6C
+               3.5                                                                       3.5                                             8C
+                                                                                                                                         10C
+ Voltage (V)
+
+
+
+
+                                                                           Voltage (V)
+                                                               1C                                                                        12C
+                                                               2C                                                                        14C
+                3                                              3C                         3                                              16C
+                                                               4C                                                                        18C
+                                                               5C                                                                        20C
+                                                               6C
+               2.5                                             7C                        2.5
+                                                               8C
+                                                               9C
+                                                               10C
+                2                                                                         2
+                     0   0.2   0.4        0.6        0.8   1         1.2                       0   0.2   0.4        0.6        0.8   1         1.2
+                                     Capacity (Ah)                                                             Capacity (Ah)
+
+
+Supplementary Figure 27. Rate capability during charge (left) and discharge (right) for a
+
+pristine A123 18650 M1A cell. The voltage limits were 3.6 V and 2.0 V. The discharging rate
+
+was 1C for the charge test, and the charge rate was 1C for the discharge test. Only the constant-
+
+current portion is shown; the constant-voltage portion is not shown.
+Supplementary Figure 28. Histogram of cycle life for the training, primary test, and secondary
+
+test datasets.
+Supplementary Figure 29. Spline fits (solid lines) to the discharge capacity as a function of
+
+voltage (black squares) for three batteries at cycle 100. A smoothing spline accurately captures
+
+the relationship between discharge capacity and voltage and enables facile vector manipulation
+
+of the data.
+Supplementary Tables
+
+
+Supplementary Table 1. Features considered for the three regression model implementations.
+
+The simplest model (“variance”) uses only the log variance of ΔQ100-10(V) and does not consider
+
+model selection. The “discharge” model uses only discharge information for feature generation
+
+(first two sections), while the “full” model uses charge time, temperature, and internal resistance
+
+as additional measurements for feature generation (all sections).
+
+
+                    Features                           “Variance”      “Discharge”       “Full”
+                    Minimum                                                 ✓              ✓
+                    Mean
+   ΔQ100-10(V)      Variance                                 ✓              ✓              ✓
+    features        Skewness                                                ✓
+                    Kurtosis                                                ✓
+                    Value at 2V
+                    Slope of the linear fit to the                                         ✓
+                    capacity fade curve, cycles 2
+                    to 100
+                    Intercept of the linear fit to                                         ✓
+                    capacity fade curve, cycles 2
+                    to 100
+                    Slope of the linear fit to the
+     Discharge      capacity fade curve, cycles 91
+   capacity fade    to 100
+  curve features    Intercept of the linear fit to
+                    capacity fade curve, cycles 91
+                    to 100
+                    Discharge capacity, cycle 2                             ✓              ✓
+                    Difference between max                                  ✓
+                    discharge capacity and cycle 2
+                    Discharge capacity, cycle 100
+                    Average charge time, first 5                                           ✓
+                    cycles
+                    Maximum temperature, cycles
+                    2 to 100
+ Other features
+                    Minimum temperature, cycles
+                    2 to 100
+                    Integral of temperature over                                           ✓
+                    time, cycles 2 to 100
+Internal resistance, cycle 2
+Minimum internal resistance,      ✓
+cycles 2 to 100
+Internal resistance, difference   ✓
+between cycle 100 and cycle 2
+Supplementary Table 2. The features selected in the “multivariate discharge curve”
+
+benchmarking models.
+
+
+                  Features                          “Multivariate          “Multivariate
+                                                   discharge curve,       discharge curve,
+                                                      cycle 100”             cycle 300”
+                  Slope of capacity fade curve,           ✓                      ✓
+                  cycles 2 to 100/300
+                  Intercept of the linear fit to          ✓                          ✓
+                  capacity fade curve, cycles 2
+                  to 100/300
+                  Slope of capacity fade curve,           ✓                          ✓
+                  cycles 91 to 100 or 291 to
+  Multivariate    300
+   discharge      Intercept of the linear fit to                                     ✓
+ curve features   the capacity fade curve,
+                  cycles 91 to 100 or 291 to
+                  300
+                  Discharge capacity, cycle 2             ✓                          ✓
+                  Max discharge capacity –                ✓                          ✓
+                  discharge capacity, cycle 2
+                  Discharge capacity, cycle               ✓                          ✓
+                  100/300
+Supplementary Table 3. Model metrics for all benchmarking models. Train and test refer to the
+
+data used to learn the model and evaluate model performance, respectively. One battery in the
+
+test set reaches 80% SOH rapidly and does not match other observed patterns. Therefore, the
+
+parenthetical test results correspond to the exclusion of this battery. This battery is excluded
+
+from the “multivariate discharge curve, cycle 300” model since it already reached 80% SOH by
+
+cycle 300.
+
+
+                                   RMSE (cycles)                         Mean Percent Error
+                        Train        Primary     Secondary          Train   Primary    Secondary
+                                       Test         Test                      Test        Test
+ “Constant”             327         401 (399)       511             29.6%    34.9%       36.1%
+ model                                                                      (28.2%)
+ “Discharge at          304          373 (378)           577        25.0%    26.4%       45.3%
+ cycle 100”                                                                 (24.7%)
+ model
+ “Slope of              307          370 (374)           488        25.1%      26.1%         33.7%
+ discharge 91-                                                                (25.7%)
+ 100” model
+ “Multivariate          243          629 (323)           624        18.8%      78.5%         50.0%
+ discharge                                                                    (23.1%)
+ curve, cycle
+ 100” model
+ “Multivariate          167             352              561        12.5%     (26.9%)        45.5%
+ discharge
+ curve, cycle
+ 300” model
+Supplementary Table 4. Confusion matrix for the classification task with the “variance
+
+classifier” using a maximum cycle number of 5 and a lifetime threshold of 550. The values in the
+
+addition expressions are for train, primary test, and secondary test, respectively. The accuracies
+
+are 82.1%, 78.6%, and 97.5% for train, primary test, and secondary test, respectively. There are
+
+39, 41, and 40 cells in the three groups, respectively.
+
+
+  Observed/Predicted            High lifetime              Low lifetime              Total
+      High lifetime           15 + 20 + 39 = 74            3+3+0=6                    80
+      Low lifetime              4 + 5 + 1 = 10            16 +14 + 0 = 30             40
+           Total                      84                        36                   120
+Supplementary Table 5. Selected features in l1-regularized logistic regression in the “full
+
+classifier”. Four of eighteen features were selected.
+
+
+                 Feature                                       Weight
+           Temperature integral                                 -1.180
+               Charge time                                      0.710
+              min(∆Q5-4(V))                                     -0.522
+              var(∆Q5-4(V))                                     -0.462
+Supplementary Table 6. Confusion matrix for the classification task using the “full classifier”
+
+using a maximum cycle number of 5 and a lifetime threshold of 550. The values in the addition
+
+expressions are for train, primary test, and secondary test, respectively. The accuracies are
+
+97.4%, 92.7%, and 97.5% for train, primary test, and secondary test, respectively. There are 39,
+
+41, and 40 cells in the three groups, respectively.
+
+
+  Observed/Predicted            High lifetime           Low lifetime                 Total
+      High lifetime           18 + 19 + 39 = 77          0+3+0=3                      80
+      Low lifetime               1+0+1=2               19 +19 + 0 = 38                40
+          Total                       79                      41                      120
+Supplementary Table 7. Comparison of the change in discharge energy between cycle ~100
+
+and the beginning of life (cycle 1 or 10) for slow (C/10) diagnostic cycling and fast (4C)
+
+standard cycling.
+
+
+    Charging rate            Slow cycling:            Fast cycling:          Slow cycling/Fast
+                           Cycle 100 – cycle 1     Cycle 101 – cycle 10         cycling (%)
+                                  (Wh)                    (Wh)
+          4C                     -0.0247                  0.0182                   -136%
+          6C                     0.0357                   0.0678                   52.7%
+          8C                     0.0841                   0.1269                   66.3%
+Supplementary Table 8. Comparison of the change in discharge energy between the end of life
+
+and the beginning of life (cycle 1 or 10) for slow (C/10) diagnostic cycling and fast (4C)
+
+standard cycling.
+
+
+    Charging rate            Slow cycling:             Fast cycling:         Slow cycling/Fast
+                          Final cycle – cycle 1     2nd-to-last cycle –         cycling (%)
+                                 (Wh)                 cycle 10 (Wh)
+          4C                     0.2312                   0.2811                   82.2%
+          6C                     0.2226                   0.3838                   58.0%
+          8C                     0.2410                   0.4042                   59.6%
+Supplementary Table 9. Description of all cells included in dataset. ‘Batch date’ refers to the
+
+date the batch started. ‘Charging policy’ refers to the currents between 0% and 80% and are
+
+formatted as “C1(Q1%)-C2”, where C1 and C2 represent the first and second applied C rates,
+
+respectively, and Q1 represents the SOC at which the current switches (see Supplementary
+
+Figure 2). Further details are available at the data repository.
+
+
+  Cell barcode          Dataset       Batch date         Cycle life         Charging policy
+ EL150800460514        Prim. Test     2017-05-12           1852             3.6C(80%)-3.6C
+ EL150800460486          Train        2017-05-12           2160             3.6C(80%)-3.6C
+ EL150800460623        Prim. Test     2017-05-12           2237             3.6C(80%)-3.6C
+ EL150800464977          Train        2017-05-12           1434               4C(80%)-4C
+ EL150800464865        Prim. Test     2017-05-12           1709               4C(80%)-4C
+ EL150800464883          Train        2017-05-12           1074             4.4C(80%)-4.4C
+ EL150800463886        Prim. Test     2017-05-12            636             4.8C(80%)-4.8C
+ EL150800465027          Train        2017-05-12            870             4.8C(80%)-4.8C
+ EL150800460468        Prim. Test     2017-05-12           1054             5.4C(40%)-3.6C
+ EL150800463882          Train        2017-05-12            788             5.4C(40%)-3.6C
+ EL150800463838        Prim. Test     2017-05-12            880              5.4C(50%)-3C
+ EL150800453113          Train        2017-05-12            719              5.4C(50%)-3C
+ EL150800460653        Prim. Test     2017-05-12            862             5.4C(50%)-3.6C
+ EL150800460522          Train        2017-05-12            857             5.4C(50%)-3.6C
+ EL150800453240        Prim. Test     2017-05-12            691              5.4C(60%)-3C
+ EL150800464881          Train        2017-05-12            788              5.4C(60%)-3C
+ EL150800464002        Prim. Test     2017-05-12            534             5.4C(60%)-3.6C
+ EL150800463871          Train        2017-05-12            559             5.4C(60%)-3.6C
+ EL150800460477        Prim. Test     2017-05-12           1014              5.4C(70%)-3C
+ EL150800460630          Train        2017-05-12           1017              5.4C(70%)-3C
+ EL150800460617        Prim. Test     2017-05-12            854             5.4C(80%)-5.4C
+ EL150800460659          Train        2017-05-12            870             5.4C(80%)-5.4C
+ EL150800463198        Prim. Test     2017-05-12            842              6C(30%)-3.6C
+ EL150800460507          Train        2017-05-12            860              6C(30%)-3.6C
+ EL150800460644        Prim. Test     2017-05-12            917               6C(40%)-3C
+ EL150800460615          Train        2017-05-12            709               6C(40%)-3C
+ EL150800460481        Prim. Test     2017-05-12            876              6C(40%)-3.6C
+ EL150800460640          Train        2017-05-12            731              6C(40%)-3.6C
+ EL150800460436        Prim. Test     2017-05-12            757               6C(50%)-3C
+ EL150800460525          Train        2017-05-12            742               6C(50%)-3C
+ EL150800460622        Prim. Test     2017-05-12            703              6C(50%)-3.6C
+ EL150800460506          Train        2017-05-12            704              6C(50%)-3.6C
+ EL150800460601        Prim. Test     2017-05-12            648               6C(60%)-3C
+ EL150800453773          Train        2017-05-12            617               6C(60%)-3C
+EL150800460642   Prim. Test   2017-05-12    625      7C(30%)-3.6C
+EL150800463229     Train      2017-05-12    966      7C(30%)-3.6C
+EL150800460647   Prim. Test   2017-05-12   1051       7C(40%)-3C
+EL150800460618     Train      2017-05-12    702       7C(40%)-3C
+EL150800460636   Prim. Test   2017-05-12    651      7C(40%)-3.6C
+EL150800460485     Train      2017-05-12    616      7C(40%)-3.6C
+EL150800460656   Prim. Test   2017-05-12    599      8C(15%)-3.6C
+EL150800460518     Train      2017-06-30    300       1C(4%)-6C
+EL150800460605   Prim. Test   2017-06-30    148       2C(10%)-6C
+EL150800460602     Train      2017-06-30    438       2C(2%)-5C
+EL150800460673   Prim. Test   2017-06-30    335      2C(7%)-5.5C
+EL150800460655     Train      2017-06-30    444     3.6C(22%)-5.5C
+EL150800460635   Prim. Test   2017-06-30    480     3.6C(2%)-4.85C
+EL150800460634     Train      2017-06-30    511      3.6C(30%)-6C
+EL150800460451   Prim. Test   2017-06-30    561      3.6C(9%)-5C
+EL150800460466     Train      2017-06-30    477       4C(13%)-5C
+EL150800460510   Prim. Test   2017-06-30    458       4C(31%)-5C
+EL150800463208     Train      2017-06-30    483       4C(40%)-6C
+EL150800460449   Prim. Test   2017-06-30    485      4C(4%)-4.85C
+EL150800460478     Train      2017-06-30    494      4.4C(24%)-5C
+EL150800460480   Prim. Test   2017-06-30    487     4.4C(47%)-5.5C
+EL150800440551     Train      2017-06-30    461      4.4C(55%)-6C
+EL150800460652   Prim. Test   2017-06-30    502     4.4C(8%)-4.85C
+EL150800460603     Train      2017-06-30    489   4.65C(19%)-4.85C
+EL150800463245   Prim. Test   2017-06-30    513     4.65C(44%)-5C
+EL150800460501     Train      2017-06-30    527     4.65C(69%)-6C
+EL150800460597   Prim. Test   2017-06-30    495     4.8C(80%)-4.8C
+EL150800460611     Train      2017-06-30    461     4.8C(80%)-4.8C
+EL150800460596   Prim. Test   2017-06-30    471     4.8C(80%)-4.8C
+EL150800460614     Train      2017-06-30    468    4.9C(27%)-4.75C
+EL150800460610   Prim. Test   2017-06-30    509     4.9C(61%)-4.5C
+EL150800460604     Train      2017-06-30    498    4.9C(69%)-4.25C
+EL150800460527   Prim. Test   2017-06-30    481    5.2C(10%)-4.75C
+EL150800460608     Train      2017-06-30    492     5.2C(37%)-4.5C
+EL150800460631   Prim. Test   2017-06-30    519    5.2C(50%)-4.25C
+EL150800460641     Train      2017-06-30    520      5.2C(58%)-4C
+EL150800460492   Prim. Test   2017-06-30    499     5.2C(66%)-3.5C
+EL150800460628     Train      2017-06-30    463      5.2C(71%)-3C
+EL150800460528   Prim. Test   2017-06-30    535     5.6C(25%)-4.5C
+EL150800460511     Train      2017-06-30    478    5.6C(38%)-4.25C
+EL150800460649   Prim. Test   2017-06-30    465      5.6C(47%)-4C
+EL150800460627     Train      2017-06-30    459     5.6C(58%)-3.5C
+EL150800460526   Prim. Test   2017-06-30    499     5.6C(5%)-4.75C
+EL150800460513     Train      2017-06-30    429      5.6C(65%)-3C
+EL150800460473   Prim. Test   2017-06-30    466      6C(20%)-4.5C
+EL150800460498     Train      2017-06-30    462     6C(31%)-4.25C
+EL150800460474   Prim. Test   2017-06-30    457       6C(40%)-4C
+EL150800460613     Train      2017-06-30    487      6C(4%)-4.75C
+EL150800460678   Prim. Test   2017-06-30    429      6C(52%)-3.5C
+EL150800460599   Prim. Test   2017-06-30    713       6C(60%)-3C
+EL150800737329    Sec. test   2018-04-12   1009       5C(67%)-4C
+EL150800737313    Sec. test   2018-04-12   1063      5.3C(54%)-4C
+EL150800737280    Sec. test   2018-04-12   1115    5.6C(36%)-4.3C
+EL150800739476    Sec. test   2018-04-12   1048    5.6C(19%)-4.6C
+EL150800737213    Sec. test   2018-04-12    828    5.6C(36%)-4.3C
+EL150800737229    Sec. test   2018-04-12    667    3.7C(31%)-5.9C
+EL150800737307    Sec. test   2018-04-12   1836   4.36C(80%)-4.36C
+EL150800737233    Sec. test   2018-04-12    828       5C(67%)-4C
+EL150800737270    Sec. test   2018-04-12   1039      5.3C(54%)-4C
+EL150800737277    Sec. test   2018-04-12   1078   4.36C(80%)-4.36C
+EL150800737276    Sec. test   2018-04-12    817    5.6C(19%)-4.6C
+EL150800737314    Sec. test   2018-04-12    932    5.6C(36%)-4.3C
+EL150800737319    Sec. test   2018-04-12    816    5.6C(19%)-4.6C
+EL150800737387    Sec. test   2018-04-12    858    5.6C(36%)-4.3C
+EL150800737386    Sec. test   2018-04-12    876    5.9C(15%)-4.6C
+EL150800737345    Sec. test   2018-04-12   1638   4.36C(80%)-4.36C
+EL150800737378    Sec. test   2018-04-12   1315      5.3C(54%)-4C
+EL150800737274    Sec. test   2018-04-12   1146    5.6C(19%)-4.6C
+EL150800737275    Sec. test   2018-04-12   1155    5.6C(36%)-4.3C
+EL150800737315    Sec. test   2018-04-12    813       5C(67%)-4C
+EL150800737366    Sec. test   2018-04-12    772    3.7C(31%)-5.9C
+EL150800737285    Sec. test   2018-04-12   1002    5.9C(60%)-3.1C
+EL150800737368    Sec. test   2018-04-12    825       5C(67%)-4C
+EL150800737259    Sec. test   2018-04-12    989      5.3C(54%)-4C
+EL150800737287    Sec. test   2018-04-12   1028    5.6C(19%)-4.6C
+EL150800737251    Sec. test   2018-04-12    850    5.6C(36%)-4.3C
+EL150800737234    Sec. test   2018-04-12    541    3.7C(31%)-5.9C
+EL150800737320    Sec. test   2018-04-12    858    5.9C(15%)-4.6C
+EL150800737380    Sec. test   2018-04-12    935      5.3C(54%)-4C
+EL150800737279    Sec. test   2018-04-12    731    5.9C(60%)-3.1C
+EL150800737304    Sec. test   2018-04-12   1284       5C(67%)-4C
+EL150800737350    Sec. test   2018-04-12   1158      5.3C(54%)-4C
+EL150800739477    Sec. test   2018-04-12   1093    5.6C(19%)-4.6C
+EL150800737365    Sec. test   2018-04-12    923    5.6C(36%)-4.3C
+EL150800737334    Sec. test   2018-04-12   1935       5C(67%)-4C
+EL150800737361    Sec. test   2018-04-12   1156      5.3C(54%)-4C
+EL150800737390    Sec. test   2018-04-12    796    5.6C(19%)-4.6C
+EL150800739495    Sec. test   2018-04-12    786    5.6C(36%)-4.3C
+EL150800737369    Sec. test   2018-04-12    940      5.3C(54%)-4C
+EL150800739484    Sec. test   2018-04-12   1801   4.36C(80%)-4.36C
+Supplementary Note 1. Feature formulations
+
+       The formulas for each of the features are given below, ordered as in Supplementary Table
+
+1, moving from top to bottom (unless otherwise noted, log implies log base 10). These features
+
+are functions of
+
+
+Δ𝑄(𝑉) = 𝑄100 (𝑉) − 𝑄10 (𝑉), Δ𝑄(𝑉) ∈ ℝ𝑝                                                      (1)
+
+        1
+Δ𝑄(𝑉) = 𝑝 ∑𝑝𝑖=1 Δ𝑄(𝑉)
+̅̅̅̅                                                                                        (2)
+
+
+              1
+𝐛∗ = arg min 𝑑 ‖𝐪 − 𝐗𝐛‖22 ,                                                                 (3)
+         𝐛
+
+
+
+where 𝑑 is the number of cycles used in the prediction, 𝐪 ∈ ℝ𝒅 is a vector of discharge capacities
+
+as a function of the cycle number, 𝐗 ∈ ℝ𝒅×𝟐 where the first column are the cycle numbers used
+
+in prediction and the second column is ones, and 𝐛 ∈ ℝ𝟐 is a coefficient vector. The features are
+
+
+   •   Minimum = log(|min(Δ𝑄(𝑉))|)
+
+   •               ̅̅̅̅(𝑉)|)
+       Mean = log(|Δ𝑄
+
+                         1                      2
+   •   Variance = log (|𝑝−1 ∑𝑝𝑖=1(Δ𝑄(𝑉) − ̅̅̅̅
+                                          Δ𝑄(𝑉)) |)
+
+
+                             1 𝑝                 3
+                                       ̅̅̅̅ (𝑉))
+                              ∑ (Δ𝑄(𝑉)−Δ𝑄
+                             𝑝 𝑖=1
+   •   Skewness = log [|                              3   |]
+                               𝑝                2
+                                        ̅̅̅̅ (𝑉)) )
+                           (√∑𝑖=1(Δ𝑄(𝑉)−Δ𝑄
+
+
+
+                            1 𝑝                 4
+                                      ̅̅̅̅ (𝑉))
+                             ∑ (Δ𝑄(𝑉)−Δ𝑄
+                           𝑝 𝑖=1
+   •   Kurtosis = log [|                      2 2
+                                                    |]
+                           1 𝑝        ̅̅̅̅ (𝑉)) )
+                        (𝑝 ∑𝑖=1(Δ𝑄(𝑉)−Δ𝑄
+
+
+   •   Value at 2 V = log(|Δ𝑄(𝑉 = 2)|)
+
+   •   Slope of discharge curve, cycles 2 to 100 = the first value in the vector 𝐛∗ as in eqn. 3
+
+       where 𝑑 = 99
+   •   Intercept of the linear fit to 𝑄(𝑛), cycles 2 to 100, the second value in the vector 𝐛∗ as in
+
+       eqn. 3 where 𝑑 = 99
+
+   •   Slope of 𝑄(𝑛), cycles 91 to 100 = the first value in the vector 𝐛∗ as in eqn. 3 where 𝑑 =
+
+       10
+
+   •   Intercept of the linear fit to 𝑄(𝑛), cycles 91 to 100, the second value in the vector 𝐛∗ as in
+
+       eqn. 3 where 𝑑 = 10
+
+   •   Discharge capacity, cycle 2 = 𝑄(𝑛 = 2)
+
+   •   Max discharge capacity – discharge capacity, cycle 2 = max 𝑄(𝑛) − 𝑄(𝑛 = 2)
+                                                                   𝑛
+
+
+   •   Discharge capacity, cycle 100 = 𝑄(𝑛 = 100)
+
+                                1
+   •   Average charge time = 5 ∑6𝑖=2 Charge Time𝑖
+
+   •   Maximum temperature, cycles 2 to 100 = max 𝑇(𝑛)
+                                                          𝑛
+
+
+   •   Minimum temperature, cycle 2 to 100 = min 𝑇(𝑛)
+                                                      𝑛
+
+                                                  𝑡
+   •   Temperature integral, cycle 2 to 100 = ∫𝑡 100 𝑇(𝑡)𝑑𝑡
+                                                  2
+
+
+   •   Internal resistance, cycle 2 = 𝐼𝑅(𝑛 = 2)
+
+   •   Minimum internal resistance = min 𝐼𝑅(𝑛)
+                                          𝑛
+
+
+   •   Internal resistance, cycle 100 – cycle 2 = 𝐼𝑅(𝑛 = 100) − 𝐼𝑅(𝑛 = 2)
+
+
+       We note that ΔQ(V) can be related to the change in energy of the battery over cycles. For
+
+a battery cycled galvanostatically between 𝑉1 and 𝑉2, the energy is given by
+
+       𝑉
+𝐸 = ∫𝑉 2 𝑄(𝑉) 𝑑𝑉                                                                             (4)
+       1
+A change in energy, ΔE, is given by
+
+       𝑉                  𝑉                𝑉
+Δ𝐸 = ∫𝑉 2 𝑄100 (𝑉) 𝑑𝑉 − ∫𝑉 2 𝑄10 (𝑉)𝑑𝑉 = ∫𝑉 2(𝑄100 (𝑉) − 𝑄10 (𝑉))𝑑𝑉        (5)
+        1                 1                1
+
+
+
+Various transformations of ΔQ(V) are correlated with a change in energy.
+Supplementary Note 2. Secondary test set error
+        From Table 1, the error for the discharge model applied to the secondary test set is 8.6%,
+
+while the error for the full model applied to the secondary test set is 10.7%. While the
+
+differences are small, this result is counterintuitive given the additional features and data streams
+
+provided. We believe two factors can explain this counterintuitive result.
+
+        First, the sample size is small. We expect that, with additional samples, we would be able
+
+to show that additional measurement streams (e.g. temperature and internal resistance)
+
+contributing to the feature set would lead to improved performance.
+
+        Second, the calendar aging of the secondary test set was about one year greater than the
+
+primary testing and training sets. Calendar aging impacts the initial capacity of the cell
+
+(Supplementary Figure 6). This change introduces bias for the secondary test dataset for the
+
+features based on the discharge capacity fade curve.
+
+        While we expect to see this bias in both the discharge and full models, our analysis
+
+indicates that this effect manifests more strongly in the discharge model given the specific
+
+features selected in the discharge and full models. Supplementary Figure 7 shows the
+
+contribution of all discharge features (weight times value) relative to the average cycle life
+
+prediction for both the discharge and full models for the secondary test dataset. In the discharge
+
+model, these features include (1) the discharge capacity at cycle 2 and (2) the difference between
+
+the max discharge capacity and cycle 2. In the full model, these features include (1) the slope of
+
+the linear fit to the capacity fade curve, cycles 2 to 100, (2) the intercept of the linear fit to
+
+capacity fade curve, cycles 2 to 100, and (3) the discharge capacity at cycle 2.
+
+        In both cases, the discharge features decrease the predicted cycle life, but the decrease is
+
+much larger in the case of the full model. As a result, the calendar life effect reduces the
+predicted lifetime in the full model. A final application of the model could take into account
+
+calendar aging to correct for these effects.
+Supplementary Note 3. Benchmarking models
+
+   Five naïve models were considered for benchmarking:
+
+   1. “Constant”: univariate model using only the average cycle life of the training set for all
+
+       predictions
+
+   2. “Discharge at cycle 100”: univariate model using only the discharge capacity at cycle
+
+       100
+
+   3. “Slope of discharge cycles 91-100”: univariate model using only the slope of the linear
+
+       fit for discharge capacity, cycles 91-100
+
+   4. “Multivariate discharge curve model, cycle 100”: multivariate model with feature
+
+       selection using the features described in Supplementary Table 2 (note that these features
+
+       are the second section of Supplementary Table 1) using data from the first 100 cycles
+
+   5. “Multivariate discharge curve model, cycle 300”: multivariate model with feature
+
+       selection using the features described in Supplementary Table 2 (note that these features
+
+       are the second section of Supplementary Table 1) using data from the first 300 cycles
+
+
+
+       In all analyses, the same data partitioning into train, primary test, and secondary test is
+
+used. The features selected in the multivariate discharge curve models are displayed in
+
+Supplementary Table 2. The multivariate discharge curve models are shown in Supplementary
+
+Figure 8 and Supplementary Figure 9, and all errors are reported in Supplementary Table 3. The
+
+best performing model is the “slope of discharge 91-100” model; the multivariate models have
+
+much higher testing error compared to training error, implying these models are overfit. As a
+
+whole, models that only use features from the capacity fade curve do not accurately predict cycle
+life, particularly for batteries with long cycle lives. The errors of all benchmarking models are
+
+significantly larger than those presented in the main text.
+
+       Interestingly, the multivariate discharge curve model using the first 300 cycles performs
+
+comparably to the model that uses the first 100 cycles. We rationalize this observation by
+
+investigating the correlation between cycle life and the capacity at cycles 100, 200, and 300, as
+
+displayed in Supplementary Figure 10. The correlations improve slowly with increased cycle
+
+number but also become less linear. We attribute this nonlinearity to the nonlinear nature of the
+
+capacity fade curves. Overall, this analysis illustrates the difficulty of relying solely on features
+
+from the capacity fade curve, even at increased cycle number.
+
+       As an additional benchmarking approach, we also consider using capacity fade metrics as
+
+the criteria for prediction (i.e. 5% capacity fade), instead of a fixed cycle index (i.e. cycle 100).
+
+We find that at 5% capacity fade (both relative and absolute), a linear trend does develop (see
+
+Supplementary Figure 11). However, this trend is late to develop. The average number of cycles
+
+to reach 5% capacity fade is 508 and 425 cycles for relative and absolute capacity fade,
+
+respectively. The correlation coefficient between cycle life and the log variance of ΔQ100-10(V)
+
+feature is similar to that between the number of cycles to reach 5% capacity fade (0.98 and 0.94
+
+for relative and absolute capacity fade, respectively). While this analysis suggests that capacity
+
+fade features can be used to predict cycle life in certain contexts, waiting until a certain capacity
+
+fade is reached also has the undesirable property of scaling with cycle life, meaning cells with
+
+long cycle lives require more time until a prediction is made.
+
+       We also build single-feature linear models using log cycle life as our single feature.
+
+Capacity fade was defined as the relative change from the measured capacity at cycle 2. Using
+the same training and testing split as in the manuscript, RMSE is calculated for various capacity
+
+fade criteria and plotted in Supplementary Figure 12.
+
+       Of course, using a relative indexing scheme means that the number of cycles used in
+
+prediction varies for each battery. The distribution of the cycle number used in prediction for
+
+Supplementary Figure 12 is shown in Supplementary Figure 13. The errors of the capacity fade
+
+models are similar to the models using ΔQ(V) features at 2% capacity fade, which requires 425
+
+cycles on average. The last prediction for the data occurs at cycle 895.
+Supplementary Note 4. Early-cycle classification
+
+       Two types of classification analysis were performed using two thresholds:
+
+“Variance classifier”
+
+       The first analysis (“variance classifier”) uses only the log variance of ΔQ(V) to classify
+
+batteries as “low lifetime” or “high lifetime” to create univariate classification models. The data
+
+are evenly split into train and test groups of 42 cells using the same train-test split as before,
+
+analogously to Figure 5. Test data are z-scored based on the training data. The area under the
+
+receiver operator curve (AUC) is then calculated. AUC is a common metric for classification
+
+tasks and is a measure of the area under the true positive rate – false positive rate tradeoff curve.
+
+An AUC of 0.5 is equivalent to a random classification, and an AUC of unity is perfect
+
+separation. We perform 20 bootstrap samples of train/test splits and average the AUC across
+
+these trials. The results are shown in Supplementary Figures 14 and 15 for lifetime thresholds of
+
+550 and 700, respectively.
+
+       For early cycles (i,j<10), the performance is highest along the i=j+1 diagonal. This trend
+
+is seen for both threshold values. We rationalize this observation by considering temperature
+
+fluctuations within the chamber (see Supplementary Figure 26). Given the temperature
+
+fluctuations on the scale of five cycles, we hypothesize that consecutive cycles are highly
+
+performing in these early-cycle contexts because their temperatures are most similar. This effect
+
+is less important for predictions with higher degradation, as the effect of degradation supersedes
+
+the effect of temperature fluctuations. This result highlights the importance of stable temperature
+
+control for factory-based applications.
+
+       Given this result, we first develop a univariate model using only the variance of ΔQ(V) =
+
+Q5(V) – Q4(V). This model is termed “variance classifier”. We select these indices to restrict the
+prediction to only use data from the first five cycles. The coefficient weight of the trained model
+
+is -0.433. 16 of 120 points are incorrectly classified, highlighting our high performance even at
+
+very early cycles. Accuracy information is also presented in Supplementary Table 4 as a
+
+confusion matrix. A confusion matrix is a standard representation of the classification accuracy
+
+for each class.
+
+        Supplementary Figure 16 presents the probability of the cycle life exceeding 550 cycles
+
+(in other words, the probability a battery is in the “high lifetime” class) using the “variance
+
+classifier”. In this figure, points within the bottom left and top right quadrants are correctly
+
+classified, while points within the bottom right and top left quadrants are incorrectly classified.
+
+We select a probability of 0.5 as the decision boundary.
+
+
+
+“Full classifier”
+
+        The second analysis (“full classifier”) investigates multivariate classification models
+
+using features from only the first five cycles. We develop a regularized logistic regression model
+
+to classify batteries into “low lifetime” and “high lifetime” classes, selecting 550 cycles as the
+
+lifetime threshold. In logistic regression, the logit function is employed to estimate probabilities
+
+of an event. The values of probability range from 0 to 1. We use the logistic loss criterion with
+
+l1-regularization to train the model and perform subset selection simultaneously, similar to the
+
+regularized linear model presented previously.
+
+        For the “full classifier”, eighteen of the twenty features from the full model
+
+(Supplementary Table 1) are candidate features; however, these features are edited to only draw
+
+information up to cycle 5. The late-cycle slope and intercept (slope and intercept for a linear fit
+
+between cycles 91 and 100) did not have an analogue in this setting, which removed two of the
+twenty features. Again, cycles 5 and 4 are used for ΔQ(V). The selected features and their
+
+weights are presented in Supplementary Table 5 for a threshold of 550 cycles.
+
+          We find that the temperature integral is the most highly weighted feature, in line with our
+
+previous rationalization of the importance of temperature in very-early-cycle prediction tasks.
+
+Two ∆Q5-4(V) features, the minimum and the variance, were selected, further showcasing the
+
+predictive power of this feature.
+
+          Supplementary Figure 17 presents the probability of the cycle life exceeding 550 cycles
+
+(in other words, the probability a battery is in the “high lifetime” class) for the “full classifier”.
+
+This Supplementary Figure should be read in a similar manner as Supplementary Figure 16.
+
+Again, we select a probability of 0.5 as the decision boundary.
+
+          Five of 120 points are incorrectly classified, highlighting our high performance even at
+
+very early cycles. This information is also presented in Supplementary Table 6, the confusion
+
+matrix.
+Supplementary Note 5. Degradation quantification
+       Supplementary Figure 19 plots the shifts in both LLI and LAMdeNE as a function of C rate
+
+and cycle number for both the change after 100 cycles and the total lifetime of the cells (based on
+
+the shift quantification presented in Supplementary Figure 18). For the first 100 cycles, the shifts
+
+in both LLI and LAMdeNE increase with C rate. At the end of life, the overall shifts are quite
+
+similar, indicating that the end states are similar. We note that while LLI is occurring within the
+
+first 100 cycles (indicating a decrease in capacity), the overall capacity generally increases by
+
+cycle 100 (Figure 1c) due to the “overhang effect” reported by other groups56-57.
+
+       The trend in the shifts for the first 100 cycles is notable because the shifts increase with
+
+increasing C rate, despite a lower time per cycle as the C rate increases. This observation
+
+suggests that calendar aging (i.e. time-dependent aging) plays only a small role during fast
+
+charging. We propose some hypotheses for these dependences on C rate here:
+
+       •   Loss of lithium inventory (LLI)
+
+               o More SEI growth due to increased temperature. SEI growth rates are
+
+                   known to increase with temperature,1,2 which would in turn increase with C
+
+                   rate.
+
+               o More SEI growth due to increased overpotential. SEI growth rates would
+
+                   increase with increasing overpotential (decreased anode intercalation potential
+
+                   relative to the standard lithium potential).2,3 The overpotential would, in turn,
+
+                   increase with C rate.
+
+       •   Loss of active delithiated negative electrode material (LAMdeNE)
+
+               o More delamination/fracture due to increasing strain rate. Graphite
+
+                   particles could lose contact with the electronic network due to mechanical
+           factors such as delamination and particle fracture, which would be dictated by
+
+           the strain rate.4 The strain rate would increase with increasing C rate.
+
+       o More electrolyte dry-out due to increased temperature. Graphite could
+
+           lose ionic contact due to electrolyte dry-out,5,6 which would increase with
+
+           temperature and thus C rate.
+
+Studying these mechanisms in depth is the subject of future work.
+Supplementary Note 6. Kinetic degradation
+
+       We consider the role of kinetic degradation in the ΔQ(V) signal by investigating the
+
+capacity discharged during the constant-voltage hold at the end of discharge, which is an
+
+accessible metric of kinetic degradation. In fact, we observe a continuous increase in this
+
+capacity with cycle number (Supplementary Figure 21), which is one indication that the
+
+impedance is increasing with time.
+
+       Given that the impedance is clearly increasing, we investigate the relative contributions
+
+of the ΔQ(V) signal. We can distinguish the effects of OCV degradation modes such as LAM
+
+from kinetic degradation modes by comparing the changes in energy between slow cycling and
+
+fast cycling. The change in discharge energy between representative slow (C/10) cycles and fast
+
+(4C) cycles within each of the three charging conditions is displayed in Supplementary Table 7
+
+(comparison between cycle ~100 and beginning of life) and Supplementary Table 8 (comparison
+
+between end of life and beginning of life). The change in energy during slow discharging is
+
+generally 50%-80% of the total change in energy during high-rate discharging. This result
+
+indicates that OCV degradation modes contributes significantly to the ΔQ(V) signal, but both
+
+low-rate and high-rate degradation modes contribute.
+
+       Finally, we consider the source of the kinetic contributions to ΔQ(V), which we estimate
+
+contributes 20% to 50% of the total impedance. Conventionally, impedance increases are
+
+generally attributed to interfacial/interphasial effects such as SEI growth7,8; however, we mention
+
+that low-rate degradation modes like LAMdeNE also increase the overpotential by increasing the
+
+local current density of the active regions. Contributions to overpotential that increase with
+
+additional cycling include:
+   •   Increased impedance for lithium-ion transport due to SEI growth7,8; generally scales with
+
+       t1/2
+
+   •   Increased heterogeneity of (de)lithiation9
+
+   •   Increased (de)insertion reaction overpotential as LAM occurs (increased local current
+
+       density); scales logarithmically with a linear change in LAM
+
+   •   Increased Ohmic overpotential as LAM occurs (increased local current density); scales
+
+       linearly with a linear change in LAM
+
+
+
+       Overall, the relative contributions of these modes are difficult to distinguish. Finally, we
+
+note that the cell temperatures generally increase with cycling (Supplementary Figure 4), which
+
+would decrease the overpotential.
+Supplementary Note 7. Relative indexing schemes
+
+       Throughout the manuscript, ΔQ(V) is defined based on fixed indices, e.g. ΔQ(V) =
+
+Q100(V) – Q10(V), irrespective of battery performance. Additional analysis was performed to
+
+compare this fixed indexing scheme to relative indexing schemes. In the relative indexing
+
+paradigm, indices are chosen based on the relative capacity decrease. There are three primary
+
+choices for the baseline capacity: (1) the nominal capacity of the cell reported by the
+
+manufacturer, (2) the initial capacity of the cell, or (3) the maximum capacity of the cell. The
+
+nominal capacity of the cells used in analysis is 1.1 Ah. Many cells never achieved this capacity,
+
+suggesting it is a less useful baseline. Most of the cells experience an initial increase in capacity,
+
+which, if used for scaling, shifts the cycle at which the first decrease is observed. This leaves the
+
+maximum as the best option for a capacity benchmark.
+
+       Two possible indexing schemes using the capacity scaled by its maximum value were
+
+investigated. In the first scheme, a fixed number of cycles after the maximum was used. The
+
+results of this procedure are shown in Supplementary Figure 23. The errors of the resulting
+
+models do decrease in a similar pattern to Figure 5; however, the improvements in predictive
+
+power take longer to develop and do not go as low as observed in the fixed indexing scheme.
+
+       The second indexing scheme considers choosing each of the indices based on when a
+
+particular relative capacity fade is achieved. Supplementary Figure 24 shows an example of the
+
+scaled capacity curves as well as the selection of the cycle corresponding to a relative capacity of
+
+0.995. For all cells in the dataset, more than 250 cycles have passed before 99.5% capacity fade
+
+is reached. Therefore, this type of indexing scheme clearly delays when predictions can be made.
+
+The errors for the resulting models are shown in Supplementary Figure 25. The colorbar is set to
+
+match Figure 5. A comparison of these two figures shows that the relative indexing scheme
+models have higher error than the fixed indexing scheme models. While this this result may
+
+initially seem surprising, we suspect that the relative indexing scheme has the effect of
+
+collapsing the trend that differentiates the cells by rescaling.
+Supplementary References
+1. Smith, A. J., Burns, J. C., Zhao, X., Xiong, D. & Dahn, J. R. A High Precision Coulometry
+
+  Study of the SEI Growth in Li/Graphite Cells. J. Electrochem. Soc. 158, A447 (2011).
+
+2. Keil, P. et al. Calendar Aging of Lithium-Ion Batteries: I. Impact of the Graphite Anode on
+
+  Capacity Fade. J. Electrochem. Soc. 163, A1872–A1880 (2016).
+
+3. Xia, J., Nie, M., Ma, L. & Dahn, J. R. Variation of coulombic efficiency versus upper cutoff
+
+  potential of Li-ion cells tested with aggressive protocols. J. Power Sources 306, 233–240
+
+  (2016).
+
+4. Vetter, J. et al. Ageing mechanisms in lithium-ion batteries. J. Power Sources 147, 269–281
+
+  (2005).
+
+5. Mao, Z., Farkhondeh, M., Pritzker, M., Fowler, M. & Chen, Z. Calendar Aging and Gas
+
+  Generation in Commercial Graphite/NMC-LMO Lithium-Ion Pouch Cell. J. Electrochem.
+
+  Soc. 164, A3469–A3483 (2017).
+
+6. Kupper, C., Weißhar, B., Rißmann, S. & Bessler, W. G. End-of-Life Prediction of a Lithium-
+
+  Ion Battery Cell Based on Mechanistic Aging Models of the Graphite Electrode. J.
+
+  Electrochem. Soc. 165, A3468–A3480 (2018).
+
+7. Zhang, S., Ding, M. S., Xu, K., Allen, J. & Jow, T. R. Understanding Solid Electrolyte
+
+  Interface Film Formation on Graphite Electrodes. Electrochem. Solid-State Lett. 4, A206
+
+  (2001).
+
+8. Zhang, S. S., Xu, K. & Jow, T. R. EIS study on the formation of solid electrolyte interface in
+
+  Li-ion battery. Electrochimica Acta 51, 1636–1640 (2006).
+
+9. Lewerenz, M., Marongiu, A., Warnecke, A. & Sauer, D. U. Differential voltage analysis as a
+
+  tool for analyzing inhomogeneous aging: A case study for LiFePO4|graphite cylindrical cells.
+
+  J. Power Sources 368, 57–67 (2017).
+

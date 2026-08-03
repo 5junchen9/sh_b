@@ -1,0 +1,23 @@
+{
+  "scope": "One-time frozen Secondary raw features; I>0.1 A charge points; six-field deep MAT mask required.",
+  "features": [
+    "raw_charge_v_mean_mean",
+    "raw_charge_v_p95_mean",
+    "raw_charge_v_p95_slope"
+  ],
+  "windows": [
+    5,
+    100
+  ],
+  "source_mask": "outputs/data_audit/mat_deep_cycle_flags.csv",
+  "k5": {
+    "cells": 40,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0
+  },
+  "k100": {
+    "cells": 40,
+    "min_valid_ratio": 1,
+    "cells_below_80pct_valid": 0
+  }
+}

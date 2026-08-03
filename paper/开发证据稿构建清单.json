@@ -1,0 +1,14 @@
+{
+  "status": "development_evidence_docx_nonfinal",
+  "template": "D:\\13470\\Documents\\2026_math\\l1\\论文.docx",
+  "template_sha256": "f510ffe58f1c2c8a3cf4a9481038b777770daaf302c6b4f691a367b0858b6256",
+  "source_markdown": "D:\\13470\\Documents\\2026_math\\l1\\paper\\开发证据稿_全篇_非最终.md",
+  "source_sha256": "d8d3435152297641e1c64284e0399f2d3bcbf98f7393b2263998bac20859422e",
+  "output": "D:\\13470\\Documents\\2026_math\\l1\\paper\\论文开发证据稿_非最终.docx",
+  "output_sha256": "9fa7a20bc4dfd112b4610b71e4d747cca7bbc0a07c73389763d4dbf743d64681",
+  "paragraph_count": 81,
+  "table_count": 5,
+  "figure_count": 6,
+  "final_submission_claim": false,
+  "render_status": "structurally_verified; visual_render_pending_no_libreoffice"
+}

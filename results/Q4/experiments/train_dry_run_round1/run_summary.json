@@ -1,0 +1,111 @@
+{
+  "question": "Q4",
+  "round": "train_dry_run_round1",
+  "scope": "Train-only candidate support dry-run. It does not create formal Pareto or final recommendations.",
+  "seed": 20260802,
+  "train_cells": 41,
+  "policy_groups": 40,
+  "candidate_grid": {
+    "rule": "observed-level lattice with q=80 single-stage branch",
+    "total": 3653
+  },
+  "support": {
+    "nearest_neighbors": 5,
+    "threshold_quantile": 0.95,
+    "bootstrap_replicates": 1000,
+    "bootstrap_support_min": 0.8,
+    "c_raw": 1.2182364302548172,
+    "c_soc": 2.82857521555318,
+    "raw_scaler": {
+      "median": [
+        5.4,
+        0.5,
+        4.0
+      ],
+      "iqr": [
+        1.5999999999999996,
+        0.35000000000000003,
+        1.2499999999999996
+      ],
+      "active_dimension_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    "soc_scaler": {
+      "median": [
+        5.2,
+        5.2124999999999995,
+        4.8,
+        4.21,
+        10.000000000000002
+      ],
+      "iqr": [
+        0.9399999999999986,
+        0.6649999999999991,
+        1.1399999999999997,
+        1.2499999999999991,
+        0.6686620108635406
+      ],
+      "active_dimension_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "p3_refit": {
+    "parameters": {
+      "alpha": 0.03,
+      "n_knots": 4
+    },
+    "feature_columns": [
+      "C1",
+      "Q1_percent",
+      "C2"
+    ],
+    "target": "ln(cycle_life_table9)"
+  },
+  "flow": [
+    {
+      "stage": "候选格点总数",
+      "count": 3653
+    },
+    {
+      "stage": "数学可行",
+      "count": 3653
+    },
+    {
+      "stage": "参数边界通过",
+      "count": 3653
+    },
+    {
+      "stage": "raw 5-NN 通过",
+      "count": 2858
+    },
+    {
+      "stage": "SOC 5-NN 通过",
+      "count": 2398
+    },
+    {
+      "stage": "双空间通过",
+      "count": 2329
+    },
+    {
+      "stage": "双空间且支持率≥80%（Q2 暂定候选）",
+      "count": 1775
+    }
+  ],
+  "input_sha256": {
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8"
+  },
+  "script_sha256": "6487756ab2f9966ead044ea810bd4cd8107eb8ff7d6f077dafef8e98e4f407ed",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

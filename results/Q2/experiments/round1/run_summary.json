@@ -1,0 +1,47 @@
+{
+  "question": "Q2",
+  "round": "round1",
+  "execution_timestamp": "2026-08-02T14:02:08.168395+00:00",
+  "implementation_target": "python",
+  "random_seed": 20260802,
+  "target_transform": "natural_log",
+  "inverse_transform": "exp",
+  "validation": {
+    "outer": "5-fold GroupKFold by policy_table9",
+    "inner": "up to 4-fold GroupKFold by policy_table9"
+  },
+  "input_checks": {
+    "p0_status": "pass",
+    "train_cells": 41,
+    "policy_groups": 40
+  },
+  "methods": [
+    {
+      "method_id": "M1",
+      "method_name": "main_effect_ridge",
+      "status": "success",
+      "metrics_summary": {
+        "rmse_log": 0.37168935907539924,
+        "mae_log": 0.2755652782283463,
+        "rmse_cycle": 329.90625947499376,
+        "mae_cycle": 198.7198846897959
+      }
+    },
+    {
+      "method_id": "M2",
+      "method_name": "interaction_ridge",
+      "status": "success",
+      "metrics_summary": {
+        "rmse_log": 0.3685401659907004,
+        "mae_log": 0.25101911902714,
+        "rmse_cycle": 329.2294473010242,
+        "mae_cycle": 181.60753334637312
+      }
+    }
+  ],
+  "script_sha256": "478eb3faa1ecb0caf653136bb2c6d6ede067704c7f2480e3d872d3012248131e",
+  "input_sha256": {
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f"
+  }
+}

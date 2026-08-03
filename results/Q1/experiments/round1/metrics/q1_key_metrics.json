@@ -1,0 +1,20 @@
+{
+  "lifetime_summary": {
+    "mean": 801.6370967741935,
+    "median": 736.5,
+    "q1": 498.75,
+    "q3": 946.5,
+    "minimum": 148,
+    "maximum": 2237
+  },
+  "repeated_train_primary_policy_agreement": {
+    "policy_count": 19,
+    "primary_seen_cell_count": 23,
+    "pearson": 0.9028564256043469,
+    "spearman": 0.5513608428446005,
+    "absolute_difference_median": 97.0,
+    "absolute_difference_mean": 119.5,
+    "absolute_difference_max": 349.0
+  },
+  "interpretation_scope": "descriptive only; not a causal or final prediction-model result"
+}

@@ -1,0 +1,647 @@
+{
+  "generated_at_utc": "2026-08-02T06:01:59.360087+00:00",
+  "scope": "read-only audit inventory; no source attachment was modified",
+  "problem_statement": {
+    "path": "B.docx",
+    "bytes": 276894,
+    "sha256": "95b630857fc5798e027ee98c501fed81a4cc03f39746aee387b21cd0e6c07f26",
+    "text": "B：快充策略对锂离子电池寿命衰减的影响\n一、背景\n快速充电对动力电池应用的重要性\n随着新能源汽车和储能系统的快速发展，锂离子电池的充电效率已成为影响用户体验和系统运行效率的重要因素。相比常规充电，快速充电能够显著缩短补能时间，提高车辆和储能设备的使用便利性。然而，较高的充电电流也可能导致电池内部极化增强、热效应加剧和副反应加速，从而引起容量衰减加快、SOH下降和循环寿命缩短。\n电池寿命衰减与充电策略密切相关\n锂离子电池在循环使用过程中，其可用容量会逐渐降低，通常可用健康状态 SOH 表征电池老化程度：\n其中，Qcurrent表示当前循环下的可用容量，Qinitial表示初始容量。当SOH下降至某一阈值时，通常认为电池达到寿命终止条件。\n在快充过程中，充电倍率和充电SOC区间会共同影响电池老化。SOC, 即荷电状态，表示电池当前剩余电量占额定容量的比例，通常用百分数表示。其中，0% SOC表示电池处于放空状态，100% SOC表示电池处于满电状态。不同SOC 区间内电池对充电电流的敏感程度不同。例如，在低SOC区间采用较大电流可能有助于缩短充电时间，而在中高SOC区间继续采用高倍率充电，则可能加剧电池老化。因此，需要建立数学模型，分析不同SOC区间内充电电流倍率对寿命衰减的影响，并进一步设计更合理的充电策略。\n数据集说明\n本题采用 MIT–Stanford 公开锂离子电池循环老化数据集[1],。该数据集包含124个A123 18650型磷酸铁锂电池的循环老化实验数据，额定容量为1.1 Ah。数据覆盖电池从初始健康状态到容量衰减至约80% SOH的老化过程，可用于研究不同快充策略对电池寿命衰减的影响。\n实验中，各电池采用相同的放电策略，放电条件保持一致；不同电池之间的主要差异体现在充电策略上。充电过程采用分段快充策略，可表示为：\n其中，C1表示第一阶段充电倍率，Q1表示第一阶段结束时的SOC，C2表示第二阶段充电倍率。具体而言，电池首先以C1倍率从0% SOC充电至Q1，随后以C2倍率从Q1充电至80% SOC，最后采用1C恒流-恒压模式充电至满电，并在电流降至C/50时结束充电。\n例如，在8C（35%）-3.6C策略中，电池先以8C充电到35% SOC，再以3.6C从35% SOC充电到80% SOC，之后以1C恒流-恒压模式充电至满容量，直到电流降至C/50。典型的充放电循环如图1所示。\n图1. 典型充放电循环下的电流倍率与电压变化曲线\n二、问题描述\n电池快充策略设计本质上是一个多目标权衡问题。一方面，提高充电倍率可以缩短充电时间；另一方面，过高的充电倍率可能加快SOH衰减，缩短循环寿命。不同SOC区间内电池对充电电流的敏感性不同，因此有必要从SOC区间和充电倍率两个角度出发，建立快充策略与寿命衰减之间的定量关系模型。\n请基于题目提供的MIT–Stanford锂离子电池循环老化数据集，围绕以下问题开展研究。\n问题一：数据整理与快充策略寿命差异初步分析\n给定MIT–Stanford循环老化数据集，请对原始循环实验数据进行必要整理，提取各电池的充电策略、充电时间、SOH变化及循环寿命等关键信息。要求给出典型长寿命策略和短寿命策略，并从充电电流倍率大小、SOC区间和充电时间角度进行初步解释。\n需要完成的内容包括：\n整理不同电池的快充策略、SOH变化曲线、循环寿命和充电时间等基础信息； \n对不同快充策略下的寿命分布进行初步统计分析； \n选取若干典型长寿命策略和短寿命策略； \n从第一阶段充电倍率、第二阶段充电倍率、阶段切换SOC和充电时间等角度，对典型长寿命与短寿命策略的差异进行解释。\n问题二：充电策略参数对电池寿命衰减的影响量化\n基于问题一整理得到的数据，建立充电策略参数与电池寿命衰减之间的定量关系模型。重点分析不同SOC区间内充电电流倍率对电池寿命的影响，量化第一阶段充电倍率、阶段切换SOC、第二阶段充电倍率以及充电时间对寿命衰减的贡献。\n需要完成的内容包括：\n第一阶段充电倍率C1对寿命衰减的影响； \n阶段切换SOC Q1对寿命衰减的影响； \n第二阶段充电倍率C2对寿命衰减的影响； \n不同SOC区间内高倍率充电对寿命衰减的影响是否存在差异； \n各因素及其交互作用对循环寿命的影响程度排序。\n问题三：基于早期循环数据的寿命预测模型\n在实际应用中，通常只能获得电池早期循环数据，因此需要根据早期老化表现预测电池未来SOH变化。请基于给定快充策略下电池早期循环数据，建立寿命预测模型，预测电池未来SOH衰减趋势或达到寿命终止条件时的循环次数。\n需要完成的内容包括：\n基于前若干次循环数据，提取早期SOH变化、容量衰减、充电时间变化等特征； \n建立电池未来SOH衰减预测模型； \n预测电池达到指定SOH阈值时的循环寿命； \n评价模型预测精度，并分析不同早期循环长度对预测结果的影响； \n讨论充电策略参数和早期衰减特征在寿命预测中的作用。 \n问题四：兼顾充电时间与寿命衰减的充电策略优化\n基于问题二和问题三建立的模型，请设计一种兼顾充电时间和寿命衰减的快充策略优化方法。优化目标是在保证较短充电时间的同时，尽可能降低SOH衰减速率或延长电池循环寿命。\n可将充电策略表示为不同SOC区间内的充电电流分布，例如：\n或采用分段形式：\n其中，Ii表示第i个SOC区间内的充电电流倍率。\n可建立如下优化目标：\n或构建综合目标函数：\n其中，Tcharge为充电时间，ΔSOH为单位循环或一定循环次数后的SOH衰减量，α、β为权重系数。\n需要完成的内容包括：\n明确充电策略优化变量，例如不同SOC区间内的充电电流倍率； \n建立充电时间计算模型； \n利用问题三中的寿命预测模型，估计不同充电策略下的SOH衰减； \n建立兼顾充电时间和寿命衰减的优化模型； \n给出推荐充电策略，并与数据集中典型长寿命策略、短寿命策略进行对比； \n说明推荐策略的合理性、适用范围和可能的外推风险。 \n优化结果应限制在已有实验策略覆盖范围或其合理邻域内，避免对未验证高倍率或SOC区间进行过度外推。\n参考文献：\n[1] Severson KA, Attia PM, Jin N, Perkins N, Jiang B, Yang Z, et al. Data-driven prediction of battery cycle life before capacity degradation. Nature Energy. 2019;4:383-91."
+  },
+  "xlsx_exports": [
+    {
+      "path": "data_1.xlsx",
+      "bytes": 3676722,
+      "sha256": "c38a29814e6ef450a9d76ed3f806a8138532c37465a2d6b16db777c7133fda09",
+      "sheets": [
+        {
+          "name": "说明",
+          "rows": 14,
+          "columns": 4,
+          "header": [
+            "MAT 文件 Excel 导出",
+            "data_1",
+            null,
+            null
+          ],
+          "first_rows": [
+            [
+              "源文件信息",
+              null,
+              null,
+              null
+            ],
+            [
+              "源文件",
+              "D:\\13470\\Downloads\\data_1.mat",
+              null,
+              null
+            ],
+            [
+              "格式",
+              "MATLAB 7.3 / HDF5",
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "name": "批次元数据",
+          "rows": 47,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "policy",
+            "policy_readable",
+            "barcode",
+            "channel_id",
+            "cycle_life",
+            "cycle_count",
+            "summary_row_count",
+            "vdlin_length"
+          ],
+          "first_rows": [
+            [
+              1,
+              "3_6C-80PER_3_6C",
+              "3.6C(80%)-3.6C",
+              "EL150800460514",
+              "1",
+              1190,
+              1189,
+              1189,
+              1000
+            ],
+            [
+              2,
+              "3_6C-80PER_3_6C",
+              "3.6C(80%)-3.6C",
+              "EL150800460486",
+              "2",
+              1179,
+              1178,
+              1178,
+              1000
+            ],
+            [
+              3,
+              "3_6C-80PER_3_6C",
+              "3.6C(80%)-3.6C",
+              "EL150800460623",
+              "3",
+              1177,
+              1176,
+              1176,
+              1000
+            ]
+          ]
+        },
+        {
+          "name": "循环汇总",
+          "rows": 38812,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "cycle_index",
+            "QDischarge",
+            "QCharge",
+            "IR",
+            "Tmax",
+            "Tavg",
+            "Tmin",
+            "chargetime"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              1.0706892,
+              1.0710422,
+              0.016742354,
+              35.652016,
+              31.875010776448963,
+              29.56613,
+              13.341250000000006
+            ],
+            [
+              1,
+              3,
+              1.0719005,
+              1.0716741,
+              0.016724309,
+              35.692978,
+              31.931490327663376,
+              29.604385,
+              13.42577666666666
+            ]
+          ]
+        },
+        {
+          "name": "Vdlin",
+          "rows": 46001,
+          "columns": 3,
+          "header": [
+            "batch_index",
+            "sample_index",
+            "Vdlin"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              3.5
+            ],
+            [
+              1,
+              2,
+              3.4984984984984986
+            ],
+            [
+              1,
+              3,
+              3.496996996996997
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "data_2.xlsx",
+      "bytes": 2710709,
+      "sha256": "7fd0878c958a1f472db87c3c7300be5d9605a19abebb7c3c0f5b9f252df5661c",
+      "sheets": [
+        {
+          "name": "说明",
+          "rows": 14,
+          "columns": 4,
+          "header": [
+            "MAT 文件 Excel 导出",
+            "data_2",
+            null,
+            null
+          ],
+          "first_rows": [
+            [
+              "源文件信息",
+              null,
+              null,
+              null
+            ],
+            [
+              "源文件",
+              "D:\\13470\\Downloads\\data_2.mat",
+              null,
+              null
+            ],
+            [
+              "格式",
+              "MATLAB 7.3 / HDF5",
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "name": "批次元数据",
+          "rows": 49,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "policy",
+            "policy_readable",
+            "barcode",
+            "channel_id",
+            "cycle_life",
+            "cycle_count",
+            "summary_row_count",
+            "vdlin_length"
+          ],
+          "first_rows": [
+            [
+              1,
+              "1C_4PER_6C",
+              "1C(4%)-6C",
+              "el150800460518",
+              "9",
+              300,
+              326,
+              326,
+              1000
+            ],
+            [
+              2,
+              "2C_10PER_6C",
+              "2C(10%)-6C",
+              "el150800460605",
+              "10",
+              148,
+              170,
+              170,
+              1000
+            ],
+            [
+              3,
+              "2C_2PER_5C",
+              "2C(2%)-5C",
+              "el150800460602",
+              "11",
+              438,
+              464,
+              464,
+              1000
+            ]
+          ]
+        },
+        {
+          "name": "循环汇总",
+          "rows": 24921,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "cycle_index",
+            "QDischarge",
+            "QCharge",
+            "IR",
+            "Tmax",
+            "Tavg",
+            "Tmin",
+            "chargetime"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              1.0680572,
+              1.0675609,
+              0.017542101,
+              31.487127,
+              30.3635449709479,
+              28.999689,
+              10.332668333333277
+            ],
+            [
+              1,
+              2,
+              1.0700541,
+              1.0698104,
+              0.017505454,
+              31.66193,
+              29.160559781472653,
+              26.734909,
+              10.180049999999998
+            ],
+            [
+              1,
+              3,
+              1.0719095,
+              1.071287,
+              0.017570902,
+              31.111683,
+              29.711383544313733,
+              28.086988,
+              10.308321666666597
+            ]
+          ]
+        },
+        {
+          "name": "Vdlin",
+          "rows": 48001,
+          "columns": 3,
+          "header": [
+            "batch_index",
+            "sample_index",
+            "Vdlin"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              3.5
+            ],
+            [
+              1,
+              2,
+              3.4984984984984986
+            ],
+            [
+              1,
+              3,
+              3.496996996996997
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "path": "data_3.xlsx",
+      "bytes": 4834463,
+      "sha256": "66d9650dc7f72aca0671adf8c7e8055644b1d7586f4b8604e441f04838b53096",
+      "sheets": [
+        {
+          "name": "说明",
+          "rows": 14,
+          "columns": 4,
+          "header": [
+            "MAT 文件 Excel 导出",
+            "data_3",
+            null,
+            null
+          ],
+          "first_rows": [
+            [
+              "源文件信息",
+              null,
+              null,
+              null
+            ],
+            [
+              "源文件",
+              "D:\\13470\\Downloads\\data_3.mat",
+              null,
+              null
+            ],
+            [
+              "格式",
+              "MATLAB 7.3 / HDF5",
+              null,
+              null
+            ]
+          ]
+        },
+        {
+          "name": "批次元数据",
+          "rows": 47,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "policy",
+            "policy_readable",
+            "barcode",
+            "channel_id",
+            "cycle_life",
+            "cycle_count",
+            "summary_row_count",
+            "vdlin_length"
+          ],
+          "first_rows": [
+            [
+              1,
+              "5C_67PER_4C_NEWSTRUCTURE",
+              "5C(67%)-4C-newstructure",
+              "el150800737329",
+              "10",
+              1009,
+              1008,
+              1008,
+              1000
+            ],
+            [
+              2,
+              "5_3C_54PER_4C_NEWSTRUCTURE",
+              "5.3C(54%)-4C-newstructure",
+              "el150800737313",
+              "11",
+              1063,
+              1062,
+              1062,
+              1000
+            ],
+            [
+              3,
+              "5_6C_19PER_4_6C_NEWSTRUCTURE",
+              "5.6C(19%)-4.6C-newstructure",
+              "el150800737294",
+              "12",
+              1267,
+              1266,
+              1266,
+              1000
+            ]
+          ]
+        },
+        {
+          "name": "循环汇总",
+          "rows": 51008,
+          "columns": 9,
+          "header": [
+            "batch_index",
+            "cycle_index",
+            "QDischarge",
+            "QCharge",
+            "IR",
+            "Tmax",
+            "Tavg",
+            "Tmin",
+            "chargetime"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              1.0665728,
+              1.0660903,
+              0.015434842,
+              33.433834,
+              32.149495126947656,
+              30.830271980372153,
+              10.043408333333355
+            ],
+            [
+              1,
+              2,
+              1.0674551,
+              1.0669638,
+              0.015398955,
+              33.40396401926802,
+              32.10660604993088,
+              30.779943,
+              10.043255000000014
+            ],
+            [
+              1,
+              3,
+              1.0682849,
+              1.0676115,
+              0.015365343,
+              33.325268,
+              32.088510860270894,
+              30.82474570476282,
+              10.042333333333469
+            ]
+          ]
+        },
+        {
+          "name": "Vdlin",
+          "rows": 46001,
+          "columns": 3,
+          "header": [
+            "batch_index",
+            "sample_index",
+            "Vdlin"
+          ],
+          "first_rows": [
+            [
+              1,
+              1,
+              3.5
+            ],
+            [
+              1,
+              2,
+              3.4984984984984986
+            ],
+            [
+              1,
+              3,
+              3.496996996996997
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "mat_sources": [
+    {
+      "path": "data_1.mat",
+      "bytes": 3025320241,
+      "sha256": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+      "status": "audited_by_matlab_metadata_script",
+      "batch_date": "2017-05-12",
+      "batch_records": 46,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    },
+    {
+      "path": "data_2.mat",
+      "bytes": 2007331155,
+      "sha256": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+      "status": "audited_by_matlab_metadata_script",
+      "batch_date": "2017-06-30",
+      "batch_records": 48,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    },
+    {
+      "path": "data_3.mat",
+      "bytes": 3236690412,
+      "sha256": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+      "status": "audited_by_matlab_metadata_script",
+      "batch_date": "2018-04-12",
+      "batch_records": 46,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    }
+  ]
+}

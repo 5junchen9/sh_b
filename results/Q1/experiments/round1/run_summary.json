@@ -1,0 +1,67 @@
+{
+  "status": "descriptive_baseline_complete_not_a_final_model",
+  "generated_at_utc": "2026-08-02T14:01:01.270408+00:00",
+  "script": "code/Q1/q1_baseline.py",
+  "script_sha256": "ef66b2649ce88e8b13ed8a51fa3a9a27286bc77a9ba31de915128b84a9750a2e",
+  "random_seed": 20260802,
+  "input_sha256": {
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "cycle_model_view.csv": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75",
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f"
+  },
+  "input_checks": {
+    "official_cells": 124,
+    "p0_rows": 99279,
+    "p0_status": "pass"
+  },
+  "lifetime_summary": {
+    "mean": 801.6370967741935,
+    "median": 736.5,
+    "q1": 498.75,
+    "q3": 946.5,
+    "minimum": 148,
+    "maximum": 2237
+  },
+  "repeated_train_primary_policy_agreement": {
+    "policy_count": 19,
+    "primary_seen_cell_count": 23,
+    "pearson": 0.9028564256043469,
+    "spearman": 0.5513608428446005,
+    "absolute_difference_median": 97.0,
+    "absolute_difference_mean": 119.5,
+    "absolute_difference_max": 349.0
+  },
+  "representative_soh_cases": [
+    {
+      "case_role": "重复策略的长寿命案例",
+      "policy_table9": "3.6C(80%)-3.6C",
+      "barcode": "EL150800460486",
+      "cycle_life_table9": 2160
+    },
+    {
+      "case_role": "重复策略的短寿命案例",
+      "policy_table9": "5.4C(60%)-3.6C",
+      "barcode": "EL150800463871",
+      "cycle_life_table9": 559
+    }
+  ],
+  "limitations": [
+    "All Q1 comparisons are descriptive; observed split or policy differences are not causal estimates.",
+    "Primary has prior exploratory exposure and is not an untouched independent test set.",
+    "IR is recorded in ohms and chargetime in minutes; chargetime boundaries and CV coverage remain undocumented, so it is not interchangeable with theoretical tau_0_80.",
+    "This script does not select or validate a final Q2/Q3 model."
+  ],
+  "outputs": [
+    "results/Q1/experiments/round1/figures/q1_01_lifetime_distribution.png",
+    "results/Q1/experiments/round1/figures/q1_02_lifetime_by_dataset.png",
+    "results/Q1/experiments/round1/figures/q1_03_strategy_parameters_vs_lifetime.png",
+    "results/Q1/experiments/round1/figures/q1_04_theory_time_vs_lifetime.png",
+    "results/Q1/experiments/round1/figures/q1_05_train_primary_repeated_policy_agreement.png",
+    "results/Q1/experiments/round1/figures/q1_06_representative_soh_trajectories.png",
+    "results/Q1/experiments/round1/tables/q1_cell_level_summary.csv",
+    "results/Q1/experiments/round1/tables/q1_dataset_lifetime_summary.csv",
+    "results/Q1/experiments/round1/tables/q1_policy_summary.csv",
+    "results/Q1/experiments/round1/tables/q1_train_primary_repeated_policy.csv",
+    "results/Q1/experiments/round1/tables/q1_representative_soh_cases.csv"
+  ]
+}

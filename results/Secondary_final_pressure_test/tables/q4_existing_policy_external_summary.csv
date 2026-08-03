@@ -1,0 +1,9 @@
+﻿policy_table9,C1,Q1_percent,C2,cell_count,actual_life_mean,q2_p3_predicted_life_mean,q3_m2k100_predicted_life_mean,status
+3.7C(31%)-5.9C,3.7,31.0,5.9,3,660.0,549.9073122006748,676.4641301971761,no_recommendation_or_reoptimization
+4.36C(80%)-4.36C,4.36,80.0,4.36,4,1588.25,984.0721631388785,888.7838250032362,no_recommendation_or_reoptimization
+5.3C(54%)-4C,5.3,54.0,4.0,8,1074.375,506.12436270865567,654.6788422924849,no_recommendation_or_reoptimization
+5.6C(19%)-4.6C,5.6,19.0,4.6,7,963.4285714285714,421.3622427949973,677.9051208529355,no_recommendation_or_reoptimization
+5.6C(36%)-4.3C,5.6,36.0,4.3,8,930.875,485.4541106256187,614.09672889142,no_recommendation_or_reoptimization
+5.9C(15%)-4.6C,5.9,15.0,4.6,2,867.0,422.425944273236,786.5745426263422,no_recommendation_or_reoptimization
+5.9C(60%)-3.1C,5.9,60.0,3.1,2,866.5,575.97880204597,601.0264476380587,no_recommendation_or_reoptimization
+5C(67%)-4C,5.0,67.0,4.0,6,1115.6666666666667,561.2448403889742,676.895099435516,no_recommendation_or_reoptimization

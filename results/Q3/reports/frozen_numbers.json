@@ -1,0 +1,25 @@
+{
+  "subquestion": "Q3",
+  "frozen_at": "2026-08-03T09:19:49.0414880+08:00",
+  "frozen_by_skill": "solution-package-builder",
+  "source_method": "早期特征 Ridge + 寿命锚定单调 SOH 模板；M3R 仅开发期探索记录",
+  "signoff_artifact": "methods/Q3/decisions/solution-package-builder_modeler_decision.md",
+  "code_source_files": [
+    {"path": "code/Q3/q3_run_all.py", "mtime_utc": "2026-08-02T16:01:42Z"},
+    {"path": "code/audit/run_secondary_final_pressure_test.py", "mtime_utc": "2026-08-03T00:19:39Z"},
+    {"path": "src/extract_q3_raw_curve_features_secondary.m", "mtime_utc": "2026-08-03T00:19:39Z"}
+  ],
+  "claims": [
+    {"id": "q3_secondary_cell_count", "label": "Secondary 可评价电芯数", "value": 40, "unit": "cell", "precision_for_paper": 0, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "curve_cells"},
+    {"id": "q3_secondary_policy_group_count", "label": "Secondary 策略组数", "value": 8, "unit": "policy group", "precision_for_paper": 0, "source_file": "results/Secondary_final_pressure_test/secondary_external_experiment_report.md", "source_locator": "1 执行与边界"},
+    {"id": "q3_m2_k5_secondary_rmse_log", "label": "M2-k=5 Secondary 寿命 RMSE_log", "value": 0.419302, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M2,column=k:5,column=rmse_log"},
+    {"id": "q3_m2_k5_secondary_mae_log", "label": "M2-k=5 Secondary 寿命 MAE_log", "value": 0.360166, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M2,column=k:5,column=mae_log"},
+    {"id": "q3_m2_k5_secondary_soh_rmse", "label": "M2-k=5 Secondary 电芯等权未来 SOH RMSE", "value": 0.062007, "unit": "dimensionless", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M2,column=k:5,column=cell_equal_soh_rmse"},
+    {"id": "q3_m3r_k5_secondary_rmse_log", "label": "M3R-k=5 Secondary 寿命 RMSE_log", "value": 0.492453, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M3R,column=k:5,column=rmse_log"},
+    {"id": "q3_m3r_k5_secondary_soh_rmse", "label": "M3R-k=5 Secondary 电芯等权未来 SOH RMSE", "value": 0.072023, "unit": "dimensionless", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M3R,column=k:5,column=cell_equal_soh_rmse"},
+    {"id": "q3_m2_k100_secondary_rmse_log", "label": "M2-k=100 Secondary 寿命 RMSE_log", "value": 0.469504, "unit": "ln-cycle", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M2,column=k:100,column=rmse_log"},
+    {"id": "q3_m2_k100_secondary_soh_rmse", "label": "M2-k=100 Secondary 电芯等权未来 SOH RMSE", "value": 0.069084, "unit": "dimensionless", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/q3_external_metrics.csv", "source_locator": "row=model_id:M2,column=k:100,column=cell_equal_soh_rmse"},
+    {"id": "q3_m3r_minus_m2_k5_soh_delta_ci95_low", "label": "M3R-k=5 减 M2-k=5 的 Secondary SOH RMSE 差值区间下界", "value": 0.002531, "unit": "dimensionless", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/bootstrap_intervals.csv", "source_locator": "row=Q3_M3Rk5_minus_M2k5,column=ci95_low"},
+    {"id": "q3_m3r_minus_m2_k5_soh_delta_ci95_high", "label": "M3R-k=5 减 M2-k=5 的 Secondary SOH RMSE 差值区间上界", "value": 0.017078, "unit": "dimensionless", "precision_for_paper": 6, "source_file": "results/Secondary_final_pressure_test/tables/bootstrap_intervals.csv", "source_locator": "row=Q3_M3Rk5_minus_M2k5,column=ci95_high"}
+  ]
+}

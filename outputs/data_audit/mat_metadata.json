@@ -1,0 +1,131 @@
+{
+  "scope": "read-only MAT metadata; representative nested schema from first record of each source",
+  "sources": [
+    {
+      "mat_file": "data_1.mat",
+      "xlsx_file": "data_1.xlsx",
+      "batch_date": "2017-05-12",
+      "batch_records": 46,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    },
+    {
+      "mat_file": "data_2.mat",
+      "xlsx_file": "data_2.xlsx",
+      "batch_date": "2017-06-30",
+      "batch_records": 48,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    },
+    {
+      "mat_file": "data_3.mat",
+      "xlsx_file": "data_3.xlsx",
+      "batch_date": "2018-04-12",
+      "batch_records": 46,
+      "top_level_variables": [
+        "batch",
+        "batch_date"
+      ],
+      "record_fields": [
+        "policy",
+        "policy_readable",
+        "barcode",
+        "channel_id",
+        "cycle_life",
+        "cycles",
+        "summary",
+        "Vdlin"
+      ],
+      "cycle_fields": [
+        "discharge_dQdV",
+        "t",
+        "Qc",
+        "I",
+        "V",
+        "T",
+        "Qd",
+        "Qdlin",
+        "Tdlin"
+      ],
+      "summary_fields": [
+        "cycle",
+        "QDischarge",
+        "QCharge",
+        "IR",
+        "Tmax",
+        "Tavg",
+        "Tmin",
+        "chargetime"
+      ],
+      "vdlin_length": 1000
+    }
+  ]
+}

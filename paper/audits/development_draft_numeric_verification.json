@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "manuscript": "D:\\13470\\Documents\\2026_math\\l1\\paper\\开发证据稿_全篇_非最终.md",
+  "checks": [
+    {
+      "check": "124 枚电芯和 99,279 行",
+      "source": "data/processed/p0_summary.json",
+      "status": "PASS"
+    },
+    {
+      "check": "字段—循环掩码",
+      "source": "data/processed/p0_summary.json",
+      "status": "PASS"
+    },
+    {
+      "check": "801.64 cycle",
+      "source": "data/processed/cell_labels.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "498.75 / 946.50",
+      "source": "data/processed/cell_labels.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "0.37169",
+      "source": "results/Q2/experiments/round1/metrics/comparison_metrics.json",
+      "status": "PASS"
+    },
+    {
+      "check": "0.25102",
+      "source": "results/Q2/experiments/round1/metrics/comparison_metrics.json",
+      "status": "PASS"
+    },
+    {
+      "check": "[−0.07245, 0.02620]",
+      "source": "robustness/Q2/metrics/q2_bootstrap_summary.json",
+      "status": "PASS"
+    },
+    {
+      "check": "RMSE_log=0.24070",
+      "source": "results/Q3/experiments/round3_raw_curve_challenger/tables/m3r_raw_curve_window_metrics.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "RMSE_log=0.23174",
+      "source": "results/Q3/experiments/round2_joint/tables/joint_window_metrics.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "3,653",
+      "source": "results/Q4/experiments/train_dry_run_round1/tables/q4_candidate_flow.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "1,775",
+      "source": "results/Q4/experiments/train_dry_run_round1/tables/q4_candidate_flow.csv",
+      "status": "PASS"
+    },
+    {
+      "check": "60 个已有策略",
+      "source": "results/Q4/experiments/existing_policy_round2_m2k100/metrics/q4_existing_policy_summary.json",
+      "status": "PASS"
+    },
+    {
+      "check": "4 个开发池非支配案例",
+      "source": "results/Q4/experiments/existing_policy_round2_m2k100/metrics/q4_existing_policy_summary.json",
+      "status": "PASS"
+    }
+  ],
+  "secondary_read": false
+}

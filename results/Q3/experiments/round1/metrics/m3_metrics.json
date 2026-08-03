@@ -1,0 +1,98 @@
+{
+  "question": "Q3",
+  "round": "round1",
+  "execution_timestamp": "2026-08-02T16:02:14.419213+00:00",
+  "implementation_target": "python",
+  "random_seed": 20260802,
+  "target_transform": "natural_log",
+  "inverse_transform": "exp",
+  "validation": {
+    "outer": "5-fold GroupKFold by policy_table9",
+    "inner": "up to 4-fold GroupKFold by policy_table9",
+    "soh_template": "outer-training cells only"
+  },
+  "metric_definitions": {
+    "future_point_pooled_soh_rmse": "将所有成功电芯的未来观测点残差合并后计算 RMSE；论文正式窗口比较改用 robustness/Q3 的 cell_equal_soh_rmse",
+    "predicted_soh_nom_120": "外层训练 SOH 模板与电芯在 k 的真实锚点得到的第120循环预测，仅用于 Q4 已有策略的交叉拟合聚合"
+  },
+  "methods": [
+    {
+      "method_id": "M3",
+      "method_name": "life_anchored_monotone_soh_template",
+      "status": "success",
+      "metrics_summary": [
+        {
+          "k": 5,
+          "rmse_log": 0.2793637078300393,
+          "mae_log": 0.1907525836486076,
+          "future_point_pooled_soh_rmse": 0.044267361746307375,
+          "curve_cells": 41,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        },
+        {
+          "k": 10,
+          "rmse_log": 0.2653396470880255,
+          "mae_log": 0.19074117349942285,
+          "future_point_pooled_soh_rmse": 0.04262103913674484,
+          "curve_cells": 41,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        },
+        {
+          "k": 20,
+          "rmse_log": 0.3010264861895247,
+          "mae_log": 0.2020859287448671,
+          "future_point_pooled_soh_rmse": 0.044368923395566646,
+          "curve_cells": 41,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        },
+        {
+          "k": 50,
+          "rmse_log": 0.28380385564888394,
+          "mae_log": 0.19945419035709036,
+          "future_point_pooled_soh_rmse": 0.042294340277973456,
+          "curve_cells": 41,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        },
+        {
+          "k": 100,
+          "rmse_log": 0.2317370843306235,
+          "mae_log": 0.17008424662810068,
+          "future_point_pooled_soh_rmse": 0.03906959951811792,
+          "curve_cells": 41,
+          "template_failures": 0,
+          "failure_predicted_life_not_after_k": 0,
+          "failure_missing_anchor": 0,
+          "failure_no_future_observation": 0,
+          "failure_template_anchor_denominator": 0
+        }
+      ]
+    }
+  ],
+  "script_sha256": "11304a89d1c2ea6a3b839e5650c874ea57a5695961434e79a028bb8ca24bd058",
+  "input_sha256": {
+    "p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "cycle_model_view.csv": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75",
+    "early_features_k5.csv": "d26e8149ca236ff514d6a711b78905c64635c41bccc3837fc1790ad9c6419400",
+    "early_features_k10.csv": "e5c97421bbe0618e1efdc5161440644866ba168f2f2a15d9c3e16ff844d2068f",
+    "early_features_k20.csv": "0bc6d996eaeff3588a4dad2bd9bf3a65dc361a4c12c111b7d0442a00f65ff2dd",
+    "early_features_k50.csv": "d253860ee796a6c96830124d1eb4a3e28c13a3b43e87f5c6e67d43bb69f04460",
+    "early_features_k100.csv": "607b789e1a37ce582087f882c05d329b5635d16bfd08cd4bd69758156b7b159e"
+  }
+}

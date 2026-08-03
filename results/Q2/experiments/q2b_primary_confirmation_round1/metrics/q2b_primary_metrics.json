@@ -1,0 +1,26 @@
+{
+  "confirmation_status": "observed_not_adjudicated",
+  "scope": "One-time frozen P3 confirmation on Primary; no tuning, replacement or threshold-based automatic pass/fail.",
+  "method_id": "P3_additive_gam",
+  "frozen_params": {
+    "n_knots": 4,
+    "alpha": 0.03
+  },
+  "feature_columns": [
+    "C1",
+    "Q1_percent",
+    "C2"
+  ],
+  "target_transform": "natural_log",
+  "inverse_transform": "exp",
+  "train_cells": 41,
+  "primary_cells": 43,
+  "primary_policy_groups": 39,
+  "rmse_log": 0.2892675071510141,
+  "mae_log": 0.22572228581059497,
+  "rmse_cycle": 179.39232875237562,
+  "mae_cycle": 146.79450649757143,
+  "overprediction_rate": 0.3953488372093023,
+  "mean_positive_log_error": 0.12065172007721948,
+  "mean_positive_cycle_error": 63.310682536145215
+}

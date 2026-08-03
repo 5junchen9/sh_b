@@ -1,0 +1,100 @@
+{
+  "artifact_status": "G1_confirmed_by_modeler_2026-08-02",
+  "source": "B题_最新完整建模方案_V2.md (V2.1) and P0 frozen data products",
+  "background": "研究两阶段快充策略与锂离子电池循环寿命、早期运行状态及策略推荐之间的关系。",
+  "main_goal": "在官方 Table 9 的124枚物理电芯和冻结P0数据视图上，完成数据规律分析、设计前寿命估计、运行后寿命/未来SOH校正，以及可信域内的策略权衡。",
+  "objects": [
+    {"name": "物理电芯", "scope": "124个Table 9条码；barcode为唯一建模与重采样单位"},
+    {"name": "快充策略", "scope": "由C1、Q1_percent、C2定义的两阶段快充参数"},
+    {"name": "循环记录", "scope": "P0长表中寿命端点前的99,279行循环汇总记录"},
+    {"name": "原始曲线循环", "scope": "仅作为受独立MAT掩码约束的低维challenger"}
+  ],
+  "subquestions": [
+    {
+      "id": "Q1",
+      "task": "整理正式数据并描述寿命、策略、批次、理论充电时间、实测汇总字段和SOH的关系；识别典型长短寿命案例及重复策略的一致性。",
+      "input": ["cell_labels.csv", "cycle_model_view.csv", "P0五套窗口特征", "Table 9标签"],
+      "processing_need": ["寿命和策略的描述统计", "Train–Primary重复策略的分组比较", "SOH和早期充电时间汇总", "不将观察差异写成因果结论"],
+      "output": ["寿命/分区/策略图表", "重复策略一致性表", "典型案例与Q2候选输入说明"],
+      "constraints": ["不以预测精度作为Q1目标", "理论tau_0_80与实测chargetime必须分开", "IR为Ω、chargetime为min；测量定义未明时不设外部安全阈值"],
+      "depends_on": [],
+      "evaluation_criteria": ["完整、可复现地整理策略、充电时间、SOH和寿命，并以典型案例解释差异；不作因果声称。"]
+    },
+    {
+      "id": "Q2",
+      "task": "在策略参数、SOC分配及交互作用中建立设计前寿命估计和可解释排序。",
+      "input": ["cell_labels.csv中的C1、Q1_percent、C2和cycle_life_table9", "Q1的描述性发现"],
+      "processing_need": ["训练集内按策略分组的交叉验证", "常数基线比较", "参数效应、交互和策略外推风险的分离"],
+      "output": ["折外寿命预测", "策略效应和候选排序", "进入Q4的设计前候选"],
+      "constraints": ["只用Train选型", "Primary仅用于冻结候选的一次受限确认", "Secondary不得参与调参", "策略重复不得拆散到普通随机折"],
+      "depends_on": ["Q1"],
+      "evaluation_criteria": ["以SOC区间倍率影响机制的统计解释、因素排序和交互作用为主，并报告设计前寿命预测的折外证据；不写成因果效应。"]
+    },
+    {
+      "id": "Q3",
+      "task": "比较不同早期观察截止点下的寿命预测，并同时预测截止点以后的SOH轨迹。",
+      "input": ["early_features_k5/k10/k20/k50/k100.csv", "cycle_model_view.csv中的SOH_rel和SOH_nom", "cell_labels.csv"],
+      "processing_need": ["五个窗口的可比评估", "寿命预测和未来SOH轨迹误差的联合验证", "必要时比较低维RAW challenger"],
+      "output": ["不同k的折外寿命误差", "未来SOH轨迹和不确定性结果", "Q4所需运行后确认信息"],
+      "constraints": ["窗口统一为2<=cycle<=k", "两点变化特征两端必须有效", "填补、标准化、特征选择仅在训练折内拟合", "RAW特征必须连接逐循环可用性掩码"],
+      "depends_on": ["Q1", "Q2"],
+      "evaluation_criteria": ["兼顾寿命/SOH预测精度与早期特征可解释性，比较不同早期窗口，并防止未来信息泄漏。"]
+    },
+    {
+      "id": "Q4",
+      "task": "在Q2设计前提名和Q3运行后确认的基础上，权衡理论快充时间、寿命与SOH风险，在可信策略域内给出推荐。",
+      "input": ["Q2冻结的策略候选/代理预测", "Q3冻结的寿命与SOH输出", "Train策略支持和可信域规则"],
+      "processing_need": ["可信域筛选", "二维Pareto与SOH风险叠加", "按策略等权的外部压力测试"],
+      "output": ["已有策略的正式Pareto", "新策略的Q2_provisional或Q3_confirmed状态", "边界与风险说明"],
+      "constraints": ["不得用Primary/Secondary反向调可信域", "Secondary只在推荐冻结后运行一次", "没有新增试验时不得把新策略写成已验证"],
+      "depends_on": ["Q2", "Q3"],
+      "evaluation_criteria": ["输出可信域内的Pareto权衡方案集，报告寿命、理论快充时间与SOH风险，不伪造唯一最优点或题外硬约束。"]
+    }
+  ],
+  "constraints": {
+    "explicit": [
+      "正式对象为124枚Table 9电芯，寿命标签为cycle_life_table9。",
+      "P0正式循环视图只保留global_cycle_index < cycle_life_table9。",
+      "七个汇总字段实行字段—循环掩码，禁止因局部异常删除整枚电芯。",
+      "Train/Primary/Secondary条码互不重叠；Primary已有探索暴露，Secondary只作最终外部压力测试。"
+    ],
+    "implicit": [
+      "策略重复不能被当作独立同分布样本，交叉验证和bootstrap需要以策略或条码分组。",
+      "IR单位为Ω、chargetime单位为min；测量时点和时间边界未确认，不能据此杜撰绝对物理阈值或安全结论。",
+      "所有数据驱动阈值、填补、标准化和特征选择须由训练数据拟合。"
+    ]
+  },
+  "data_inventory": {
+    "provided": [
+      {"name": "cell_labels.csv", "description": "124枚电芯的官方分区、寿命、策略参数与条码", "unit": "寿命为cycles；策略含C-rate和SOC百分比", "risk": "必须与特征分表合并，防止标签自动入选"},
+      {"name": "cycle_model_view.csv", "description": "99,279行P0正式循环长表，含值、字段掩码、双SOH与RAW可用标记", "unit": "IR为Ω、chargetime为min；其余部分字段单位仍待原始说明确认", "risk": "字段掩码必须逐字段使用"},
+      {"name": "early_features_k*.csv", "description": "五个截止窗口的124行早期特征表", "unit": "原始记录值或无量纲变化", "risk": "寿命目标不在表中，必须单独合并"},
+      {"name": "mat_deep_cycle_flags.csv", "description": "原始t/Qc/I/V/T/Qd的逐循环审计标记", "unit": "依据原始数组", "risk": "必须按四字段键连接，不能用global_cycle_index直接连接"}
+    ],
+    "missing": ["IR测量时点与chargetime起止/CV覆盖的字段说明", "若要验证连续新策略，需新增预注册小规模试验"],
+    "external_data_needed": false
+  },
+  "required_outputs": ["每问的可复现代码、结果表、图、运行摘要和审查报告", "Q2/Q3的折外误差与分区确认结果", "Q4的可信域、Pareto和风险说明", "论文可追溯的数据处理说明"],
+  "preliminary_variables": {
+    "observable_quantities": ["cycle_life_table9", "QDischarge", "QCharge", "IR", "Tmax", "Tavg", "Tmin", "chargetime", "SOH_rel", "SOH_nom"],
+    "controllable_quantities": ["C1", "Q1_percent", "C2"],
+    "external_parameters": ["额定容量1.1 Ah用于SOH_nom定义"],
+    "unknowns_to_estimate": ["策略条件下寿命", "早期运行后的寿命校正", "未来SOH轨迹", "策略可信域内的权衡候选"]
+  },
+  "preliminary_relationships": [
+    "两阶段快充策略参数与寿命按统计关联建模；Q2以机制导向解释、因素排序和交互作用为主，不能越界为因果识别。",
+    "早期容量、内阻、温度和充电时间的状态/变化趋势同时服务预测精度与可解释性。",
+    "设计前策略估计与运行后早期观测校正分层处理，分别为Q4提名和确认提供证据。"
+  ],
+  "dependencies": [
+    {"from": "Q1", "to": "Q2", "reason": "Q1确定数据边界、分区差异和策略重复的描述性证据。"},
+    {"from": "Q1", "to": "Q3", "reason": "Q1确认P0窗口与SOH使用边界。"},
+    {"from": "Q2", "to": "Q3", "reason": "Q3可比较直接早期预测与设计前先验的残差校正。"},
+    {"from": "Q2", "to": "Q4", "reason": "Q2给出设计前策略提名和预测输入。"},
+    {"from": "Q3", "to": "Q4", "reason": "Q3决定运行后寿命/SOH确认及风险信息。"}
+  ],
+  "ambiguities": ["chargetime是否能与理论tau_0_80进行有单位校准尚未确认", "同策略寿命差异不能仅从现有观察数据归因于批次或策略", "连续策略空间外推需要可信域约束而非参数范围外插"],
+  "risk_flags": ["Primary已有探索暴露", "Secondary样本按8种策略聚类，报告时需策略等权和聚类bootstrap", "不可将RAW数组异常通过单独排序或整电芯删除掩盖"],
+  "missing_information": ["Q2/Q3最终模型选择、结果结论和论文主张仍需在PoC后由建模者单独确认"],
+  "recommended_next_skill": "related-paper-analyzer"
+}

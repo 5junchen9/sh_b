@@ -1,0 +1,22 @@
+{
+  "id_column": "barcode",
+  "feature_columns": [
+    "QDischarge_early_mean",
+    "QDischarge_early_slope_per_cycle",
+    "QCharge_early_mean",
+    "QCharge_early_slope_per_cycle",
+    "IR_early_mean",
+    "IR_early_slope_per_cycle",
+    "Tmax_early_mean",
+    "Tmax_early_slope_per_cycle",
+    "Tavg_early_mean",
+    "Tavg_early_slope_per_cycle",
+    "Tmin_early_mean",
+    "Tmin_early_slope_per_cycle",
+    "chargetime_early_mean",
+    "chargetime_early_slope_per_cycle"
+  ],
+  "target_table": "cell_labels.csv",
+  "target_column": "cycle_life_table9",
+  "split_column": "dataset_table9"
+}

@@ -1,0 +1,76 @@
+{
+  "artifact_status": "G1_confirmed_by_modeler_2026-08-02",
+  "source_parse": "planning/parse/problem_parse.json",
+  "classification_summary": {
+    "overall_pattern": "hybrid",
+    "reason": "四问按数据分析、设计前预测、运行后预测和可信域优化依次衔接，不能用单一模型覆盖。"
+  },
+  "subquestion_classifications": [
+    {
+      "id": "Q1",
+      "ai_suggested_type": "data-analysis",
+      "ai_suggestion_confidence": "high",
+      "modeler_chosen_type": "data-analysis",
+      "framing_rationale": "题目要求数据整理、策略寿命差异和典型案例；建模者明确此类可从题意直接判定，无需额外询问。",
+      "secondary_type": "evaluation",
+      "classification_reason": "要求描述寿命分布、比较策略和分区、检验重复策略一致性，并为后续预测提供证据，而非直接输出未来预测或最优决策。",
+      "output_driver": ["描述性统计", "分组比较", "可视化", "可复现的数据规律"],
+      "candidate_method_families": ["描述统计与稳健分组汇总", "相关/秩相关分析", "分组可视化", "低复杂度可解释分割"],
+      "unsuitable_directions": [{"direction": "把相关性直接写成策略的因果效应", "reason": "批次、初始状态和策略集合混杂尚未被实验性识别。"}],
+      "risk_flags": ["理论tau_0_80与实测chargetime不可混用", "同策略多电芯必须按策略层面汇总解释"]
+    },
+    {
+      "id": "Q2",
+      "ai_suggested_type": "data-analysis",
+      "ai_suggestion_confidence": "high",
+      "modeler_chosen_type": "data-analysis",
+      "framing_rationale": "建模者确认：题目重点分析不同SOC区间内充电电流倍率对电池寿命的影响，因此以充电策略影响机制为主。",
+      "secondary_type": "prediction",
+      "classification_reason": "主要输出是不同SOC区间策略参数的统计解释、因素排序和交互作用；同时保留经分组验证的设计前寿命预测代理供Q4使用，但不作因果识别。",
+      "output_driver": ["设计前寿命预测", "策略排序", "折外误差", "外推风险"],
+      "candidate_method_families": ["正则化回归", "可解释的参数重编码", "分组交叉验证", "低自由度交互模型"],
+      "unsuitable_directions": [{"direction": "高维黑箱模型直接依据Primary挑选", "reason": "Train仅41枚电芯且Primary已有探索暴露，会放大选择偏差。"}],
+      "risk_flags": ["必须policy-group CV", "Primary只能确认冻结候选", "Secondary不得参与选择"]
+    },
+    {
+      "id": "Q3",
+      "ai_suggested_type": "prediction",
+      "ai_suggestion_confidence": "high",
+      "modeler_chosen_type": "prediction",
+      "framing_rationale": "建模者确认寿命/SOH预测精度与早期特征可解释性二者兼顾。",
+      "secondary_type": "mechanism",
+      "classification_reason": "主要输出是不同早期窗口下的寿命估计和未来SOH轨迹；SOH轨迹的形状约束带有动态过程含义，但评判仍以预测误差和可用性为主。",
+      "output_driver": ["早期寿命预测", "未来SOH轨迹", "窗口比较", "不确定性"],
+      "candidate_method_families": ["正则化回归与残差校正", "函数型/模板轨迹预测", "嵌套交叉拟合", "低维RAW特征challenger"],
+      "unsuitable_directions": [{"direction": "用全生命周期信息构造早期特征", "reason": "会造成未来信息泄漏并夸大窗口表现。"}],
+      "risk_flags": ["五个窗口必须同程序生成", "SOH掩码和RAW掩码必须继承", "填补和标准化仅在训练折拟合"]
+    },
+    {
+      "id": "Q4",
+      "ai_suggested_type": "optimization",
+      "ai_suggestion_confidence": "high",
+      "modeler_chosen_type": "optimization",
+      "framing_rationale": "建模者确认交付为Pareto权衡方案集。",
+      "secondary_type": "prediction",
+      "classification_reason": "要求在快充时间、寿命和SOH风险之间给出可实施的策略选择；Q2/Q3预测提供目标和风险输入，核心输出为受可信域约束的Pareto决策。",
+      "output_driver": ["可信域内候选", "多目标Pareto", "风险状态", "策略推荐"],
+      "candidate_method_families": ["多目标优化", "可信域约束筛选", "邻域支持检查", "稳健/保守决策"],
+      "unsuitable_directions": [{"direction": "仅按C1/Q1/C2的min/max外插寻找最优点", "reason": "参数盒内大多数连续组合没有实验支持，不能代表可信域。"}],
+      "risk_flags": ["新策略无新增试验时最多Q2_provisional", "Secondary只能在推荐冻结后评估"]
+    }
+  ],
+  "global_structure": {
+    "is_hybrid": true,
+    "dependency_pattern": [
+      {"from": "Q1", "to": "Q2", "reason": "数据边界与策略重复证据"},
+      {"from": "Q1", "to": "Q3", "reason": "窗口、SOH和掩码口径"},
+      {"from": "Q2", "to": "Q3", "reason": "设计前先验可进入残差校正比较"},
+      {"from": "Q2", "to": "Q4", "reason": "策略提名与设计前寿命预测"},
+      {"from": "Q3", "to": "Q4", "reason": "运行后寿命/SOH确认与风险"}
+    ],
+    "suggested_workflow_order": ["P0", "Q1", "Q2 Train-only PoC", "Q3 Train-only PoC", "Primary limited confirmation", "Q4 freeze", "Secondary pressure test"]
+  },
+  "classification_risks": ["不能把Q2解释模型误作因果模型", "不能把Q3的预测任务降格为只做曲线拟合", "不能把Q4视为脱离Q2/Q3验证的纯数值最优化"],
+  "ambiguities": ["IR测量时点与chargetime起止/CV覆盖未确认", "Primary已有探索暴露", "连续新策略需要额外试验才能提升为已验证策略"],
+  "recommended_next_skill": "related-paper-analyzer"
+}

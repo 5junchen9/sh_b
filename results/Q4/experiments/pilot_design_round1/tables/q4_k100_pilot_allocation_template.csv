@@ -1,0 +1,10 @@
+﻿pilot_id,barcode,C1,Q1_percent,C2,q,single_stage_0_80,tau_0_80_min,candidate_source,status,cycle_5_complete,k5_screen_status,cycle_100_complete,raw_data_path,p0_compatible_view_path,notes
+Q4_FAST_01,,6.0,65.0,4.5,0.65,False,8.5,pilot_design_round1:快速端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_FAST_02,,6.0,65.0,4.5,0.65,False,8.5,pilot_design_round1:快速端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_FAST_03,,6.0,65.0,4.5,0.65,False,8.5,pilot_design_round1:快速端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_MID_01,,5.2,71.0,3.5,0.71,False,9.735164835164836,pilot_design_round1:中间权衡代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_MID_02,,5.2,71.0,3.5,0.71,False,9.735164835164836,pilot_design_round1:中间权衡代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_MID_03,,5.2,71.0,3.5,0.71,False,9.735164835164836,pilot_design_round1:中间权衡代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_LIFE_01,,4.4,71.0,3.5,0.71,False,11.224675324675326,pilot_design_round1:寿命端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_LIFE_02,,4.4,71.0,3.5,0.71,False,11.224675324675326,pilot_design_round1:寿命端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。
+Q4_LIFE_03,,4.4,71.0,3.5,0.71,False,11.224675324675326,pilot_design_round1:寿命端代表,planned,False,not_due,False,,,待分配不同物理电芯；仅为试验排程代表点，不是正式推荐。

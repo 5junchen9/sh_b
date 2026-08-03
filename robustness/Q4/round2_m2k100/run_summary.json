@@ -1,0 +1,13 @@
+{
+  "question": "Q4",
+  "check": "existing_policy_pareto_sensitivity",
+  "status": "computed_not_human_adjudicated",
+  "execution_timestamp": "2026-08-02T17:45:37.067625+00:00",
+  "random_seed": 20260802,
+  "baseline_pareto_count": 4,
+  "baseline_all_n2": true,
+  "input_sha256": {
+    "results\\Q4\\experiments\\existing_policy_round2_m2k100\\tables\\q4_existing_policy_summary.csv": "24f6a896b394c283ba3fde45cff1e98e8f3fde42ba3ecc02c0d8961bf7a20a49"
+  },
+  "script_sha256": "04e82280f27818ae05617365724f90db26f07d775bc00f1974903ecb11379448"
+}

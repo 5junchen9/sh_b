@@ -1,0 +1,35 @@
+{
+  "question": "Q4",
+  "round": "existing_policy_round1",
+  "status": "development_pool_evidence_only",
+  "execution_timestamp": "2026-08-02T16:05:33.700613+00:00",
+  "random_seed": 20260802,
+  "development_cells": 84,
+  "secondary_read": false,
+  "policy_count": 60,
+  "multi_cell_policy_count": 19,
+  "development_pareto_count": 4,
+  "bootstrap": {
+    "repeats": 2000,
+    "unit": "barcode within policy",
+    "interpretation": "empirical lower summary only; no model refit or calibrated coverage"
+  },
+  "input_sha256": {
+    "data\\processed\\cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "results\\Q2\\experiments\\q2b_proxy_round1\\tables\\q2b_oof_predictions.csv": "b6bf4e2d157e88204ba6985df591fd6c8abdb286f61b62389de143f54c63e2c6",
+    "results\\Q2\\experiments\\q2b_primary_confirmation_round1\\tables\\q2b_primary_predictions.csv": "8b43b322a20558d8c58fce6e9a4317debc2b0fe920c3ec77d2a01e306ad8a9c5",
+    "results\\Q3\\experiments\\round1\\tables\\m3_oof_life_predictions.csv": "456340197eb90d3ea572e83f90662d3920b07166b4aaf1a57ef9f09f7210550f",
+    "results\\Q3\\experiments\\primary_confirmation_round1\\tables\\q3_primary_life_predictions.csv": "d93c642e323568f894e95c3594c145bbc53ba71f5a2ffbae19f96932a8f7437b",
+    "results\\Q3\\experiments\\round1\\tables\\m3_oof_soh120_predictions.csv": "68a0fe4863b2d3d1d740afb84831ba9fe3ecf9a4e1020f6149977f16e214b5b1",
+    "results\\Q3\\experiments\\primary_confirmation_round1\\tables\\q3_primary_soh120_predictions.csv": "b5ff6956dca278d289744369d02559412eeb228aaf9401fb8758bb178ceb25fe"
+  },
+  "script_sha256": "e39a64b176bcbcab2224fa9d60080bc9c9c5e901bc955eab3ef0c3a466b164bb",
+  "outputs": [
+    "tables/q4_existing_policy_cell_evidence.csv",
+    "tables/q4_existing_policy_summary.csv",
+    "tables/q4_existing_policy_development_pareto.csv",
+    "figures/q4_existing_policy_pareto.png",
+    "figures/q4_existing_policy_pareto.svg",
+    "q4_existing_policy_report.md"
+  ]
+}

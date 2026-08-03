@@ -1,0 +1,3 @@
+﻿case,policy,cell_count,life_mean,life_median,life_std,life_min,life_max,C1,Q1_percent,C2,early_chargetime_median,tau_0_80_theory_min,datasets,charge_minus_tau_min,repeated_policy
+典型长寿命策略,3.6C(80%)-3.6C,3,2083.0,2160.0,203.72285095197347,1852,2237,3.6,80.0,3.6,13.397469444466665,13.333333333333334,主测试集;训练集,0.0641361111333314,True
+典型短寿命策略,5.4C(60%)-3.6C,2,546.5,546.5,17.67766952966369,534,559,5.4,60.0,3.6,8.98436333333,10.000000000000002,主测试集;训练集,-1.0156366666700016,True

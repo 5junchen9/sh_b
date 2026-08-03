@@ -1,0 +1,53 @@
+{
+  "confirmation_status": "observed_not_adjudicated",
+  "scope": "One-time frozen M3 confirmation on Primary; alpha and template use Train only.",
+  "windows": [
+    {
+      "k": 5,
+      "rmse_log": 0.3030541203368948,
+      "mae_log": 0.20322464558388928,
+      "rmse_cycle": 230.33815980654143,
+      "mae_cycle": 143.11514622354227,
+      "overprediction_rate": 0.5116279069767442,
+      "cell_equal_soh_rmse": 0.042588675806334214,
+      "future_point_pooled_soh_rmse": 0.04596758052758947,
+      "curve_cells": 43,
+      "template_failures": 0,
+      "failure_predicted_life_not_after_k": 0,
+      "failure_missing_anchor": 0,
+      "failure_no_future_observation": 0,
+      "failure_template_anchor_denominator": 0
+    },
+    {
+      "k": 100,
+      "rmse_log": 0.3970168899299244,
+      "mae_log": 0.21534654596962247,
+      "rmse_cycle": 212.02231620110794,
+      "mae_cycle": 134.9150827024073,
+      "overprediction_rate": 0.5348837209302325,
+      "cell_equal_soh_rmse": 0.03842854307045683,
+      "future_point_pooled_soh_rmse": 0.04235768655297242,
+      "curve_cells": 41,
+      "template_failures": 2,
+      "failure_predicted_life_not_after_k": 2,
+      "failure_missing_anchor": 0,
+      "failure_no_future_observation": 0,
+      "failure_template_anchor_denominator": 0
+    }
+  ],
+  "selected_alpha_by_window": [
+    {
+      "k": 5,
+      "alpha": 10.0,
+      "train_cells": 41,
+      "train_policy_groups": 40
+    },
+    {
+      "k": 100,
+      "alpha": 3.0,
+      "train_cells": 41,
+      "train_policy_groups": 40
+    }
+  ],
+  "soh_metric": "cell_equal_soh_rmse is formal; pooled is diagnostic."
+}

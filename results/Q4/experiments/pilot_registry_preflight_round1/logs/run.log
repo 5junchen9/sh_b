@@ -1,0 +1,27 @@
+{
+  "question": "Q4",
+  "round": "pilot_registry_preflight_round1",
+  "status": "registry_preflight_passed",
+  "registry_state": [
+    "all_slots_unassigned"
+  ],
+  "scope": "Schema and frozen-batch validation only; this does not run Q3, create pilot observations, or produce a recommendation.",
+  "slot_count": 9,
+  "assigned_barcode_count": 0,
+  "strategy_count": 3,
+  "input_sha256": {
+    "registry": "99883fd34588f312fb0a5bc57a5b01f9f0bcf175e772d0c5dc67ee1961a52d64",
+    "q4_k100_pilot_representatives.csv": "f64619a83b55926e5d81092e461fa460b7f88060afc28558a2d6897d87f08b2a",
+    "q4_k100_pilot_protocol.md": "a3fbbc25940e5a35301f99ab00e67bebc7b765f2b9110980ac4c5cf2e6f001cb"
+  },
+  "script_sha256": "d69a448a15dcc3996521fc0683e0f8ccaef0e731a31e84c6aec5de0da92e6e20",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "pandas": "2.3.3"
+  },
+  "outputs": [
+    "tables/q4_pilot_registry_validation.csv"
+  ],
+  "execution_timestamp": "2026-08-02T15:47:09.511925+00:00"
+}

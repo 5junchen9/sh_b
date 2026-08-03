@@ -1,0 +1,85 @@
+{
+  "generated_at_utc": "2026-08-02T14:02:37.764938+00:00",
+  "script": "code/robustness/q2_q3_train_bootstrap.py",
+  "script_sha256": "f636a7f5e7c31a8674a367a6b23761012d7c204e9c5636967047f491b73dee0b",
+  "scope": "Train-only; Primary and Secondary are not used for fitting, resampling, selection, or scoring",
+  "seed": 20260802,
+  "bootstrap_replicates": 2000,
+  "question": "Q2",
+  "input_sha256": {
+    "cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "q2_run_all.py": "478eb3faa1ecb0caf653136bb2c6d6ede067704c7f2480e3d872d3012248131e",
+    "q2_m1_oof_predictions.csv": "fe83c91be52b9c31808dfa5fd25bebf06b687050590ffa83774097992bb6ae06",
+    "q2_m2_oof_predictions.csv": "9e7dec6427e93c671db7d5fff6640b2246494955357e7e6c60ea3eaedb30af7c"
+  },
+  "result": {
+    "scope": "Train-only policy-block bootstrap conditional on stored Q2 OOF predictions",
+    "seed": 20260802,
+    "bootstrap_replicates": 2000,
+    "policy_groups": 40,
+    "train_cells": 41,
+    "original_metrics": {
+      "rmse_log_m1": 0.37168935907539924,
+      "rmse_log_m2": 0.3685401659907004,
+      "mae_log_m1": 0.2755652782283463,
+      "mae_log_m2": 0.25101911902713997,
+      "delta_rmse_log_m2_minus_m1": -0.0031491930846988536,
+      "delta_mae_log_m2_minus_m1": -0.02454615920120634,
+      "relative_mae_improvement": 0.08907566061666972
+    },
+    "bootstrap": {
+      "delta_rmse_log_m2_minus_m1_ci95": [
+        -0.04887370190882905,
+        0.04018106918178517
+      ],
+      "delta_mae_log_m2_minus_m1_ci95": [
+        -0.0724496478456534,
+        0.026204477774784934
+      ],
+      "m2_rmse_improvement_share": 0.5545,
+      "m2_mae_improvement_share": 0.8285,
+      "relative_mae_improvement_ci95": [
+        -0.10426927105423407,
+        0.24998021635994913
+      ]
+    },
+    "interaction_sign_stability": [
+      {
+        "term": "C1 Q1_percent",
+        "positive_share": 0.0095,
+        "negative_share": 0.9905,
+        "zero_share": 0.0,
+        "dominant_sign": "negative",
+        "sign_stability": 0.9905,
+        "coefficient_ci_low": -1.4391973507703733,
+        "coefficient_ci_high": -0.19192859340237442
+      },
+      {
+        "term": "C1 C2",
+        "positive_share": 0.106,
+        "negative_share": 0.894,
+        "zero_share": 0.0,
+        "dominant_sign": "negative",
+        "sign_stability": 0.894,
+        "coefficient_ci_low": -0.43056510262517367,
+        "coefficient_ci_high": 0.10487397521858174
+      },
+      {
+        "term": "Q1_percent C2",
+        "positive_share": 0.991,
+        "negative_share": 0.009,
+        "zero_share": 0.0,
+        "dominant_sign": "positive",
+        "sign_stability": 0.991,
+        "coefficient_ci_low": 0.12605012514135594,
+        "coefficient_ci_high": 1.1733190139252605
+      }
+    ],
+    "requested_gate_facts": {
+      "mae_ci_upper_lt_zero": false,
+      "relative_mae_improvement_ge_5pct": true,
+      "all_main_interaction_sign_stability_ge_80pct": true
+    },
+    "coefficient_bootstrap_alpha": 0.1
+  }
+}

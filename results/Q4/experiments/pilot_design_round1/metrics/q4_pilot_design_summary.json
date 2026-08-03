@@ -1,0 +1,60 @@
+{
+  "question": "Q4",
+  "round": "pilot_design_round1",
+  "status": "planned_not_executed",
+  "scope": "Three representative strategies selected only for k=100 pilot scheduling; P3 values are not final rankings or robust life lower bounds.",
+  "random_seed": 20260802,
+  "frozen_candidate_count": 1775,
+  "time_life_pareto_count": 15,
+  "representative_count": 3,
+  "required_distinct_physical_cells_per_strategy": 3,
+  "minimum_cell_count": 9,
+  "input_sha256": {
+    "q4_q2_provisional_candidates.csv": "0ee991ab4fef6dcfd6b76698dd97b92f0285d5576f8c218978f7bbb7294967dd",
+    "q4_k100_pilot_protocol.md": "a3fbbc25940e5a35301f99ab00e67bebc7b765f2b9110980ac4c5cf2e6f001cb"
+  },
+  "script_sha256": "f4be01a408f18d508448bc2a5066d27f533d4318fecb3fb276736c1e286f73e2",
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "pandas": "2.3.3",
+    "numpy": "2.5.1"
+  },
+  "outputs": [
+    "tables/q4_pilot_time_life_pareto_candidates.csv",
+    "tables/q4_k100_pilot_representatives.csv",
+    "tables/q4_k100_pilot_allocation_template.csv",
+    "figures/q4_pilot_representatives.png",
+    "figures/q4_pilot_representatives.svg"
+  ],
+  "representatives": [
+    {
+      "pilot_role": "快速端代表",
+      "C1": 6.0,
+      "Q1_percent": 65.0,
+      "C2": 4.5,
+      "tau_0_80_min": 8.5,
+      "q2b_pred_cycle_life": 313.70819116601706,
+      "support_bootstrap_rate": 0.81
+    },
+    {
+      "pilot_role": "中间权衡代表",
+      "C1": 5.2,
+      "Q1_percent": 71.0,
+      "C2": 3.5,
+      "tau_0_80_min": 9.735164835164836,
+      "q2b_pred_cycle_life": 874.6546219683288,
+      "support_bootstrap_rate": 1.0
+    },
+    {
+      "pilot_role": "寿命端代表",
+      "C1": 4.4,
+      "Q1_percent": 71.0,
+      "C2": 3.5,
+      "tau_0_80_min": 11.224675324675326,
+      "q2b_pred_cycle_life": 984.4199684609504,
+      "support_bootstrap_rate": 1.0
+    }
+  ],
+  "execution_timestamp": "2026-08-02T15:44:27.037566+00:00"
+}

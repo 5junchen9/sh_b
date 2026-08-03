@@ -1,0 +1,4 @@
+﻿term,positive_share,negative_share,zero_share,dominant_sign,sign_stability,coefficient_ci_low,coefficient_ci_high
+C1 Q1_percent,0.0095,0.9905,0.0,negative,0.9905,-1.4391973507703733,-0.19192859340237442
+C1 C2,0.106,0.894,0.0,negative,0.894,-0.43056510262517367,0.10487397521858174
+Q1_percent C2,0.991,0.009,0.0,positive,0.991,0.12605012514135594,1.1733190139252605

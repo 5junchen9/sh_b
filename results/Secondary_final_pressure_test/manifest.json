@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "artifact_type": "prospective_secondary_final_pressure_test_freeze",
+  "created_at_utc": "2026-08-03T00:20:19.383461+00:00",
+  "authorization": "Human authorized one-time Secondary execution with no retuning or result-driven callback.",
+  "secondary_status_before_run": "not_read_by_this_final_protocol",
+  "fixed_partitions": {
+    "train": "Train",
+    "secondary": "Sec. test",
+    "train_cells": 41,
+    "secondary_cells": 40
+  },
+  "fixed_models": {
+    "q2_m1_main_effect_ridge": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "alpha": 3.0
+    },
+    "q2_m2_interaction_sensitivity": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "alpha": 0.1,
+      "polynomial_degree": 2
+    },
+    "q2_p3_provisional_for_q4_observation": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2"
+      ],
+      "n_knots": 4,
+      "alpha": 0.03
+    },
+    "q3_m2_k5_comparator": {
+      "features": [
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope"
+      ],
+      "alpha": 10.0
+    },
+    "q3_m2_k100_calibration": {
+      "features": [
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope"
+      ],
+      "alpha": 3.0
+    },
+    "q3_m3r_k5_screening": {
+      "features": [
+        "C1",
+        "Q1_percent",
+        "C2",
+        "QDischarge_mean",
+        "QDischarge_slope",
+        "QDischarge_delta_cycle2_to_k",
+        "QCharge_mean",
+        "QCharge_slope",
+        "IR_mean",
+        "IR_slope",
+        "Tmax_mean",
+        "Tavg_mean",
+        "Tmin_mean",
+        "chargetime_mean",
+        "chargetime_slope",
+        "raw_charge_v_mean_mean",
+        "raw_charge_v_p95_mean",
+        "raw_charge_v_p95_slope"
+      ],
+      "alpha": 10.0,
+      "raw_gate": "raw_valid_ratio >= 0.8"
+    }
+  },
+  "fixed_evaluation": {
+    "bootstrap_repeats": 2000,
+    "bootstrap_unit": "policy_table9 blocks",
+    "seed": 20260802,
+    "q3_windows": [
+      5,
+      100
+    ],
+    "no_model_selection_on_secondary": true
+  },
+  "q4_scope": "existing Secondary policies may be described only; no new strategy optimization, Pareto selection, or recommendation is permitted.",
+  "source_sha256": {
+    "data/processed/p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "data/processed/cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "data/processed/cycle_model_view.csv": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75",
+    "data/processed/early_features_k5.csv": "d26e8149ca236ff514d6a711b78905c64635c41bccc3837fc1790ad9c6419400",
+    "data/processed/early_features_k100.csv": "607b789e1a37ce582087f882c05d329b5635d16bfd08cd4bd69758156b7b159e",
+    "data/processed/raw_curve_features_train_k5.csv": "c9a3820e72ebc956ff421dddd76b3c909104500836b3dde98a2edee08a54321c",
+    "outputs/data_audit/mat_deep_cycle_flags.csv": "e0217d0474bf062d32c605a631ea50bc90fa376e75a2a27402b57efdbed5a1e9",
+    "data_1.mat": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+    "data_2.mat": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+    "data_3.mat": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+    "methods/secondary_final_pressure_test_protocol.md": "14902505714595a237bf0e842cd3b21a5a7da3b60ba1c138436b5ae7e0bc1402",
+    "methods/Q3/decisions/robustness-checker_modeler_decision.md": "bf5830b4ca5cfe00add82fea13d677ca1e63b711f846e295293effe21dbd3ede",
+    "methods/Q3/decisions/result-report-generator_modeler_decision.md": "8bd8e1cec9028127e484abcd3f02f55388bdca047fca60cfd2989a7fefe50e34",
+    "code/audit/build_secondary_final_freeze_manifest.py": "cca762a67633348b60e5e61cd685f9875e0487b127997ab2370b83474000bdc3",
+    "code/audit/run_secondary_final_pressure_test.py": "69629290feb61e163a829361c3215447030d9e093db4ec55e43c1c8d0c25a9fd",
+    "src/extract_q3_raw_curve_features_secondary.m": "3441bf976e07d5ddf0e0ac770dbb1ac96f64129acc6cbe6f385cdf3d7047791e",
+    "code/Q2/q2_run_all.py": "478eb3faa1ecb0caf653136bb2c6d6ede067704c7f2480e3d872d3012248131e",
+    "code/Q2/q2b_primary_confirmation.py": "42a3b8f4100d8ca60f54562300046cdc1d1e7b43df4b5b785d93a34ec601b4bf",
+    "code/Q3/q3_run_joint_comparison.py": "f8d418a98aed0c085a085ab5f5a89ed8d4b9a6c958ee78e7246026c5a8dd81ec",
+    "code/Q3/q3_run_raw_curve_challenger.py": "c06c2ef109a954fdb3ebd2181780f1bd82926e49a15c10af835bbb2599dd1e58"
+  },
+  "runner_command": ".\\.venv\\Scripts\\python.exe -W error l1\\code\\audit\\run_secondary_final_pressure_test.py",
+  "raw_feature_command": "D:\\13470\\matlab\\bin\\matlab.exe -batch \"addpath(fullfile(pwd,'l1','src')); extract_q3_raw_curve_features_secondary\""
+}

@@ -1,0 +1,309 @@
+{
+  "p0_status": "pass",
+  "generated_at_utc": "2026-08-02T14:00:37.768511+00:00",
+  "script": "src/build_p0_model_view.py",
+  "script_sha256": "52f3f804e3b1b93b05bbb15b997dbc5543ff1864a77d150e8e2e26b5761a5d8c",
+  "random_seed": 20260802,
+  "input_sha256": {
+    "cycle_summary": "c5d161e60928f5c159f79da45a7ff77195fb90c674f1515ca62b585539585d4c",
+    "cell_labels": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "raw_curve_flags": "e0217d0474bf062d32c605a631ea50bc90fa376e75a2a27402b57efdbed5a1e9"
+  },
+  "raw_source_sha256_before": {
+    "data_1.mat": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+    "data_1.xlsx": "c38a29814e6ef450a9d76ed3f806a8138532c37465a2d6b16db777c7133fda09",
+    "data_2.mat": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+    "data_2.xlsx": "7fd0878c958a1f472db87c3c7300be5d9605a19abebb7c3c0f5b9f252df5661c",
+    "data_3.mat": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+    "data_3.xlsx": "66d9650dc7f72aca0671adf8c7e8055644b1d7586f4b8604e441f04838b53096"
+  },
+  "raw_source_sha256_after": {
+    "data_1.mat": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+    "data_1.xlsx": "c38a29814e6ef450a9d76ed3f806a8138532c37465a2d6b16db777c7133fda09",
+    "data_2.mat": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+    "data_2.xlsx": "7fd0878c958a1f472db87c3c7300be5d9605a19abebb7c3c0f5b9f252df5661c",
+    "data_3.mat": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+    "data_3.xlsx": "66d9650dc7f72aca0671adf8c7e8055644b1d7586f4b8604e441f04838b53096"
+  },
+  "rules": {
+    "eol_filter": "global_cycle_index < cycle_life_table9",
+    "feature_windows": [
+      "2 <= global_cycle_index <= 5",
+      "2 <= global_cycle_index <= 10",
+      "2 <= global_cycle_index <= 20",
+      "2 <= global_cycle_index <= 50",
+      "2 <= global_cycle_index <= 100"
+    ],
+    "structural_masks": [
+      "nonfinite",
+      "negative_value for nonnegative fields",
+      "all_zero_placeholder",
+      "temperature_order_violation"
+    ],
+    "statistical_masks": {
+      "chargetime": {
+        "fit_dataset": "Train",
+        "quantile": 0.99,
+        "multiplier": 5.0,
+        "train_q99": 18.01014740000001,
+        "upper_threshold": 90.05073700000005,
+        "masked_count_by_dataset": {
+          "Primary": 6,
+          "Secondary": 0,
+          "Train": 8
+        }
+      },
+      "other_fields": "No statistical mask frozen at P0; no defensible unit-backed threshold was supplied."
+    },
+    "delta_rule": "cycle 2 and cycle k must both be valid; no neighboring-cycle substitution",
+    "imputation": "none",
+    "standardization": "none"
+  },
+  "mask_summary": {
+    "QDischarge": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "QCharge": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "IR": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "Tmax": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "Tavg": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "Tmin": {
+      "invalid_count": 41,
+      "reason_counts": {
+        "all_zero_placeholder": 41
+      }
+    },
+    "chargetime": {
+      "invalid_count": 55,
+      "reason_counts": {
+        "all_zero_placeholder": 41,
+        "train_q99_x5_upper": 14
+      }
+    }
+  },
+  "core_feature_columns": {
+    "5": [
+      "QDischarge_end",
+      "QDischarge_mean",
+      "QDischarge_slope",
+      "QDischarge_std",
+      "QDischarge_delta_cycle2_to_k",
+      "QCharge_mean",
+      "QCharge_slope",
+      "QCharge_delta_cycle2_to_k",
+      "IR_end",
+      "IR_mean",
+      "IR_slope",
+      "IR_delta_cycle2_to_k",
+      "Tmax_mean",
+      "Tavg_mean",
+      "Tmin_mean",
+      "chargetime_mean",
+      "chargetime_slope"
+    ],
+    "10": [
+      "QDischarge_end",
+      "QDischarge_mean",
+      "QDischarge_slope",
+      "QDischarge_std",
+      "QDischarge_delta_cycle2_to_k",
+      "QCharge_mean",
+      "QCharge_slope",
+      "QCharge_delta_cycle2_to_k",
+      "IR_end",
+      "IR_mean",
+      "IR_slope",
+      "IR_delta_cycle2_to_k",
+      "Tmax_mean",
+      "Tavg_mean",
+      "Tmin_mean",
+      "chargetime_mean",
+      "chargetime_slope",
+      "QDischarge_recent10_slope"
+    ],
+    "20": [
+      "QDischarge_end",
+      "QDischarge_mean",
+      "QDischarge_slope",
+      "QDischarge_std",
+      "QDischarge_delta_cycle2_to_k",
+      "QCharge_mean",
+      "QCharge_slope",
+      "QCharge_delta_cycle2_to_k",
+      "IR_end",
+      "IR_mean",
+      "IR_slope",
+      "IR_delta_cycle2_to_k",
+      "Tmax_mean",
+      "Tavg_mean",
+      "Tmin_mean",
+      "chargetime_mean",
+      "chargetime_slope",
+      "QDischarge_recent10_slope"
+    ],
+    "50": [
+      "QDischarge_end",
+      "QDischarge_mean",
+      "QDischarge_slope",
+      "QDischarge_std",
+      "QDischarge_delta_cycle2_to_k",
+      "QCharge_mean",
+      "QCharge_slope",
+      "QCharge_delta_cycle2_to_k",
+      "IR_end",
+      "IR_mean",
+      "IR_slope",
+      "IR_delta_cycle2_to_k",
+      "Tmax_mean",
+      "Tavg_mean",
+      "Tmin_mean",
+      "chargetime_mean",
+      "chargetime_slope",
+      "QDischarge_recent10_slope"
+    ],
+    "100": [
+      "QDischarge_end",
+      "QDischarge_mean",
+      "QDischarge_slope",
+      "QDischarge_std",
+      "QDischarge_delta_cycle2_to_k",
+      "QCharge_mean",
+      "QCharge_slope",
+      "QCharge_delta_cycle2_to_k",
+      "IR_end",
+      "IR_mean",
+      "IR_slope",
+      "IR_delta_cycle2_to_k",
+      "Tmax_mean",
+      "Tavg_mean",
+      "Tmin_mean",
+      "chargetime_mean",
+      "chargetime_slope",
+      "QDischarge_recent10_slope"
+    ]
+  },
+  "output_files": {
+    "cycle_model_view": {
+      "path": "data/processed/cycle_model_view.csv",
+      "rows": 99279,
+      "sha256": "c8cef3e86a2472e92f37253333e9b853c43164a1bc6a976bff8977b150f45e75"
+    },
+    "early_features_k5": {
+      "path": "data/processed/early_features_k5.csv",
+      "rows": 124,
+      "sha256": "d26e8149ca236ff514d6a711b78905c64635c41bccc3837fc1790ad9c6419400"
+    },
+    "early_features_k10": {
+      "path": "data/processed/early_features_k10.csv",
+      "rows": 124,
+      "sha256": "e5c97421bbe0618e1efdc5161440644866ba168f2f2a15d9c3e16ff844d2068f"
+    },
+    "early_features_k20": {
+      "path": "data/processed/early_features_k20.csv",
+      "rows": 124,
+      "sha256": "0bc6d996eaeff3588a4dad2bd9bf3a65dc361a4c12c111b7d0442a00f65ff2dd"
+    },
+    "early_features_k50": {
+      "path": "data/processed/early_features_k50.csv",
+      "rows": 124,
+      "sha256": "d253860ee796a6c96830124d1eb4a3e28c13a3b43e87f5c6e67d43bb69f04460"
+    },
+    "early_features_k100": {
+      "path": "data/processed/early_features_k100.csv",
+      "rows": 124,
+      "sha256": "607b789e1a37ce582087f882c05d329b5635d16bfd08cd4bd69758156b7b159e"
+    }
+  },
+  "checks": {
+    "official_cell_count_124": true,
+    "retained_row_count_99279": true,
+    "unique_barcode_global_cycle": true,
+    "every_cell_has_L_minus_1_rows": true,
+    "all_cycles_before_eol": true,
+    "raw_audit_join_complete": true,
+    "cycle2_capacity_reference_complete": true,
+    "anomaly_does_not_remove_cells": true,
+    "threshold_fit_uses_train_only": true,
+    "window_k5_has_124_rows": true,
+    "window_k5_one_row_per_cell": true,
+    "window_k5_expected_cycle_denominator": true,
+    "window_k5_QDischarge_counts_traceable": true,
+    "window_k5_QCharge_counts_traceable": true,
+    "window_k5_IR_counts_traceable": true,
+    "window_k5_Tmax_counts_traceable": true,
+    "window_k5_Tavg_counts_traceable": true,
+    "window_k5_Tmin_counts_traceable": true,
+    "window_k5_chargetime_counts_traceable": true,
+    "window_k10_has_124_rows": true,
+    "window_k10_one_row_per_cell": true,
+    "window_k10_expected_cycle_denominator": true,
+    "window_k10_QDischarge_counts_traceable": true,
+    "window_k10_QCharge_counts_traceable": true,
+    "window_k10_IR_counts_traceable": true,
+    "window_k10_Tmax_counts_traceable": true,
+    "window_k10_Tavg_counts_traceable": true,
+    "window_k10_Tmin_counts_traceable": true,
+    "window_k10_chargetime_counts_traceable": true,
+    "window_k20_has_124_rows": true,
+    "window_k20_one_row_per_cell": true,
+    "window_k20_expected_cycle_denominator": true,
+    "window_k20_QDischarge_counts_traceable": true,
+    "window_k20_QCharge_counts_traceable": true,
+    "window_k20_IR_counts_traceable": true,
+    "window_k20_Tmax_counts_traceable": true,
+    "window_k20_Tavg_counts_traceable": true,
+    "window_k20_Tmin_counts_traceable": true,
+    "window_k20_chargetime_counts_traceable": true,
+    "window_k50_has_124_rows": true,
+    "window_k50_one_row_per_cell": true,
+    "window_k50_expected_cycle_denominator": true,
+    "window_k50_QDischarge_counts_traceable": true,
+    "window_k50_QCharge_counts_traceable": true,
+    "window_k50_IR_counts_traceable": true,
+    "window_k50_Tmax_counts_traceable": true,
+    "window_k50_Tavg_counts_traceable": true,
+    "window_k50_Tmin_counts_traceable": true,
+    "window_k50_chargetime_counts_traceable": true,
+    "window_k100_has_124_rows": true,
+    "window_k100_one_row_per_cell": true,
+    "window_k100_expected_cycle_denominator": true,
+    "window_k100_QDischarge_counts_traceable": true,
+    "window_k100_QCharge_counts_traceable": true,
+    "window_k100_IR_counts_traceable": true,
+    "window_k100_Tmax_counts_traceable": true,
+    "window_k100_Tavg_counts_traceable": true,
+    "window_k100_Tmin_counts_traceable": true,
+    "window_k100_chargetime_counts_traceable": true,
+    "raw_source_hashes_unchanged": true,
+    "all_p0_checks_pass": true
+  },
+  "known_limits": [
+    "IR is confirmed in ohms and chargetime in minutes; IR measurement timing and chargetime boundaries/CV coverage remain undocumented.",
+    "No external unit-dependent physical thresholds were invented for summary fields.",
+    "Raw curve suitability is joined for future challengers; P0 core features use audited summary fields only.",
+    "Lifetime targets remain in cell_labels.csv and are deliberately absent from early feature tables."
+  ]
+}

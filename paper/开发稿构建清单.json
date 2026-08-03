@@ -1,0 +1,9 @@
+{
+  "status": "development_front_matter_only",
+  "reference": "D:\\13470\\Documents\\2026_math\\l1\\论文.docx",
+  "reference_sha256": "f510ffe58f1c2c8a3cf4a9481038b777770daaf302c6b4f691a367b0858b6256",
+  "output": "D:\\13470\\Documents\\2026_math\\l1\\paper\\论文开发稿_前置章节_待冻结.docx",
+  "figure": "D:\\13470\\Documents\\2026_math\\l1\\outputs\\development_figures\\evidence_workflow_development.png",
+  "final_result_sections_included": false,
+  "render_status": "blocked_no_libreoffice"
+}

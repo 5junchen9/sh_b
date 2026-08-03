@@ -1,0 +1,25 @@
+{
+  "question": "Q2",
+  "round": "m1_explainability_round1",
+  "status": "train_only_descriptive_supplement",
+  "execution_timestamp": "2026-08-02T16:12:25.713921+00:00",
+  "random_seed": 20260802,
+  "bootstrap_repeats": 2000,
+  "alpha_full_train": 3.0,
+  "validation": "5-fold outer policy-group CV plus up-to-4-fold inner policy-group CV",
+  "input_sha256": {
+    "data\\processed\\cell_labels.csv": "75363c84b08fc787b510920a5a8047b8740f13bb2aaf8253fce198a7340505a8",
+    "data\\processed\\p0_summary.json": "5c58b109351bbf507c1d90ac3ae1a0a16b30c885721b24da71e6e44fae50af4f",
+    "code\\Q2\\q2_explainability_code_design.md": "ce4923ab7823ef7fa906db88b65c40abf1c126b36b4c5501dce4e60cf94c9fd1",
+    "results\\Q2\\experiments\\round1\\tables\\m1_oof_predictions.csv": "fe83c91be52b9c31808dfa5fd25bebf06b687050590ffa83774097992bb6ae06"
+  },
+  "script_sha256": "468b832cf3cf8b73c07983d650c45a38aff230629e6bf5355999a9ee42baa929",
+  "outputs": [
+    "tables/q2_m1_feature_ablation_oof.csv",
+    "tables/q2_m1_feature_ablation_summary.csv",
+    "tables/q2_m1_standardized_coefficients.csv",
+    "figures/q2_m1_factor_explainability.png",
+    "figures/q2_m1_factor_explainability.svg",
+    "q2_m1_explainability_report.md"
+  ]
+}

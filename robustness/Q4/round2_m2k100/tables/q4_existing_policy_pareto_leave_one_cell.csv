@@ -1,0 +1,9 @@
+﻿policy_table9,removed_cell_order,original_cell_count,remaining_cell_count,keeps_n_ge_2_eligibility,reason
+5.4C(80%)-5.4C,1,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+5.4C(80%)-5.4C,2,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+5.4C(70%)-3C,1,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+5.4C(70%)-3C,2,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+5.4C(40%)-3.6C,1,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+5.4C(40%)-3.6C,2,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+6C(40%)-3C,1,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。
+6C(40%)-3C,2,2,1,False,所有基线 Pareto 策略当前均仅有2枚电芯；留一后自动降为单电芯案例。

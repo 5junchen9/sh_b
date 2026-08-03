@@ -1,0 +1,12 @@
+{
+  "parameter_error_anchor": "P3_additive_gam",
+  "parameter_rmse_anchor": "P3_additive_gam",
+  "parameter_mae_anchor": "P3_additive_gam",
+  "parameter_selected": "P3_additive_gam",
+  "parameter_selection_note": "在误差一标准误范围且过预测风险不高于误差锚点的参数模型中，选择复杂度最低者。",
+  "parameter_selection_fallback_used": false,
+  "challenger_admitted": false,
+  "final_selected_proxy": "P3_additive_gam",
+  "final_selected_name": "P3 低自由度加性样条 GAM",
+  "challenger_requirement": "相对参数代理，RMSE_log 与 MAE_log 的 bootstrap 差值95%上界均<0，且过预测比例差值上界<=0。"
+}
