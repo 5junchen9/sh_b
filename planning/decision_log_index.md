@@ -2,6 +2,7 @@
 
 | id | Qx | decision_point | choice | confidence | supersedes |
 |---|---|---|---|---|---|
+| Q1-D01 | Q1 | method_choice | M2 策略级聚合正文；M1 基础描述；M3 一致性核对 | 中等 | — |
 | Q4-D04 | Q4 | confidence | Q4 包整体可信度中等 | 中等 | — |
 | Q4-D03 | Q4 | result_verdict | drop F1–F3；保留 C1–C3 | 中等 | — |
 | Q4-D02 | Q4 | assumption_necessity | Q4-A1/A3 必要；双空间支持、≥0.800、每点≥3枚至k=100后方可升级 | 中等 | — |
