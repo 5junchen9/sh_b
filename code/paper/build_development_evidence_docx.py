@@ -181,9 +181,10 @@ def add_figure(document: Document, path: Path, caption: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--frozen", action="store_true", help="生成冻结结果写作版，不覆盖开发证据稿。")
+    parser.add_argument("--output", help="可选的输出 DOCX 路径，用于保留已打开的旧稿。")
     args = parser.parse_args()
     source = FROZEN_SOURCE if args.frozen else SOURCE
-    output = FROZEN_OUTPUT if args.frozen else OUTPUT
+    output = Path(args.output) if args.output else (FROZEN_OUTPUT if args.frozen else OUTPUT)
     manifest_path = FROZEN_MANIFEST if args.frozen else MANIFEST
     if not TEMPLATE.exists() or not source.exists():
         raise FileNotFoundError("模板或论文源稿不存在。")
