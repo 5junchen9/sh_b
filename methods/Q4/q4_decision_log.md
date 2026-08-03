@@ -25,3 +25,27 @@
 - **modeler_rationale**: Q4-A1、Q4-A3均为必要假设；只有双空间支持通过、支持率≥0.800，并完成每点不少于3枚电芯至k=100的真实确认后，候选才可升级，之前不称优或推荐；最终可信度：中等。
 - **confidence**: 中等
 - **supersedes**: —
+
+---
+
+### Q4-D03 | result_verdict | 2026-08-03T13:25:00+08:00 | mode: learning
+
+- **options_considered**: F1 将 1,775 个候选称为最优/有效策略集；F2 将三个代表点称为可直接执行处方；F3 将 4 个开发期非支配点称为正式 Pareto；或删除三项过度主张并保留 C1–C3。
+- **evidence**: `results/Q4/reports/q4_solution_package_for_writer.md`（F1–F3、C1–C3）；`results/Q4/reports/q4_final_result_analysis.md`；`methods/Q4/q4_decision_log.md`（Q4-D01/D02）。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: F1、F2、F3 全部 drop；保留 C1–C3。
+- **modeler_rationale**: F1、F2、F3 全部 drop；保留 C1–C3；Q4 包整体可信度中等。理由：1,775 仅表示支持域候选，三个点尚未 pilot，4 个非支配点仅为开发期既有策略示例。
+- **confidence**: 中等
+- **supersedes**: —
+
+---
+
+### Q4-D04 | confidence | 2026-08-03T13:25:00+08:00 | mode: learning
+
+- **options_considered**: 高 / 中等 / 需谨慎。
+- **evidence**: `results/Q4/reports/q4_solution_package_for_writer.md`；`results/Q4/reports/q4_final_result_analysis.md`。
+- **ai_suggestion**: WITHHELD_IN_LEARNING_MODE
+- **modeler_decision**: Q4 包整体可信度中等。
+- **modeler_rationale**: 1,775 仅表示支持域候选，三个点尚未 pilot，4 个非支配点仅为开发期既有策略示例。
+- **confidence**: 中等
+- **supersedes**: —

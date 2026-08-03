@@ -1,0 +1,37 @@
+{
+  "subquestion": "Q4",
+  "frozen_at": "2026-08-03T13:30:00+08:00",
+  "frozen_by_skill": "solution-package-builder",
+  "source_method": "M2 Train-only 双空间支持域筛选 + k=100 pilot 闭环",
+  "signoff": {
+    "decision_id": "q4_package_signoff",
+    "decision_log_records": ["Q4-D01", "Q4-D02", "Q4-D03", "Q4-D04"],
+    "confidence": "中等",
+    "dropped_claims": ["F1", "F2", "F3"]
+  },
+  "code_source_files": [
+    {"path": "code/Q4/q4_train_only_dry_run.py", "mtime": "2026-08-03T01:41:10.337425+08:00"},
+    {"path": "code/Q4/q4_pilot_batch_design.py", "mtime": "2026-08-02T23:44:09.632751+08:00"},
+    {"path": "code/Q4/q4_existing_policy_round2_m2k100.py", "mtime": "2026-08-03T00:37:27.149881+08:00"}
+  ],
+  "claims": [
+    {"id": "q4_grid_count", "label": "Train-only 离散候选格点总数", "value": 3653, "unit": "个", "precision_for_paper": 0, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "候选流量表：候选格点总数", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:0,2B"},
+    {"id": "q4_provisional_count", "label": "双空间支持且支持率达标的 Q2_provisional 候选数", "value": 1775, "unit": "个", "precision_for_paper": 0, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "候选流量表：双空间且支持率≥80%", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:0,2B"},
+    {"id": "q4_bootstrap_reps", "label": "barcode bootstrap 重复次数", "value": 1000, "unit": "次", "precision_for_paper": 0, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "冻结配置：支持率", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:1.1,2A"},
+    {"id": "q4_support_threshold", "label": "候选支持率阈值", "value": 0.8, "unit": "比例", "precision_for_paper": 3, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "冻结配置：支持率门槛", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:0,2A"},
+    {"id": "q4_raw_distance_threshold", "label": "raw 空间第5近邻距离阈值", "value": 1.2182, "unit": "无量纲", "precision_for_paper": 4, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "冻结配置：c_raw", "verified_against": "methods/Q4/q4_final_method_explanation.md:4.2"},
+    {"id": "q4_soc_distance_threshold", "label": "SOC 暴露空间第5近邻距离阈值", "value": 2.8286, "unit": "无量纲", "precision_for_paper": 4, "source_file": "results/Q4/experiments/train_dry_run_round1/q4_train_only_dry_run_report.md", "source_locator": "冻结配置：c_soc", "verified_against": "methods/Q4/q4_final_method_explanation.md:4.2"},
+    {"id": "q4_screen_window", "label": "早期风险记录窗口", "value": 5, "unit": "cycle", "precision_for_paper": 0, "source_file": "methods/Q4/q4_k100_pilot_protocol.md", "source_locator": "k=5 筛查步骤", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2A"},
+    {"id": "q4_confirmation_window", "label": "新增候选升级确认窗口", "value": 100, "unit": "cycle", "precision_for_paper": 0, "source_file": "methods/Q4/q4_k100_pilot_protocol.md", "source_locator": "k=100 确认步骤", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2A"},
+    {"id": "q4_min_cells_per_policy", "label": "每个 pilot 代表点最少物理电芯数", "value": 3, "unit": "枚", "precision_for_paper": 0, "source_file": "results/Q4/experiments/pilot_design_round1/q4_pilot_batch_design_report.md", "source_locator": "每策略最少电芯数", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:1.2"},
+    {"id": "q4_pilot_policy_count", "label": "pilot 代表策略数", "value": 3, "unit": "条", "precision_for_paper": 0, "source_file": "results/Q4/experiments/pilot_design_round1/q4_pilot_batch_design_report.md", "source_locator": "快速/折中/寿命端", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:1.2"},
+    {"id": "q4_min_pilot_cells", "label": "最小 pilot 电芯总数", "value": 9, "unit": "枚", "precision_for_paper": 0, "source_file": "results/Q4/experiments/pilot_design_round1/q4_pilot_batch_design_report.md", "source_locator": "最小 pilot 规模", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:1.2"},
+    {"id": "q4_fast_time", "label": "快速端理论充电时间", "value": 8.5, "unit": "min", "precision_for_paper": 3, "source_file": "results/Q4/experiments/pilot_design_round1/tables/q4_k100_pilot_representatives.csv", "source_locator": "快速端行，tau_0_80", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_fast_support", "label": "快速端支持率", "value": 0.81, "unit": "比例", "precision_for_paper": 3, "source_file": "results/Q4/experiments/pilot_design_round1/tables/q4_k100_pilot_representatives.csv", "source_locator": "快速端行，support_rate", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_balance_time", "label": "折中端理论充电时间", "value": 9.735, "unit": "min", "precision_for_paper": 3, "source_file": "results/Q4/experiments/pilot_design_round1/tables/q4_k100_pilot_representatives.csv", "source_locator": "折中端行，tau_0_80", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_life_time", "label": "寿命端理论充电时间", "value": 11.225, "unit": "min", "precision_for_paper": 3, "source_file": "results/Q4/experiments/pilot_design_round1/tables/q4_k100_pilot_representatives.csv", "source_locator": "寿命端行，tau_0_80", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_p3_secondary_rmse_log", "label": "P3 在 Secondary 的 RMSE_log", "value": 0.677812, "unit": "ln(cycle)", "precision_for_paper": 6, "source_file": "results/Q4/reports/q4_final_result_analysis.md", "source_locator": "最终交付边界：P3 外部误差", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_p3_secondary_mae_log", "label": "P3 在 Secondary 的 MAE_log", "value": 0.63077, "unit": "ln(cycle)", "precision_for_paper": 6, "source_file": "results/Q4/reports/q4_final_result_analysis.md", "source_locator": "最终交付边界：P3 外部误差", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"},
+    {"id": "q4_secondary_policy_groups", "label": "Secondary 既有策略组数", "value": 8, "unit": "组", "precision_for_paper": 0, "source_file": "results/Q4/reports/q4_final_result_analysis.md", "source_locator": "最终交付边界：Secondary 策略组数", "verified_against": "results/Q4/reports/q4_solution_package_for_writer.md:2B"}
+  ]
+}

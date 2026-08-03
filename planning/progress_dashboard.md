@@ -2,7 +2,7 @@
 
 > 更新时间：2026-08-03（Asia/Shanghai）  
 > 执行模式：`manual`；交互模式：`learning`  
-> 当前全局阶段：**Q2、Q3 已完成最终方法说明和论文手材料包；Q3 已完成冻结的 Secondary 一次性压力测试并裁决外部主张范围；Q4 收缩为候选、风险边界与 pilot 接口。Q2/Q3 等待材料包签核，尚未数字冻结或开始正式论文写作。**
+> 当前全局阶段：**Q2、Q3、Q4 已完成最终方法说明、写作材料包与数字冻结；Q4 固定为候选、风险边界与 pilot 接口。Q1 的主线选择与材料包仍待完成，四问齐备后再进入正式论文写作。**
 
 ## 1. 环境与全局门禁
 
@@ -15,9 +15,9 @@
 | 全局符号表 | ✅ | `planning/symbol_table.md`；已统一为 `ln(L)`/`exp` |
 | 统一模型假设 | ✅ | `planning/model_assumptions.md` 已人工确认；研究命题与评价/输出规则已分离 |
 | G3 代码复审 | ✅（当前轮） | 已新增 Q1 bootstrap、Q3 Round2 联合、RAW MAT 提取/M3R 和 Q4 Round2 复审；每项均有≥5项具体检查 |
-| G4.5 结果人工判断 | ✅（Q2/Q3） | Q2 的结果与稳定性已裁决；Q3 的开发期稳定性和 Secondary 后的外部主张范围均已裁决 |
-| G4 结果冻结 | ⚠️ 部分完成 | Q2/Q3 已完成人工 package sign-off 并生成 frozen_numbers；Q1/Q4 尚未进入冻结 |
-| G5 论文分节 | 未进入 | 无 Q1–Q4 正式 method explanation / writer package / sections |
+| G4.5 结果人工判断 | ✅（Q2/Q3/Q4） | Q2、Q3 已裁决；Q4 已签核保留 C1–C3、删除 F1–F3 |
+| G4 结果冻结 | ⚠️ 部分完成 | Q2/Q3/Q4 已完成人工 package sign-off 并生成 frozen_numbers；Q1 尚未进入冻结 |
+| G5 论文分节 | 未进入 | Q2/Q3/Q4 已具备 writer package；仍需 Q1 选型、结果包与四问统一写作 |
 | G6 独立审计层 | ❌（最终组装仍阻断） | consistency 已 PASS；completeness 因人工门禁 FAIL；QA 为 BLOCKED BEFORE FINAL QA |
 | 最终组装 | **禁止** | `final_assembly_allowed=false` |
 
@@ -29,7 +29,7 @@
 | Q2-A | [06] 数字已冻结（限定范围） | M1 `0.37169/0.27557`；M2 `0.36854/0.25102`；Secondary 未形成 M2 稳定优势 | M1 正文、M2 敏感性；不称 M2 显著优于 | 可进入论文分节写作 |
 | Q2-B | [06] 数字已冻结（provisional） | P3 Train `0.34892/0.23383`；Primary `0.28927/0.22572`；Secondary `0.67781/0.63077` | P3 未获外部升级，只保留候选与 pilot 接口 | 可作为 Q2/Q4 边界写入论文 |
 | Q3 | [06] 数字已冻结（needs_caution） | Secondary：M2-k5 `0.41930/0.06201`，M3R-k5 `0.49245/0.07202`，M2-k100 `0.46950/0.06908` | M3R-k5 未外部复现；k=100 只报告外部表现，不重选 k=5 | 可进入论文分节写作 |
-| Q4 | [01] 候选方法池与 PoC 已补齐 | 1,775 条 provisional；3 个 pilot 排程代表点；M1/M2 PoC 均通过 | 只交付候选、风险边界和 pilot 接口；最终框架待模型者记录 | 完成方法选择裁决，再生成最终方法/结果材料 |
+| Q4 | [06] 数字已冻结（中等可信） | 1,775 条 provisional；3 个 pilot 排程代表点；M1/M2 PoC 均通过 | 只交付候选、风险边界和 pilot 接口；F1–F3 已删除 | 可进入论文分节写作 |
 
 注：上述 `0.x/0.x` 对 Q2 为 `RMSE_log/MAE_log`，对 Q3 为“电芯等权寿命 RMSE_log / 电芯等权未来 SOH RMSE”；`log` 均指自然对数。
 
@@ -57,7 +57,9 @@
 | `methods/Q2/decisions/solution-package-builder_modeler_decision.md` | DECIDED | 选 A：M1 正文、M2 敏感性、P3 pilot 接口 |
 | `methods/Q3/decisions/solution-package-builder_modeler_decision.md` | DECIDED | 选 A：无泄漏联合流程与 M3R 外部未复现的完整结论 |
 | `methods/Q1/decisions/method-selector_modeler_decision.md` | PENDING | 选择 Q1 的正文主线与辅助模块 |
-| `methods/Q4/decisions/method-selector_modeler_decision.md` | PENDING | 选择 Q4 的观察性参照或支持域 + pilot 交付框架 |
+| `methods/Q4/decisions/method-selector_modeler_decision.md` | DECIDED | M2 支持域筛选 + k=100 pilot；M1 baseline |
+| `methods/Q4/decisions/final-method-explainer_modeler_decision.md` | DECIDED | Q4-A1/A3 必要；候选经真实 k=100 后方可升级 |
+| `methods/Q4/decisions/solution-package-builder_modeler_decision.md` | DECIDED | 删除 F1–F3；保留 C1–C3；中等可信 |
 
 已经生效的人工作用决定：`Q2-D02`（M1 正文、M2 敏感性、Q4 走 Q2-B）、`Q2-D03`（P3 冻结后一次 Primary 受限确认）、`Q2-D04`（P3 仅用于 Q4 provisional）、`Q2-D05/D06`（结束 Q2 本轮、限定中等可信）与 `Q3-D02/D03/D04`（k=5 筛查、k=100 正式校正、结束迭代并冻结）。Q3 Primary 结果只作为受限观察，不回调模型。
 
@@ -88,6 +90,6 @@
 
 ## 7. 推荐下一技能
 
-- **当前动作**：Q1/Q4 已完成候选池和真实数据 PoC，先通过人工方法选择门禁；Q2/Q3 仍可在不改数字的前提下准备论文分节材料。
-- **仍需人工门禁**：Q1/Q4 的 `method-selector_modeler_decision.md` 仍为 PENDING；完成对应方法、结果和材料包前，不生成其 `frozen_numbers`。
+- **当前动作**：Q1 完成方法选择与材料包；Q2/Q3/Q4 可在不改数字的前提下准备论文分节材料。
+- **仍需人工门禁**：Q1 的 `method-selector_modeler_decision.md` 仍为 PENDING；完成对应方法、结果和材料包前，不生成其 `frozen_numbers`。
 - **禁止项**：若需新增模型，只允许回到 Train 重开轮次，不得利用 Primary 或 Secondary 改选。
